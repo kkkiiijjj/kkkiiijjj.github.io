@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Forforevery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Forforevery">
+<meta property="og:url" content="https://kkkiiijjj.github.io/index.html">
+<meta property="og:site_name" content="Forforevery">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Wang">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Forforevery" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Forforevery</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">my blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kkkiiijjj.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-数据结构期末复习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" class="article-date">
+  <time class="dt-published" datetime="2023-12-11T00:07:17.000Z" itemprop="datePublished">2023-12-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">数据结构期末复习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_47552180/article/details/125587599?ops_request_misc=&request_id=&biz_id=102&utm_term=%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-125587599.142%5Ev96%5Epc_search_result_base5&spm=1018.2226.3001.4187">https://blog.csdn.net/m0_47552180/article/details/125587599?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-125587599.142^v96^pc_search_result_base5&amp;spm=1018.2226.3001.4187</a><br>反推：<br>根据前序遍历和中序遍历求后续遍历<br>首先根据先序遍历开头确定根节点A：第一个节点一定是根节点<br>根据中序遍历的性质，从A进行分割，将整棵二叉树划分为左子树和右子树</p>
+<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><p>二叉树竟然不是一种树的特殊形式</p>
+<h2 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h2><p><img src="/image-27.png" alt="Alt text"><br>完全二叉树由满二叉树转化而来，也就是将满二叉树从最后一个节点开始删除，一个一个从后往前删除，剩下的就是完全二叉树。</p>
+<h2 id="线索二叉树"><a href="#线索二叉树" class="headerlink" title="线索二叉树"></a>线索二叉树</h2><p><img src="/image-24.png" alt="Alt text"><br><img src="/image-25.png" alt="Alt text"><br>标识域：<br>如果ltag&#x3D;0，表示指向节点的左孩子。如果ltag&#x3D;1，则表示lchild为线索，指向节点的直接前驱<br>如果rtag&#x3D;0，表示指向节点的右孩子。如果rtag&#x3D;1，则表示rchild为线索，指向节点的直接后继<br><img src="/image-26.png" alt="Alt text"></p>
+<p>数据结构<br>逻辑结构就是你学的章节大标题：（线性结构）线性表、栈、队列；（非线性结构）集合、树、图<br>数据的存储结构主要有：顺序、链式、索引、散列</p>
+<p>线索二叉树是一种物理（存储）结构</p>
+<p>二叉树转换成森林<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/kindoms214/article/details/85699598?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522170226042616800197031051%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=170226042616800197031051&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-85699598-null-null.142%5Ev96%5Epc_search_result_base5&utm_term=%E4%BA%8C%E5%8F%89%E6%A0%91%E8%BD%AC%E5%8C%96%E4%B8%BA%E6%A3%AE%E6%9E%97&spm=1018.2226.3001.4187">https://blog.csdn.net/kindoms214/article/details/85699598?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522170226042616800197031051%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=170226042616800197031051&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-85699598-null-null.142^v96^pc_search_result_base5&amp;utm_term=%E4%BA%8C%E5%8F%89%E6%A0%91%E8%BD%AC%E5%8C%96%E4%B8%BA%E6%A3%AE%E6%9E%97&amp;spm=1018.2226.3001.4187</a></p>
+<p>构造哈夫曼树<br><img src="/image-30.png" alt="Alt text"><br>带权路径长度（WPL）<br><img src="/image-31.png" alt="Alt text"><br>图中结点A的带权路径长度为:3 × 5 &#x3D; 15 3\times5&#x3D;153×5&#x3D;15<br>图中结点D的带权路径长度为:2 × 2 &#x3D; 4 2\times 2&#x3D;42×2&#x3D;4</p>
+<p>BFS&amp;DFS:<br>看慕课浙大的数据结构<br>比喻：DFS不撞南墙不回头          ——先序遍历推广         无路可走时倒退一格<br>     BFS水滴落下泛起涟漪         ——层序遍历推广         先让根结点入栈，然后出栈，入栈与他相连的所有节点，再入栈再出栈<br>     <img src="/image-32.png" alt="Alt text"><br>题：<img src="/QQ%E5%9B%BE%E7%89%8720231211184053.png" alt="Alt text"><br>判断一个有向图是否有回路的方法：拓扑排序、DFS</p>
+<p>邻接表&amp;邻接矩阵<br>邻接矩阵唯一，邻接表不唯一<br><img src="/image-33.png" alt="Alt text"><br><img src="/image-34.png" alt="Alt text"><br><img src="/image-35.png" alt="Alt text">（有向的）<br><img src="/image-36.png" alt="Alt text"><br><img src="/image-37.png" alt="Alt text"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2023/12/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" data-id="clqa6ifc70007bct0e6xh2j59" data-title="数据结构期末复习" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2023-12-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/09/2023-12-10/" class="article-date">
+  <time class="dt-published" datetime="2023-12-09T13:10:32.000Z" itemprop="datePublished">2023-12-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/09/2023-12-10/">2023-12-9</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>ImageFolder(root, transform&#x3D;None, target_transform&#x3D;None, loader&#x3D;default_loader)<br>root：在root指定的路径下寻找图片<br>transform：对PIL Image进行的转换操作，transform的输入是使用loader读取图片的返回对象<br>target_transform：对label的转换<br>loader：给定路径后如何读取图片，默认读取为RGB格式的PIL Image对象</p>
+<h2 id="eval-函数"><a href="#eval-函数" class="headerlink" title="eval() 函数"></a>eval() 函数</h2><p>用来执行一个字符串表达式，并返回表达式的值<br>expression – 表达式。<br>globals – 变量作用域，全局命名空间，如果被提供，则必须是一个字典对象。<br>locals – 变量作用域，局部命名空间，如果被提供，可以是任何映射对象。<br>实例 1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;x = 7</span><br><span class="line">&gt;&gt;&gt; eval( &#x27;3 * x&#x27; )</span><br><span class="line">21</span><br><span class="line">&gt;&gt;&gt; eval(&#x27;pow(2,2)&#x27;)</span><br><span class="line">4</span><br><span class="line">&gt;&gt;&gt; eval(&#x27;2 + 2&#x27;)</span><br><span class="line">4</span><br><span class="line">&gt;&gt;&gt; n=81</span><br><span class="line">&gt;&gt;&gt; eval(&quot;n + 4&quot;)</span><br><span class="line">85</span><br></pre></td></tr></table></figure>
+<p>实例 2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">## 执行简单的数学表达式</span><br><span class="line">result = eval(&quot;2 + 3 * 4&quot;)</span><br><span class="line">print(result)  # 输出: 14</span><br><span class="line"></span><br><span class="line">## 执行变量引用</span><br><span class="line">x = 10</span><br><span class="line">result = eval(&quot;x + 5&quot;)</span><br><span class="line">print(result)  # 输出: 15</span><br><span class="line"></span><br><span class="line">## 在指定命名空间中执行表达式</span><br><span class="line">namespace = &#123;&#x27;a&#x27;: 2, &#x27;b&#x27;: 3&#125;</span><br><span class="line">result = eval(&quot;a + b&quot;, namespace)</span><br><span class="line">print(result)  # 输出: 5</span><br></pre></td></tr></table></figure>
+<p>eval()使用原因：</p>
+<p>1）在编译语言里要动态地产生代码，基本上是不可能的，但动态语言是可以，意味着软件已经部署到服务器上了，但只要作很少的更改，只好直接修改这部分的代码，就可立即实现变化，不用整个软件重新加载。</p>
+<p>2）在machin learning里根据用户使用这个软件频率，以及方式，可动态地修改代码，适应用户的变化</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2023/12/09/2023-12-10/" data-id="clqa6ifbs0000bct0ctvjeot0" data-title="2023-12-9" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2023-12-8" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/08/2023-12-8/" class="article-date">
+  <time class="dt-published" datetime="2023-12-08T00:57:27.000Z" itemprop="datePublished">2023-12-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/08/2023-12-8/">2023-12-8</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="单词："><a href="#单词：" class="headerlink" title="单词："></a>单词：</h1><ul>
+<li>synthetic  合成</li>
+<li>indices index的复数形式，意思是指标</li>
+<li>shuffle：洗牌，打乱</li>
+<li>entropy: 熵</li>
+<li>flatten: 扁平化</li>
+<li>Gradient：梯度</li>
+</ul>
+<h1 id="机器学习术语："><a href="#机器学习术语：" class="headerlink" title="机器学习术语："></a>机器学习术语：</h1><ol>
+<li><strong>label</strong>:  分类，比如猫，狗</li>
+<li><strong>feature</strong>:  比如四条腿、有胡子、有尾巴\</li>
+<li>样本 Example：<br>样本是指一组或几组数据，样本一般作为训练数据来训练模型<br>样本分为以下两类：<br>有标签样本<br>无标签样本\</li>
+<li>模型 Model：模型定义了特征与标签之间的关系\</li>
+<li>训练 Training是指创建或学习模型。也就是说，向模型展示有标签样本，让模型逐渐学习特征与标签之间的关系。<br>训练模型表示通过有标签样本来学习（确定）所有权重和偏差的理想值<br>推断 Inference是指将训练后的模型应用于无标签样本。也就是说，使用经过训练的模型做出有用的预测 (y’)。</li>
+<li>回归 Regression<br>就是根据数据集，建立一个线性方程组，能够无线逼近数据集中的数据点<br>回归模型可预测连续值（线性）<br>当机器学习模型最终目标（模型输出）是求一个具体数值时，例如房价的模型输出为25000，则大多数可以通过回归问题来解决。<br>线性回归的好处在与模型简单，计算速度快，方便应用在分布式系统对大数据进行处理。<br>线性回归还有个姐妹：逻辑回归（Logistic Regression），主要应用在分类领域</li>
+<li>分类 Classification<br>顾名思义，分类模型可用来预测离散值<br>例如，分类模型做出的预测可回答如下问题：<br>是&#x2F;否问题，某个指定电子邮件是垃圾邮件还是非垃圾邮件？<br>图片是动物还是人？<br>垃圾分类<br>当机器学习模型最终目标（模型输出）是布尔或一定范围的数时，例如判断一张图片是不是人，模型输出0&#x2F;1：0不是，1是；又例如垃圾分类，模型输出1-10之间的整数，1代表生活垃圾，2代表厨余垃圾。。等等，这类需求则大多数可以通过分类问题来解决。<br><img src="/20210219103430955.png" alt="Alt text"></li>
+</ol>
+<p><strong>range</strong>(start, stop[, step])<br>这个我记得前面记过一次，再来一遍<br>实例</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>range(0, 30, 5)  # 步长为 5<br>[0, 5, 10, 15, 20, 25]<br>range(0, 10, 3)  # 步长为 3<br>[0, 3, 6, 9]<br>range(0, -10, -1) # 负数<br>[0, -1, -2, -3, -4, -5, -6, -7, -8, -9]<br>range(0)<br>[]<br>range(1, 0)<br>[]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="numpy-array-object-dtype-None-copy-True-order-’K’-subok-False-ndmin-0"><a href="#numpy-array-object-dtype-None-copy-True-order-’K’-subok-False-ndmin-0" class="headerlink" title="numpy.array(object, dtype&#x3D;None, copy&#x3D;True, order&#x3D;’K’, subok&#x3D;False, ndmin&#x3D;0)"></a>numpy.array(object, dtype&#x3D;None, copy&#x3D;True, order&#x3D;’K’, subok&#x3D;False, ndmin&#x3D;0)</h2><p>作用：创建一个数组<br>object:数组<br>dtype ： 数据类型，可选<br>ndmin ： int，可选  指定结果数组应具有的最小维数。</p>
+<p>x &#x3D; np.array([(1, 1000), (0, 1111)], dtype&#x3D;[(‘x’, ‘<strong>&lt;i4</strong>‘), (‘y’, ‘&lt;i4’)])<br>这里的<strong>dtype</strong>的作用：给array中初始化值指定名字和数据类型。每一项初始化值的第一项被指定为’x’，第二项被指定为’y’。<br>分别使用名字索引访问x中的元素：<br>print(x[‘x’])  # 输出 [1 0]<br>print(x[‘y’])  # 输出 [1000 1111]</p>
+<p><strong>yield</strong><br>如果不太好理解yield，可以先把yield当作return的同胞兄弟来看，他们都在函数中使用，并履行着返回某种结果的职责。<br>这两者的区别是：<br>有return的函数直接返回所有结果，程序终止不再运行，并销毁局部变量；<br>在调用生成器函数的过程中，每次遇到 yield 时函数会暂停并保存当前所有的运行信息（保留局部变量），返回yield的值, 并在下一次执行next()方法时从当前位置继续运行，直到生成器被全部遍历完。<br><img src="/image-14.png" alt="Alt text"><br><img src="/image-15.png" alt="Alt text"><br><img src="/image-16.png" alt="Alt text"><br><img src="/image-17.png" alt="Alt text"></p>
+<p>**attach_grad()**函数：求梯度</p>
+<p>线性回归过程：生成数据集——&gt;读取数据集——&gt;初始化模型参数——定义模型——定义损失函数——定义优化算法——训练</p>
+<h2 id="交叉熵损失"><a href="#交叉熵损失" class="headerlink" title="交叉熵损失"></a>交叉熵损失</h2><p>待补充</p>
+<h2 id="torchvision主要包括以下几个包：-vision-datasets-几个常用视觉数据集，可以下载和加载，这里主要的高级用法就是可以看源码如何自己写自己的Dataset的子类-vision-models-流行的模型，例如-AlexNet-VGG-ResNet-和-Densenet-以及-与训练好的参数。-vision-transforms-常用的图像操作，例如：随机切割，旋转，数据类型转换，图像到tensor-numpy-数组到tensor-tensor-到-图像等。-vision-utils-用于把形似-3-x-H-x-W-的张量保存到硬盘中，给一个mini-batch的图像可以产生一个图像格网。"><a href="#torchvision主要包括以下几个包：-vision-datasets-几个常用视觉数据集，可以下载和加载，这里主要的高级用法就是可以看源码如何自己写自己的Dataset的子类-vision-models-流行的模型，例如-AlexNet-VGG-ResNet-和-Densenet-以及-与训练好的参数。-vision-transforms-常用的图像操作，例如：随机切割，旋转，数据类型转换，图像到tensor-numpy-数组到tensor-tensor-到-图像等。-vision-utils-用于把形似-3-x-H-x-W-的张量保存到硬盘中，给一个mini-batch的图像可以产生一个图像格网。" class="headerlink" title="torchvision主要包括以下几个包：* vision.datasets : 几个常用视觉数据集，可以下载和加载，这里主要的高级用法就是可以看源码如何自己写自己的Dataset的子类* vision.models : 流行的模型，例如 AlexNet, VGG, ResNet 和 Densenet 以及 与训练好的参数。* vision.transforms : 常用的图像操作，例如：随机切割，旋转，数据类型转换，图像到tensor ,numpy 数组到tensor , tensor 到 图像等。* vision.utils : 用于把形似 (3 x H x W) 的张量保存到硬盘中，给一个mini-batch的图像可以产生一个图像格网。"></a>torchvision主要包括以下几个包：<br>* vision.datasets : 几个常用视觉数据集，可以下载和加载，这里主要的高级用法就是可以看源码如何自己写自己的Dataset的子类<br>* vision.models : 流行的模型，例如 AlexNet, VGG, ResNet 和 Densenet 以及 与训练好的参数。<br>* vision.transforms : 常用的图像操作，例如：随机切割，旋转，数据类型转换，图像到tensor ,numpy 数组到tensor , tensor 到 图像等。<br>* vision.utils : 用于把形似 (3 x H x W) 的张量保存到硬盘中，给一个mini-batch的图像可以产生一个图像格网。</h2><h2 id="torch-rand（）："><a href="#torch-rand（）：" class="headerlink" title="torch.rand（）："></a>torch.rand（）：</h2><p>张量生成函数（torch.rand的作用通俗来说就是产生均匀分布的数据！<br>torch.rand（）里面有几个数字那么就是生成几维张量！<br>生成一个有四个随机张量元素的一维张量：<br>x &#x3D; torch.rand(4)<br>结果：<img src="/image-18.png" alt="Alt text"><br>x &#x3D; torch.rand(2,4)<br>生成了个两行四列的张量（矩阵）：<br><img src="/image-19.png" alt="Alt text"><br>x &#x3D; torch.rand(2,3,4)<br><img src="/image-20.png" alt="Alt text"><br>这里通俗理解为，生成了2个平行摆放的3行4列的二维张量！</p>
+<h2 id="flatten-函数："><a href="#flatten-函数：" class="headerlink" title="flatten()函数："></a>flatten()函数：</h2><p>flatten()是对多维数据的降维函数。flatten(),默认缺省参数为0，有参数则从第dim个维度开始展开<br>例：<br>a &#x3D; torch.rand(2,3,4)<br><img src="/image-21.png" alt="Alt text"><br>b &#x3D; a.flatten()<br><img src="/image-22.png" alt="Alt text"><br>d &#x3D; a.flatten(1)<br><img src="/image-23.png" alt="Alt text"><br>ps:这不就是去中括号吗</p>
+<p><strong>sum()</strong>:<br>语法：sum(iterable[, start])<br>iterable – 可迭代对象，如：列表、元组、集合。<br>start – 指定相加的参数，如果没有设置这个值，默认为0。<br>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;sum([0,1,2])  </span><br><span class="line">3  </span><br><span class="line">&gt;&gt;&gt; sum((2, 3, 4), 1)        # 元组计算总和后再加 1\</span><br><span class="line">10\</span><br><span class="line">&gt;&gt;&gt; sum([0,1,2,3,4], 2)      # 列表计算总和后再加 2\</span><br><span class="line">12</span><br></pre></td></tr></table></figure>
+<h2 id="torch-sum-："><a href="#torch-sum-：" class="headerlink" title="torch.sum()："></a>torch.sum()：</h2><p>torch.sum(input, dtype&#x3D;None)<br>input:输入一个tensor<br>dim:要求和的维度，可以是一个列表<br>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = torch.ones((2, 3))</span><br><span class="line">print(a):</span><br><span class="line">tensor([[1, 1, 1],</span><br><span class="line"> 		[1, 1, 1]])</span><br><span class="line"></span><br><span class="line">a1 =  torch.sum(a)</span><br><span class="line">a2 =  torch.sum(a, dim=0)</span><br><span class="line">a3 =  torch.sum(a, dim=1)</span><br><span class="line">print(a)</span><br><span class="line">print(a1)</span><br><span class="line">print(a2)</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tensor(6.)</span><br><span class="line">tensor([2., 2., 2.])</span><br><span class="line">tensor([3., 3.])</span><br></pre></td></tr></table></figure>
+<p>如果加上keepdim&#x3D;True, 则会保持dim的维度不被squeeze:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a1 =  torch.sum(a, dim=(0, 1), keepdim=True)</span><br><span class="line">a2 =  torch.sum(a, dim=(0, ), keepdim=True)</span><br><span class="line">a3 =  torch.sum(a, dim=(1, ), keepdim=True)</span><br><span class="line">输出结果：</span><br><span class="line">tensor([[6.]])</span><br><span class="line">tensor([[2., 2., 2.]])</span><br><span class="line">tensor([[3., 3.]])</span><br></pre></td></tr></table></figure>
+<p><strong>dim</strong>&#x3D;0压缩列，dim&#x3D;1压缩行<br>维度是从0开始索引的，矩阵有两个维度，第一个是0维度，第二个是1维度，其中0维度对应行，1维度对应列<br>一维数组一定要用 1 × n 来记！！</p>
+<p><strong>axis</strong>:(轴)<br>看这篇文章吧：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/sky_kkk/article/details/79725646">https://blog.csdn.net/sky_kkk/article/details/79725646</a></p>
+<p>**shape[0]**代表行数，shape[1]代表列数，同理三维张量还有shape[2]<br>-1代表最后一个，所以shape[-1]代表最后一个维度</p>
+<p><strong>len()</strong>:<br>返回Tensor的第0维长度，将样本横向堆叠的时候可以返回样本的数量。</p>
+<p><strong>numpy.argmax(array, axis)</strong> 用于返回一个numpy数组中最大值的索引值。当一组中同时出现几个最大值时，返回第一个最大值的索引值。<br>在运算时，相当于剥掉一层中括号，返回一个数组，分为一维和多维。一维数组剥掉一层中括号之后就成了一个索引值，是一个数，而n维数组剥掉一层中括号后，会返回一个 n-1 维数组，而剥掉哪一层中括号，取决于axis的取值。<br>array &#x3D; np.array([[1, 3, 5], [0, 4, 3]])<br>axis0 &#x3D; np.argmax(array, axis &#x3D; 0)<br>axis1 &#x3D; np.argmax(array, axis &#x3D; 1)<br>print(axis0)<br>print(axis1)<br>输出结果<br>[0 1 0]<br>[2 1]</p>
+<p>three_dim_array &#x3D; [[[1, 2, 3, 4],  [-1, 0, 3, 5]],<br>                   [[2, 7, -1, 3], [0, 3, 12, 4]],<br>                   [[5, 1, 0, 19], [4, 2, -2, 13]]]<br>a &#x3D; np.argmax(three_dim_array, axis &#x3D; 0)<br>print(a)<br>b &#x3D; np.argmax(three_dim_array, axis &#x3D; 1)<br>print(b)<br>c &#x3D; np.argmax(test, axis &#x3D; 2)<br>print(c)<br>[[2 1 0 2]<br> [2 1 1 2]]</p>
+<p>[[0 0 0 1]<br> [0 0 1 1]<br> [0 1 0 0]]</p>
+<p>[[3 3]<br> [1 2]<br> [3 3]] </p>
+<p> ps:这什么鬼东西</p>
+<p> <strong>isinstance()</strong> 函数：<br> 来判断一个对象是否是一个已知的类型<br> 语法形式为：isinstance(object, classinfo)<br> object – 实例对象<br> classinfo – 数据类型<br> 返回值：相同则返回 True，否则返回 False。<br>isinstance()函数和type()函数很类似。但是type() 不考虑继承关系。isinstance() 考虑继承关系。<br>如果要判断两个类型是否相同推荐使用 isinstance()。<br>这里给出两个函数区别的示例：<br>class A:<br>    pass<br>class B(A):<br>    pass<br>isinstance(A(), A)    # returns True<br>type(A()) &#x3D;&#x3D; A        # returns True<br>isinstance(B(), A)    # returns True<br>type(B()) &#x3D;&#x3D; A        # returns False</p>
+<h2 id="with-torch-no-grad"><a href="#with-torch-no-grad" class="headerlink" title="with torch.no_grad():"></a>with torch.no_grad():</h2><p>非常常见。<br>总结with工作原理：<br>（１）紧跟with后面的语句被求值后，返回对象的“–enter–()”方法被调用，这个方法的返回值将被赋值给as后面的变量；<br>（２）当with后面的代码块全部被执行完之后，将调用前面返回对象的“–exit–()”方法。<br>当requires_grad设置为False时,反向传播时就不会自动求导了，因此大大节约了显存或者说内存。<br>with torch.no_grad的作用<br>在该模块下，所有计算得出的tensor的requires_grad都自动设置为False。<br>即使一个tensor（命名为x）的requires_grad &#x3D; True，在with torch.no_grad计算，由x得到的新tensor（命名为w-标量）requires_grad也为False，且grad_fn也为None,即不会对w求导。</p>
+<h2 id="重要"><a href="#重要" class="headerlink" title="重要"></a>重要</h2><p>在用pytorch训练模型时，通常会在遍历epochs的过程中依次用到<strong>optimizer.zero_grad()</strong>,**loss.backward()<strong>和o</strong>ptimizer.step()**三个函数<br>这三个函数的作用是先将梯度归零（optimizer.zero_grad()），然后反向传播计算得到每个参数的梯度值（loss.backward()），最后通过梯度下降执行一步参数更新（optimizer.step()）<br>训练soffmax回归循环模型与训练线性回归模型非常相似：先读取数据，再定义模型和损失函数，然后<br>使用优化算法训练模型。大多数常见的深度学习模型都有类似的训练过程。</p>
+<p>忽然发现我把sigmoid()和softmax()函数弄混了<br>他们都是激活函数,但公式不一样<br><img src="/image-40.png" alt="Alt text">用于多类分类问题<br><img src="/image-41.png" alt="Alt text">(sigmoid)</p>
+<p>激活函数：ReLU,sigmoid,tanh<br>其中ReLU用的更多</p>
+<p>通常，我们选择2的若干次幂作为层的宽度</p>
+<p><strong>torch.nn.Parameter</strong>继承torch.Tensor，其作用将一个不可训练的类型为Tensor的参数转化为可训练的类型为parameter的参数，并将这个参数绑定到module里面，成为module中可训练的参数。（没看懂）</p>
+<p>**torch.randn()**返回一个张量，包含了从标准正态分布（均值为0，方差为1，即高斯白噪声）中抽取的一组随机数。张量的形状由参数sizes定义。<br>torch.randn(*size, *, out&#x3D;None, dtype&#x3D;None, layout&#x3D;torch.strided, device&#x3D;None, requires_grad&#x3D;False) → Tensor<br>out(Tensor, optional) –输出张量<br>dtype(torch.dtype, optional) –返回张量所需的数据类型。默认:如果没有，使用全局默认值<br>layout(torch.layout, optional) –返回张量的期望布局。默认值:torch.strided<br>device(torch.device, optional) –返回张量的所需 device。默认:如果没有，则使用当前设备作为默认张量类型.(CPU或CUDA)<br>requires_grad(bool, optional) –autograd是否应该记录对返回张量的操作(说明当前量是否需要在计算中保留对应的梯度信息)。默认值:False。</p>
+<p>用于对抗过拟合的技术称为正则化（regularization）。<br>我们可以通过在网络中加入一个或多个隐藏层来克服线性模型的限制</p>
+<p>通常将我们的数据分成三份， 训练、测试、验证数据集（validation dataset）， 也叫验证集（validation set）。<br><strong>验证集</strong>（validation set）：依靠它来进行模型的选择</p>
+<p><strong>K折交叉验证</strong><br>当训练数据稀缺时，将原始训练数据分成K个不重叠的子集。 然后执行K次模型训练和验证，每次在K-1个子集上进行训练， 并在剩余的一个子集（在该轮中没有用于训练的子集）上进行验证。 最后，通过对K次实验的结果取平均来估计训练和验证误差</p>
+<p><strong>power(x, y)</strong> 函数，计算 x 的 y 次方。</p>
+<p>**np.arange()**函数<br>语法：<br>numpy.arange(start, stop, step, dtype)<br>start	起始值，默认为0(可不写)<br>stop	终止值（不包含）<br>step	步长，默认为1(可不写)<br>dtype	返回ndarray的数据类型，如果没有提供，则会使用输入数据的类型。</p>
+<p><strong>numpy.arange(n).reshape(a, b)</strong>   依次生成n个自然数，并且以a行b列的数组形式显示</p>
+<p><strong>numel</strong>函数<br>获取tensor中一共包含多少个元素</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2023/12/08/2023-12-8/" data-id="clqa6ifc00002bct00dr36356" data-title="2023-12-8" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2023-12-6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/06/2023-12-6/" class="article-date">
+  <time class="dt-published" datetime="2023-12-06T02:54:08.000Z" itemprop="datePublished">2023-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/06/2023-12-6/">2023-12-6</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="epoch与batch-size"><a href="#epoch与batch-size" class="headerlink" title="epoch与batch size"></a>epoch与batch size</h2><p>一个epoch 指的是把所有训练数据丢进神经网络一次。</p>
+<p>由于训练数据常常太大了，得慢慢来，所以我们常常把训练数据分成好几等份，分完之后每份数据的数量就是 batch size，而几等份的这个几就是iteration。</p>
+<p>总结一下，</p>
+<p>epoch指的是次数，epoch &#x3D; 10 指的是把整个数据集丢进神经网络训练10次。</p>
+<p>batch size 指的是数据的个数，batch size &#x3D; 10 指的是每次扔进神经网络训练的数据是10个。</p>
+<p>iteration同样指的是次数，iteration &#x3D; 10 指的是把整个数据集分成10次扔进神经网络。<br>假如有100个训练数据，epoch &#x3D; 10, batch size &#x3D; 5, iteration &#x3D; ?<br>interation&#x3D;100&#x2F;5&#x3D;20.<br><img src="/image-7.png" alt="Alt text"></p>
+<hr>
+<p>机器学习：给数据——&gt;定义模型——&gt;训练&#x2F;<br>神图，偷了&#x2F;<br><img src="/image-8.png" alt="Alt text"><br>mlp是ANN中的一种<br>mxnet与pytorth相似<br><a target="_blank" rel="noopener" href="https://v.subnice.top/api/v1/client/subscribe?token=b570429dacabcd3b06b59c513bfdd745">https://v.subnice.top/api/v1/client/subscribe?token=b570429dacabcd3b06b59c513bfdd745</a><br>成功搭了个梯子(≧∇≦)ﾉ</p>
+<p>我还是一点点慢慢学吧，代码看不懂</p>
+<h2 id="今天先学数据预处理"><a href="#今天先学数据预处理" class="headerlink" title="今天先学数据预处理"></a>今天先学数据预处理</h2><p>​ 数据预处理的主要内容包括：数据清洗、数据集成、数据变换和数据规约<br><strong>csv</strong>:一种用逗号分隔数据的文件<br><strong>os</strong>:是“operating system”的缩写<br><strong>os.makedirs</strong>(name, mode&#x3D;0o777, exist_ok&#x3D;False)<br><em>作用</em>:<br>用来创建多层目录（单层请用os.mkdir）<br><em>参数说明</em>：<br>name：你想创建的目录名<br>mode：要为目录设置的权限数字模式，默认的模式为 0o777 (八进制)<br>exist_ok：是否在目录存在时触发异常。如果exist_ok为False（默认值），则在目标目录已存在的情况下触发FileExistsError异常；如果exist_ok为True，则在目标目录已存在的情况下不会触发FileExistsError异常</p>
+<p><strong>os.path.join</strong>(path1[, path2[, …]])	把目录和文件名合成一个路径<br><strong>iloc[]函数</strong>，属于pandas库，全称为index location<br>例子：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>姓名（列索引10）</th>
+<th>班级（列索引1）</th>
+<th>分数（列索引2）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0（行索引0）</td>
+<td>小明</td>
+<td>302</td>
+<td>87</td>
+</tr>
+<tr>
+<td>1（行索引1）</td>
+<td>小王</td>
+<td>303</td>
+<td>95</td>
+</tr>
+<tr>
+<td>2（行索引2）</td>
+<td>小方</td>
+<td>303</td>
+<td>100</td>
+</tr>
+</tbody></table>
+<p>1.iloc[a,b]:取行索引为a列索引为b的数据。<br>import pandas<br>df &#x3D; pandas.read_csv(‘a.csv’)<br>print(df.iloc[1,2])<br>#Out：95<br>iloc[a:b,c]:取行索引从a到b-1，列索引为c的数据。注意：在iloc中a:b是左到右不到的</p>
+<h2 id="get-dummies"><a href="#get-dummies" class="headerlink" title="get_dummies"></a>get_dummies</h2><p>是利用pandas实现one hot encode的方式。<br>例子：<br>import pandas as pd<br>df &#x3D; pd.DataFrame([<br>            [‘green’ , ‘A’],<br>            [‘red’   , ‘B’],<br>            [‘blue’  , ‘A’]])  </p>
+<p>df.columns &#x3D; [‘color’,  ‘class’]<br>pd.get_dummies(df) <br>get_dummies 前：<br><img src="/image-9.png" alt="Alt text"><br>get_dummies 后：<br><img src="/image-10.png" alt="Alt text"><br>上述执行完以后再打印df 出来的还是get_dummies 前的图，因为你没有写df &#x3D; pd.get_dummies(df)</p>
+<p>可以对指定列进行get_dummies<br>pd.get_dummies(df.color)<br><img src="/image-11.png" alt="Alt text"><br>将指定列进行get_dummies 后合并到元数据中<br>df &#x3D; df.join(pd.get_dummies(df.color))<br><img src="/image-12.png" alt="Alt text">\</p>
+<h2 id="范数："><a href="#范数：" class="headerlink" title="范数："></a>范数：</h2><p>欧几里得距离是一个L2范数：假设n维向量x中的元素是x1,…,xn，其L2范数是向量元素平方和的平方根<br>$||x||<em>2&#x3D;\sqrt{\sum</em>{i&#x3D;1}^nx_i^2}$<br>其中，在L2范数中常常省略下标2，也就是说∥x∥等同于∥x∥2。在代码中，我们可以按如下方式计算向量的L2范<br>数。<br>u &#x3D; np.array([3,-4])<br> np.linalg.norm(u)</p>
+<p>深度学习中更经常地使用L2范数的平方，也会经常遇到L1范数，它表示为向量元素的绝对值之和：<br>$||x||<em>1&#x3D;\sum</em>{i&#x3D;1}^n|x_i|$<br>与L2范数相比，L1范数受异常值的影响较小。为了计算L1范数，我们将绝对值函数和按元素求和组合起来。<br>np.abs(u).sum()<br> array(7.)<br> %.5f：表示按浮点数输出，小数点后面取5位<br> <strong>SVG</strong> 意为可缩放矢量图形（Scalable Vector Graphics）。<br> multinomial distribution:多项式分布<br> binomial:二项式</p>
+<p> 为了知道模块中可以调用哪些函数和类，可以调用dir函数。<br>  print(dir(np.random))<br> 有关如何使用给定函数或类的更具体说明，可以调用help函数<br> help(np.ones)</p>
+<h2 id="线性模型"><a href="#线性模型" class="headerlink" title="线性模型"></a>线性模型</h2><p> ˆ<br> y &#x3D;Xw+b<br> X的每一行是一个样本，每一列是一种特征。权重放到向量w∈Rd中\</p>
+<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p> 回归问题中最常用的损失函数是平方误差函数。<br> <img src="/image-13.png" alt="Alt text"><br> 梯度下降（gradientdescent）的方法，这种方法几乎可以优化所有深度学习模型。<br>它通过不断地在损失函数递减的方向上更新参数来降低误差。\</p>
+<h2 id="numpy-random-normal"><a href="#numpy-random-normal" class="headerlink" title="numpy.random.normal"></a>numpy.random.normal</h2><p>用例:<br>numpy.random.normal(loc&#x3D;0.0, scale&#x3D;1.0, size&#x3D;None)<br>功能:<br>从正态（高斯）分布中抽取随机样本。<br>loc：标准差<br>scale:方差<br>size:输出值的维度</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2023/12/06/2023-12-6/" data-id="clqa6ifbx0001bct096zib4ii" data-title="2023-12-6" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-machine-learning" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/07/machine-learning/" class="article-date">
+  <time class="dt-published" datetime="2023-11-07T13:14:29.000Z" itemprop="datePublished">2023-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/11/07/machine-learning/">machine learning</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Sklearn.metrics<br>示例：from sklearn.metrics import mean_squared_error<br>mean_absolute_error 即MAE 平均绝对误差<br>我好像明白为啥推荐用typora了，这儿放不了公式<br>MAE&#x3D;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2023/11/07/machine-learning/" data-id="clqa6ifc20004bct04frg8eui" data-title="machine learning" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-mean和average的区别" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/07/mean%E5%92%8Caverage%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time class="dt-published" datetime="2023-11-07T12:23:24.000Z" itemprop="datePublished">2023-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/11/07/mean%E5%92%8Caverage%E7%9A%84%E5%8C%BA%E5%88%AB/">mean和average的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>均值(mean)是对恒定的真实值进行测量后，把测量偏离于真实值的所有值进行平均所得的结果；平均值(average)直接对一系列具有内部差异的数值进行的测量值进行的平均结果。均值是“观测值的平均”，平均值是“统计量的平均”。举个例子，例如一个人的身高的真实值是180，但利用不同的仪器或者同一个仪器经过多次测量，有181，179，182，180等，把多次测量的这些所有数字进行平均，就是均值。一个班级有30个学生，测量每个学生的身高，把这30个学生测量的30个身高数字进行平均，所得的结果就是平均值。均值有一个真实值存在作为参考，而平均值没有一个真实值的存在，只是差异性的平均结果。</p>
+<p>作者：一霁虹霓<br>链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/44117231/answer/2178148653">https://www.zhihu.com/question/44117231/answer/2178148653</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2023/11/07/mean%E5%92%8Caverage%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="clqa6ifc40005bct09g2b5a3i" data-title="mean和average的区别" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-postPassage" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/04/postPassage/" class="article-date">
+  <time class="dt-published" datetime="2023-11-04T12:58:10.000Z" itemprop="datePublished">2023-11-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/11/04/postPassage/">Passage2 ；）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>C++初学者遇到1e9时，可能会很好奇，这个表示什么意思？有什么用？遇到的一些问题为什么要这么处理？以下是个人的一些理解。</p>
+<p>1.什么是1e9<br>通常来说这是计算机中一种科学计数法的表示形式：<br>1e9 &#x3D; 110^9 &#x3D; 1000000000；<br>例如：9e8 &#x3D; 910^8 &#x3D; 900000000；<br>e表示10，e后面的数字表示次方，e的多少次方。</p>
+<p>2.C++中的1e9</p>
+<p>int num1 &#x3D; 1e9;<br>int num1 &#x3D; 1e10;<br>输出的结果为：<br>num1 &#x3D; 1 000 000 000；<br>num2 &#x3D; 1 410 065 408；<br>1<br>2<br>3<br>4<br>5<br>那么问题来了，为什么num2 不等于 10000000000 ？<br>C&#x2F;C++中int类型是32位的，范围是-2147483648 到 2147483647。<br>int占用4个字节，也就是32位，除了第一位代表符号，剩下的31位可用。<br>十进制的 1e10时，转换为二进制：<br>10 0101 0100 0000 1011 1110 0100 0000 0000前两位出现数据溢出问题。<br>而0101 0100 0000 1011 1110 0100 0000 0000 转换成十进制就是 1 410 065 408</p>
+<p>3.C++中某个变量初始化赋值为1e9</p>
+<p>int count &#x3D; 1e9；<br>res &#x3D; min(res, count);<br>1<br>2<br>实际中遇到的一些问题，或者解决一些算法问题时，会遇到给某个变量初始化并赋值为1e9。接着后面会出现一些代码计算最小值。<br>这时，1e9的作用是给变量赋一个初始极大值，原因在于后面的代码中需要取此变量和其他变量的最小值。初始化为一个最大值，亦即初始化为无穷，便于后面极小值的比较和获取，属于初始化的目的。<br>有时我们需要比较大小，或者在matlab等其语言中为取无穷，我们只需取一个很大的值即可。C++中取1e9，10的九次方就是一种方法，代表一个很大的值。</p>
+<p>4.C++中表示正无穷与负无穷<br>正无穷：0x3f3f3f3f<br>负无穷：0xc0c0c0c0</p>
+<pre><code>int a=0x3f3f3f3f;
+int b=0xc0c0c0c0;
+输出：
+a=1061109567
+b=-1061109568
+</code></pre>
+<p>1<br>2<br>3<br>4<br>5<br>5.mod 1e9+7<br>在一些算法题目中，会遇到这样的情况：<br>由于结果可能较大，将结果mod 1e9+7，即mod 1000000007 。<br>或者（ a * b ) % c &#x3D; [ ( a % c ) * ( b % c ) ] % c 而这个c最常见的还是1e9+7。<br>有时候结果比较大的时候，会对结果进行mod 1e9+7操作。为什么呢？<br>第一：<br>1e9+7是一个很大的数，int32位的最大值为2147483647，所以对于int32位来说1000000007足够大。int64位的最大值为2^63-1，对于1000000007来说它的平方不会在int64中溢出所以在大数相乘的时候，因为(a∗b)%c&#x3D;((a%c)∗(b%c))%c，所以相乘时两边都对1000000007取模，再保存在int64里面不会溢出 。有点于归一化的意思。<br>当一个问题只对答案的正确性有要求，而不在乎答案的数值，可能会需要将取值很大的数通过求余变小<br>第二：<br>其次，1e9+7是一个质数，在模素数p的情况下a*n（a非p的倍数）的循环节长为p,这是减少冲突的一个原因。另一方面模素数p的环是无零因子环,也就是说两个非p倍数的数相乘再模p不会是零（如果是0的话,在多个数连乘的情况下会大大增加冲突概率）。比如说如果所有的结果都是偶数…你模6就只可能出现0, 2, 4这三种情况…但模5还是可以出现2, 4, 1, 3这四(4&#x3D;5-1)种情况的… hash表如果是用取模的方法也要模一个大质数来减少冲突，出题人也会这样来 希望减少你“蒙对“的概率。<br>————————————————<br>版权声明：本文为CSDN博主「Arvin____」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/cpb____/article/details/107959450">https://blog.csdn.net/cpb____/article/details/107959450</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2023/11/04/postPassage/" data-id="clqa6ifc60006bct0hgg82zgx" data-title="Passage2 ；）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Passage-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/10/21/Passage-1/" class="article-date">
+  <time class="dt-published" datetime="2023-10-21T02:57:24.000Z" itemprop="datePublished">2023-10-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/10/21/Passage-1/">Passage 1 :)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>背包问题是一类经典的动态规划问题，它非常灵活，需要仔细琢磨体会，本文先对背包问题的几种常见类型作一个总结，然后再看看LeetCode上几个相关题目。</p>
+<p>本文首发于我的博客，传送门<br>根据维基百科，背包问题（Knapsack problem）是一种组合优化的NP完全（NP-Complete，NPC）问题。问题可以描述为：给定一组物品，每种物品都有自己的重量和价格，在限定的总重量内，我们如何选择，才能使得物品的总价格最高。NPC问题是没有多项式时间复杂度的解法的，但是利用动态规划，我们可以以伪多项式时间复杂度求解背包问题。一般来讲，背包问题有以下几种分类：</p>
+<p>01背包问题<br>完全背包问题<br>多重背包问题<br>此外，还存在一些其他考法，例如恰好装满、求方案总数、求所有的方案等。本文接下来就分别讨论一下这些问题。</p>
+<ol>
+<li>01背包<br>1.1 题目<br>最基本的背包问题就是01背包问题（01 knapsack problem）：一共有N件物品，第i（i从1开始）件物品的重量为w[i]，价值为v[i]。在总重量不超过背包承载上限W的情况下，能够装入背包的最大价值是多少？</li>
+</ol>
+<p>1.2 分析<br>如果采用暴力穷举的方式，每件物品都存在装入和不装入两种情况，所以总的时间复杂度是O(2^N)，这是不可接受的。而使用动态规划可以将复杂度降至O(NW)。我们的目标是书包内物品的总价值，而变量是物品和书包的限重，所以我们可定义状态dp:</p>
+<p>dp[i][j]表示将前i件物品装进限重为j的背包可以获得的最大价值, 0&lt;&#x3D;i&lt;&#x3D;N, 0&lt;&#x3D;j&lt;&#x3D;W<br>那么我们可以将dp[0][0…W]初始化为0，表示将前0个物品（即没有物品）装入书包的最大价值为0。那么当 i &gt; 0 时dp[i][j]有两种情况：</p>
+<p>不装入第i件物品，即dp[i−1][j]；<br>装入第i件物品（前提是能装下），即dp[i−1][j−w[i]] + v[i]。<br>即状态转移方程为</p>
+<p>dp[i][j] &#x3D; max(dp[i−1][j], dp[i−1][j−w[i]]+v[i]) &#x2F;&#x2F; j &gt;&#x3D; w[i]<br>由上述状态转移方程可知，dp[i][j]的值只与dp[i-1][0,…,j-1]有关，所以我们可以采用动态规划常用的方法（滚动数组）对空间进行优化（即去掉dp的第一维）。需要注意的是，为了防止上一层循环的dp[0,…,j-1]被覆盖，循环的时候 j 只能逆向枚举（空间优化前没有这个限制），伪代码为：</p>
+<p>&#x2F;&#x2F; 01背包问题伪代码(空间优化版)<br>dp[0,…,W] &#x3D; 0<br>for i &#x3D; 1,…,N<br>    for j &#x3D; W,…,w[i] &#x2F;&#x2F; 必须逆向枚举!!!<br>        dp[j] &#x3D; max(dp[j], dp[j−w[i]]+v[i])<br>时间复杂度为O(NW), 空间复杂度为O(W)。由于W的值是W的位数的幂，所以这个时间复杂度是伪多项式时间。</p>
+<p>动态规划的核心思想避免重复计算在01背包问题中体现得淋漓尽致。第i件物品装入或者不装入而获得的最大价值完全可以由前面i-1件物品的最大价值决定，暴力枚举忽略了这个事实。</p>
+<ol start="2">
+<li>完全背包<br>2.1 题目<br>完全背包（unbounded knapsack problem）与01背包不同就是每种物品可以有无限多个：一共有N种物品，每种物品有无限多个，第i（i从1开始）种物品的重量为w[i]，价值为v[i]。在总重量不超过背包承载上限W的情况下，能够装入背包的最大价值是多少？</li>
+</ol>
+<p>2.2 分析一<br>我们的目标和变量和01背包没有区别，所以我们可定义与01背包问题几乎完全相同的状态dp:</p>
+<p>dp[i][j]表示将前i种物品装进限重为j的背包可以获得的最大价值, 0&lt;&#x3D;i&lt;&#x3D;N, 0&lt;&#x3D;j&lt;&#x3D;W<br>初始状态也是一样的，我们将dp[0][0…W]初始化为0，表示将前0种物品（即没有物品）装入书包的最大价值为0。那么当 i &gt; 0 时dp[i][j]也有两种情况：</p>
+<p>不装入第i种物品，即dp[i−1][j]，同01背包；<br>装入第i种物品，此时和01背包不太一样，因为每种物品有无限个（但注意书包限重是有限的），所以此时不应该转移到dp[i−1][j−w[i]]而应该转移到dp[i][j−w[i]]，即装入第i种商品后还可以再继续装入第种商品。<br>所以状态转移方程为</p>
+<p>dp[i][j] &#x3D; max(dp[i−1][j], dp[i][j−w[i]]+v[i]) &#x2F;&#x2F; j &gt;&#x3D; w[i]<br>这个状态转移方程与01背包问题唯一不同就是max第二项不是dp[i-1]而是dp[i]。</p>
+<p>和01背包问题类似，也可进行空间优化，优化后不同点在于这里的 j 只能正向枚举而01背包只能逆向枚举，因为这里的max第二项是dp[i]而01背包是dp[i-1]，即这里就是需要覆盖而01背包需要避免覆盖。所以伪代码如下：</p>
+<p>&#x2F;&#x2F; 完全背包问题思路一伪代码(空间优化版)<br>dp[0,…,W] &#x3D; 0<br>for i &#x3D; 1,…,N<br>    for j &#x3D; w[i],…,W &#x2F;&#x2F; 必须正向枚举!!!<br>        dp[j] &#x3D; max(dp[j], dp[j−w[i]]+v[i])<br>由上述伪代码看出，01背包和完全背包问题此解法的空间优化版解法唯一不同就是前者的 j 只能逆向枚举而后者的 j 只能正向枚举，这是由二者的状态转移方程决定的。此解法时间复杂度为O(NW), 空间复杂度为O(W)。</p>
+<p>2.3 分析二<br>除了分析一的思路外，完全背包还有一种常见的思路，但是复杂度高一些。我们从装入第 i 种物品多少件出发，01背包只有两种情况即取0件和取1件，而这里是取0件、1件、2件…直到超过限重（k &gt; j&#x2F;w[i]），所以状态转移方程为：</p>
+<h1 id="k为装入第i种物品的件数-k"><a href="#k为装入第i种物品的件数-k" class="headerlink" title="k为装入第i种物品的件数, k &lt;&#x3D; j&#x2F;w[i]"></a>k为装入第i种物品的件数, k &lt;&#x3D; j&#x2F;w[i]</h1><p>dp[i][j] &#x3D; max{(dp[i-1][j − k<em>w[i]] + k</em>v[i]) for every k}<br>同理也可以进行空间优化，需要注意的是，这里max里面是dp[i-1]，和01背包一样，所以 j 必须逆向枚举，优化后伪代码为</p>
+<p>&#x2F;&#x2F; 完全背包问题思路二伪代码(空间优化版)<br>dp[0,…,W] &#x3D; 0<br>for i &#x3D; 1,…,N<br>    for j &#x3D; W,…,w[i] &#x2F;&#x2F; 必须逆向枚举!!!<br>        for k &#x3D; [0, 1,…, j&#x2F;w[i]]<br>            dp[j] &#x3D; max(dp[j], dp[j−k<em>w[i]]+k</em>v[i])<br>相比于分析一，此种方法不是在O(1)时间求得dp[i][j]，所以总的时间复杂度就比分析一大些了，为<br>级别。</p>
+<p>2.4 分析三、转换成01背包<br>01背包问题是最基本的背包问题，我们可以考虑把完全背包问题转化为01背包问题来解：将一种物品转换成若干件只能装入0件或者1件的01背包中的物品。</p>
+<p>最简单的想法是，考虑到第 i 种物品最多装入 W&#x2F;w[i] 件，于是可以把第 i 种物品转化为 W&#x2F;w[i] 件费用及价值均不变的物品，然后求解这个01背包问题。</p>
+<p>更高效的转化方法是采用二进制的思想：把第 i 种物品拆成重量为<br> 、价值为<br> 的若干件物品，其中 k 取遍满足<br> 的非负整数。这是因为不管最优策略选几件第 i 种物品，总可以表示成若干个刚才这些物品的和（例：13 &#x3D; 1 + 4 + 8）。这样就将转换后的物品数目降成了对数级别。</p>
+<ol start="3">
+<li>多重背包<br>3.1 题目<br>多重背包（bounded knapsack problem）与前面不同就是每种物品是有限个：一共有N种物品，第i（i从1开始）种物品的数量为n[i]，重量为w[i]，价值为v[i]。在总重量不超过背包承载上限W的情况下，能够装入背包的最大价值是多少？</li>
+</ol>
+<p>3.2 分析一<br>此时的分析和完全背包的分析二差不多，也是从装入第 i 种物品多少件出发：装入第i种物品0件、1件、…n[i]件（还要满足不超过限重）。所以状态方程为：</p>
+<h1 id="k为装入第i种物品的件数-k-1"><a href="#k为装入第i种物品的件数-k-1" class="headerlink" title="k为装入第i种物品的件数, k &lt;&#x3D; min(n[i], j&#x2F;w[i])"></a>k为装入第i种物品的件数, k &lt;&#x3D; min(n[i], j&#x2F;w[i])</h1><p>dp[i][j] &#x3D; max{(dp[i-1][j − k<em>w[i]] + k</em>v[i]) for every k}<br>同理也可以进行空间优化，而且 j 也必须逆向枚举，优化后伪代码为</p>
+<p>&#x2F;&#x2F; 完全背包问题思路二伪代码(空间优化版)<br>dp[0,…,W] &#x3D; 0<br>for i &#x3D; 1,…,N<br>    for j &#x3D; W,…,w[i] &#x2F;&#x2F; 必须逆向枚举!!!<br>        for k &#x3D; [0, 1,…, min(n[i], j&#x2F;w[i])]<br>            dp[j] &#x3D; max(dp[j], dp[j−k<em>w[i]]+k</em>v[i])<br>总的时间复杂度约为<br> 级别。</p>
+<p>3.3 分析二、转换成01背包<br>采用2.4节类似的思路可以将多重背包转换成01背包问题，采用二进制思路将第 i 种物品分成了<br> 件物品，将原问题转化为了复杂度为<br> 的 01 背包问题，相对于分析一是很大的改进。</p>
+<ol start="4">
+<li>其他情形<br>除了上述三种基本的背包问题外，还有一些其他的变种，如下图所示（图片来源）。</li>
+</ol>
+<p>本节列举几种比较常见的。</p>
+<p>4.1 恰好装满<br>背包问题有时候还有一个限制就是必须恰好装满背包，此时基本思路没有区别，只是在初始化的时候有所不同。</p>
+<p>如果没有恰好装满背包的限制，我们将dp全部初始化成0就可以了。因为任何容量的背包都有一个合法解“什么都不装”，这个解的价值为0，所以初始时状态的值也就全部为0了。如果有恰好装满的限制，那只应该将dp[0,…,N][0]初始为0，其它dp值均初始化为-inf，因为此时只有容量为0的背包可以在什么也不装情况下被“恰好装满”，其它容量的背包初始均没有合法的解，应该被初始化为-inf。</p>
+<p>4.2 求方案总数<br>除了在给定每个物品的价值后求可得到的最大价值外，还有一类问题是问装满背包或将背包装至某一指定容量的方案总数。对于这类问题，需要将状态转移方程中的 max 改成 sum ，大体思路是不变的。例如若每件物品均是完全背包中的物品，转移方程即为</p>
+<p>dp[i][j] &#x3D; sum(dp[i−1][j], dp[i][j−w[i]]) &#x2F;&#x2F; j &gt;&#x3D; w[i]<br>4.3 二维背包<br>前面讨论的背包容量都是一个量：重量。二维背包问题是指每个背包有两个限制条件（比如重量和体积限制），选择物品必须要满足这两个条件。此类问题的解法和一维背包问题不同就是dp数组要多开一维，其他和一维背包完全一样，例如5.4节。</p>
+<p>4.4 求最优方案<br>一般而言，背包问题是要求一个最优值，如果要求输出这个最优值的方案，可以参照一般动态规划问题输出方案的方法：记录下每个状态的最优值是由哪一个策略推出来的，这样便可根据这条策略找到上一个状态，从上一个状态接着向前推即可。</p>
+<p>以01背包为例，我们可以再用一个数组G[i][j]来记录方案，设 G[i][j] &#x3D; 0表示计算 dp[i][j] 的值时是采用了max中的前一项(也即dp[i−1][j])，G[i][j] &#x3D; 1 表示采用了方程的后一项。即分别表示了两种策略: 未装入第 i 个物品及装了第 i 个物品。其实我们也可以直接从求好的dp[i][j]反推方案：若 dp[i][j] &#x3D; dp[i−1][j] 说明未选第i个物品，反之说明选了。</p>
+<ol start="5">
+<li>LeetCode相关题目<br>本节对LeetCode上面的背包问题进行讨论。</li>
+</ol>
+<p>5.1 Partition Equal Subset Sum（分割等和子集）<br>Loading…<br>​leetcode.com&#x2F;problems&#x2F;partition-equal-subset-sum&#x2F;</p>
+<p>题目给定一个只包含正整数的非空数组。问是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。</p>
+<p>由于所有元素的和sum已知，所以两个子集的和都应该是sum&#x2F;2（所以前提是sum不能是奇数），即题目转换成从这个数组里面选取一些元素使这些元素和为sum&#x2F;2。如果我们将所有元素的值看做是物品的重量，每件物品价值都为1，所以这就是一个恰好装满的01背包问题。</p>
+<p>我们定义空间优化后的状态数组dp，由于是恰好装满，所以应该将dp[0]初始化为0而将其他全部初始化为INT_MIN，然后按照类似1.2节的伪代码更新dp：</p>
+<p>int capacity &#x3D; sum &#x2F; 2;<br>vector<int>dp(capacity + 1, INT_MIN);<br>dp[0] &#x3D; 0;<br>for(int i &#x3D; 1; i &lt;&#x3D; n; i++)<br>    for(int j &#x3D; capacity; j &gt;&#x3D; nums[i-1]; j–)<br>        dp[j] &#x3D; max(dp[j], 1 + dp[j - nums[i-1]]);<br>更新完毕后，如果dp[sum&#x2F;2]大于0说明满足题意。</p>
+<p>由于此题最后求的是能不能进行划分，所以dp的每个元素定义成bool型就可以了，然后将dp[0]初始为true其他初始化为false，而转移方程就应该是用或操作而不是max操作。完整代码如下：</p>
+<p>bool canPartition(vector<int>&amp; nums) {<br>    int sum &#x3D; 0, n &#x3D; nums.size();<br>    for(int &amp;num: nums) sum +&#x3D; num;<br>    if(sum % 2) return false;</p>
+<pre><code>int capacity = sum / 2;
+vector&lt;bool&gt;dp(capacity + 1, false);
+dp[0] = true;
+for(int i = 1; i &lt;= n; i++)
+    for(int j = capacity; j &gt;= nums[i-1]; j--)
+        dp[j] = dp[j] || dp[j - nums[i-1]];
+
+return dp[capacity];
+</code></pre>
+<p>}<br>另外此题还有一个更巧妙更快的解法，基本思路是用一个bisets来记录所有可能子集的和，详见我的Github。<br>5.2 Coin Change（零钱兑换）<br>Loading…<br>​leetcode.com&#x2F;problems&#x2F;coin-change&#x2F;</p>
+<p>题目给定一个价值amount和一些面值，假设每个面值的硬币数都是无限的，问我们最少能用几个硬币组成给定的价值。</p>
+<p>如果我们将面值看作是物品，面值金额看成是物品的重量，每件物品的价值均为1，这样此题就是是一个恰好装满的完全背包问题了。不过这里不是求最多装入多少物品而是求最少，我们只需要将2.2节的转态转移方程中的max改成min即可，又由于是恰好装满，所以除了dp[0]，其他都应初始化为INT_MAX。完整代码如下：</p>
+<p>int coinChange(vector<int>&amp; coins, int amount) {<br>    vector<int>dp(amount + 1, INT_MAX);<br>    dp[0] &#x3D; 0;</p>
+<pre><code>for(int i = 1; i &lt;= coins.size(); i++)
+    for(int j = coins[i-1]; j &lt;= amount; j++)&#123;
+        // 下行代码会在 1+INT_MAX 时溢出
+        // dp[j] = min(dp[j], 1 + dp[j - coins[i-1]]); 
+        if(dp[j] - 1 &gt; dp[j - coins[i-1]])
+            dp[j] = 1 + dp[j - coins[i-1]];   
+    &#125;
+return dp[amount] == INT_MAX ? -1 : dp[amount];   
+</code></pre>
+<p>}<br>注意上面1 + dp[j - coins[i-1]]会存在溢出的风险，所以我们换了个写法。</p>
+<p>另外此题还可以进行搜索所有可能然后保持一个全局的结果res，但是直接搜索会超时，所以需要进行精心剪枝，剪枝后可击败99%。详见我的Github。<br>5.3 Target Sum（目标和）<br>Loading…<br>​leetcode.com&#x2F;problems&#x2F;target-sum&#x2F;</p>
+<p>这道题给了我们一个数组（元素非负），和一个目标值，要求给数组中每个数字前添加正号或负号所组成的表达式结果与目标值S相等，求有多少种情况。</p>
+<p>假设所有元素和为sum，所有添加正号的元素的和为A，所有添加负号的元素和为B，则有sum &#x3D; A + B 且 S &#x3D; A - B，解方程得A &#x3D; (sum + S)&#x2F;2。即题目转换成：从数组中选取一些元素使和恰好为(sum + S) &#x2F; 2。可见这是一个恰好装满的01背包问题，要求所有方案数，将1.2节状态转移方程中的max改成求和即可。需要注意的是，虽然这里是恰好装满，但是dp初始值不应该是inf，因为这里求的不是总价值而是方案数，应该全部初始为0（除了dp[0]初始化为1）。所以代码如下：</p>
+<p>int findTargetSumWays(vector<int>&amp; nums, int S) {<br>    int sum &#x3D; 0;<br>    &#x2F;&#x2F; for(int &amp;num: nums) sum +&#x3D; num;<br>    sum &#x3D; accumulate(nums.begin(), nums.end(), 0);<br>    if(S &gt; sum || sum &lt; -S) return 0; &#x2F;&#x2F; 肯定不行<br>    if((S + sum) &amp; 1) return 0; &#x2F;&#x2F; 奇数<br>    int target &#x3D; (S + sum) &gt;&gt; 1;</p>
+<pre><code>vector&lt;int&gt;dp(target + 1, 0);
+
+dp[0] = 1;
+for(int i = 1; i &lt;= nums.size(); i++)
+    for(int j = target; j &gt;= nums[i-1]; j--)
+        dp[j] = dp[j] + dp[j - nums[i-1]];
+
+return dp[target];
+</code></pre>
+<p>}<br>5.4 Ones and Zeros（一和零）<br>Loading…<br>​leetcode.com&#x2F;problems&#x2F;ones-and-zeroes&#x2F;</p>
+<p>题目给定一个仅包含 0 和 1 字符串的数组。任务是从数组中选取尽可能多的字符串，使这些字符串包含的0和1的数目分别不超过m和n。</p>
+<p>我们把每个字符串看做是一件物品，把字符串中0的数目和1的数目看做是两种“重量”，所以就变成了一个二维01背包问题，书包的两个限重分别是 m 和 n，要求书包能装下的物品的最大数目（也相当于价值最大，设每个物品价值为1）。</p>
+<p>我们可以提前把每个字符串的两个“重量” w0和w1算出来用数组存放，但是注意到只需要用一次这两个值，所以我们只需在用到的时候计算w0和w1就行了，这样就不用额外的数组存放。完整代码如下：</p>
+<p>int findMaxForm(vector<string>&amp; strs, int m, int n) {<br>    int num &#x3D; strs.size();<br>    int w0, w1;</p>
+<pre><code>vector&lt;vector&lt;int&gt;&gt;dp(m+1, vector&lt;int&gt;(n+1, 0));
+
+for(int i = 1; i &lt;= num; i++)&#123;
+    w0 = 0; w1 = 0;
+    // 计算第i-1个字符串的两个重量
+    for(char &amp;c: strs[i - 1])&#123;
+        if(c == &#39;0&#39;) w0 += 1;
+        else w1 += 1;
+    &#125;
+
+    // 01背包, 逆向迭代更新dp
+    for(int j = m; j &gt;= w0; j--)
+        for(int k = n; k &gt;= w1; k--)
+            dp[j][k] = max(dp[j][k], 1+dp[j-w0][k-w1]);
+&#125;
+
+return dp[m][n];
+</code></pre>
+<p>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2023/10/21/Passage-1/" data-id="clqa6ifc10003bct0451iddbi" data-title="Passage 1 :)" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/12/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">数据结构期末复习</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/09/2023-12-10/">2023-12-9</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/08/2023-12-8/">2023-12-8</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/06/2023-12-6/">2023-12-6</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/07/machine-learning/">machine learning</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Wang<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

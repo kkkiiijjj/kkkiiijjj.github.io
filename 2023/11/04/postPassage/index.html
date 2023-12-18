@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Passage2 ；） | Forforevery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="C++初学者遇到1e9时，可能会很好奇，这个表示什么意思？有什么用？遇到的一些问题为什么要这么处理？以下是个人的一些理解。 1.什么是1e9通常来说这是计算机中一种科学计数法的表示形式：1e9 &#x3D; 110^9 &#x3D; 1000000000；例如：9e8 &#x3D; 910^8 &#x3D; 900000000；e表示10，e后面的数字表示次方，e的多少次方。 2.C++中的1e9">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Passage2 ；）">
+<meta property="og:url" content="https://kkkiiijjj.github.io/2023/11/04/postPassage/index.html">
+<meta property="og:site_name" content="Forforevery">
+<meta property="og:description" content="C++初学者遇到1e9时，可能会很好奇，这个表示什么意思？有什么用？遇到的一些问题为什么要这么处理？以下是个人的一些理解。 1.什么是1e9通常来说这是计算机中一种科学计数法的表示形式：1e9 &#x3D; 110^9 &#x3D; 1000000000；例如：9e8 &#x3D; 910^8 &#x3D; 900000000；e表示10，e后面的数字表示次方，e的多少次方。 2.C++中的1e9">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-04T12:58:10.000Z">
+<meta property="article:modified_time" content="2023-11-04T13:17:54.334Z">
+<meta property="article:author" content="Wang">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Forforevery" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Forforevery</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">my blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kkkiiijjj.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-postPassage" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/04/postPassage/" class="article-date">
+  <time class="dt-published" datetime="2023-11-04T12:58:10.000Z" itemprop="datePublished">2023-11-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Passage2 ；）
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>C++初学者遇到1e9时，可能会很好奇，这个表示什么意思？有什么用？遇到的一些问题为什么要这么处理？以下是个人的一些理解。</p>
+<p>1.什么是1e9<br>通常来说这是计算机中一种科学计数法的表示形式：<br>1e9 &#x3D; 110^9 &#x3D; 1000000000；<br>例如：9e8 &#x3D; 910^8 &#x3D; 900000000；<br>e表示10，e后面的数字表示次方，e的多少次方。</p>
+<p>2.C++中的1e9</p>
+<p>int num1 &#x3D; 1e9;<br>int num1 &#x3D; 1e10;<br>输出的结果为：<br>num1 &#x3D; 1 000 000 000；<br>num2 &#x3D; 1 410 065 408；<br>1<br>2<br>3<br>4<br>5<br>那么问题来了，为什么num2 不等于 10000000000 ？<br>C&#x2F;C++中int类型是32位的，范围是-2147483648 到 2147483647。<br>int占用4个字节，也就是32位，除了第一位代表符号，剩下的31位可用。<br>十进制的 1e10时，转换为二进制：<br>10 0101 0100 0000 1011 1110 0100 0000 0000前两位出现数据溢出问题。<br>而0101 0100 0000 1011 1110 0100 0000 0000 转换成十进制就是 1 410 065 408</p>
+<p>3.C++中某个变量初始化赋值为1e9</p>
+<p>int count &#x3D; 1e9；<br>res &#x3D; min(res, count);<br>1<br>2<br>实际中遇到的一些问题，或者解决一些算法问题时，会遇到给某个变量初始化并赋值为1e9。接着后面会出现一些代码计算最小值。<br>这时，1e9的作用是给变量赋一个初始极大值，原因在于后面的代码中需要取此变量和其他变量的最小值。初始化为一个最大值，亦即初始化为无穷，便于后面极小值的比较和获取，属于初始化的目的。<br>有时我们需要比较大小，或者在matlab等其语言中为取无穷，我们只需取一个很大的值即可。C++中取1e9，10的九次方就是一种方法，代表一个很大的值。</p>
+<p>4.C++中表示正无穷与负无穷<br>正无穷：0x3f3f3f3f<br>负无穷：0xc0c0c0c0</p>
+<pre><code>int a=0x3f3f3f3f;
+int b=0xc0c0c0c0;
+输出：
+a=1061109567
+b=-1061109568
+</code></pre>
+<p>1<br>2<br>3<br>4<br>5<br>5.mod 1e9+7<br>在一些算法题目中，会遇到这样的情况：<br>由于结果可能较大，将结果mod 1e9+7，即mod 1000000007 。<br>或者（ a * b ) % c &#x3D; [ ( a % c ) * ( b % c ) ] % c 而这个c最常见的还是1e9+7。<br>有时候结果比较大的时候，会对结果进行mod 1e9+7操作。为什么呢？<br>第一：<br>1e9+7是一个很大的数，int32位的最大值为2147483647，所以对于int32位来说1000000007足够大。int64位的最大值为2^63-1，对于1000000007来说它的平方不会在int64中溢出所以在大数相乘的时候，因为(a∗b)%c&#x3D;((a%c)∗(b%c))%c，所以相乘时两边都对1000000007取模，再保存在int64里面不会溢出 。有点于归一化的意思。<br>当一个问题只对答案的正确性有要求，而不在乎答案的数值，可能会需要将取值很大的数通过求余变小<br>第二：<br>其次，1e9+7是一个质数，在模素数p的情况下a*n（a非p的倍数）的循环节长为p,这是减少冲突的一个原因。另一方面模素数p的环是无零因子环,也就是说两个非p倍数的数相乘再模p不会是零（如果是0的话,在多个数连乘的情况下会大大增加冲突概率）。比如说如果所有的结果都是偶数…你模6就只可能出现0, 2, 4这三种情况…但模5还是可以出现2, 4, 1, 3这四(4&#x3D;5-1)种情况的… hash表如果是用取模的方法也要模一个大质数来减少冲突，出题人也会这样来 希望减少你“蒙对“的概率。<br>————————————————<br>版权声明：本文为CSDN博主「Arvin____」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/cpb____/article/details/107959450">https://blog.csdn.net/cpb____/article/details/107959450</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2023/11/04/postPassage/" data-id="clqa6ifc60006bct0hgg82zgx" data-title="Passage2 ；）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/07/mean%E5%92%8Caverage%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          mean和average的区别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/10/21/Passage-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Passage 1 :)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/12/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">数据结构期末复习</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/09/2023-12-10/">2023-12-9</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/08/2023-12-8/">2023-12-8</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/06/2023-12-6/">2023-12-6</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/07/machine-learning/">machine learning</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Wang<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
