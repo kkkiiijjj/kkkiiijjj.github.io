@@ -110,14 +110,10 @@
 <h3 id="padding"><a href="#padding" class="headerlink" title="padding"></a>padding</h3><p><img src="/image-54.png" alt="Alt text"></p>
 <p>插个嘴，论文推荐：Rectified Linear Units Improve Restricted Boltzmann Machines</p>
 <h3 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h3><p><img src="/%E5%8D%B7%E7%A7%AF.gif" alt="Alt text"></p>
-<h3 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h3><p>池化层夹在连续的卷积层中间， 用于压缩数据和参数的量，减小过拟合。<br>简而言之，如果输入是图像的话，那么池化层的最主要作用就是压缩图像。</p>
-<p>这里再展开叙述池化层的具体作用：</p>
-<ol>
-<li>特征不变性，也就是我们在图像处理中经常提到的特征的尺度不变性，池化操作就是图像的resize，平时一张狗的图像被缩小了一倍我们还能认出这是一张狗的照片，这说明这张图像中仍保留着狗最重要的特征，我们一看就能判断图像中画的是一只狗，图像压缩时去掉的信息只是一些无关紧要的信息，而留下的信息则是具有尺度不变性的特征，是最能表达图像的特征。</li>
-<li>特征降维，我们知道一幅图像含有的信息是很大的，特征也很多，但是有些信息对于我们做图像任务时没有太多用途或者有重复，我们可以把这类冗余信息去除，把最重要的特征抽取出来，这也是池化操作的一大作用。</li>
-<li>在一定程度上防止过拟合，更方便优化。</li>
-</ol>
-<p><strong>Max pooling</strong><br><img src="/image-55.png" alt="Alt text"><br>一些说明</p>
+<h3 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h3><p>压缩图像，提取特征，防止过拟合</p>
+<p><strong>Max pooling</strong><br><img src="/image-55.png" alt="Alt text"></p>
+<hr>
+<p>一些说明</p>
 <ol>
 <li>CNN中用的优化算法是SGD（随机梯度下降）。</li>
 <li>优缺点</li>
@@ -126,6 +122,21 @@
 <ol start="3">
 <li>典型CNN模型<br>LeNet，这是最早用于数字识别的CNN<br>AlexNet， 2012 ILSVRC比赛远超第2名的CNN，比<br>LeNet更深，用多层小卷积层叠加替换单大卷积层。<br>ZF Net， 2013 ILSVRC比赛冠军<br>GoogLeNet， 2014 ILSVRC比赛冠军<br>VGGNet， 2014 ILSVRC比赛中的模型，图像识别略差于GoogLeNet，但是在很多图像转化学习问题(比如object detection)上效果奇好</li>
 </ol>
+<h2 id="conv2d-的参数"><a href="#conv2d-的参数" class="headerlink" title="conv2d 的参数"></a>conv2d 的参数</h2><p> in_channels （int） – 输入图像中的通道数</p>
+<p> out_channels （int） – 卷积产生的通道数</p>
+<p> kernel_size （int or tuple） - 卷积内核的大小</p>
+<p> stride （int 或 tuple， 可选） - 卷积的步幅。默认值：1</p>
+<p> padding （int， tuple or str， 可选） – 添加到 输入。默认值：0</p>
+<h3 id="in-channels"><a href="#in-channels" class="headerlink" title="in_channels:"></a>in_channels:</h3><p>最初为输入图片的  颜色层数  黑白的是1，RGB的是3<br>往后的 看上一层的out_channels</p>
+<h3 id="out-channels"><a href="#out-channels" class="headerlink" title="out_channels:"></a>out_channels:</h3><p><img src="/image-57.png" alt="Alt text"><br>out_channels 为 1<br><img src="/image-58.png" alt="Alt text"><br>out_channels 为 2<br>所以out_channels是多少看卷积核有几个<br>但是。。。卷积核设置成多少竟然是凭感觉？？？<br>kernal_size:卷积核越小，所需要的参数和计算量越小。所以2×2排除了，一般都用3×3作为卷积核的大小。</p>
+<hr>
+<p>不管输入图像的深度为多少，经过一个卷积核（filter），最后都变成一个深度为1的特征图。<br>卷积核(filter)的channel数，其实是与输入图像相同的，所以常常会省略不写，只写输出filters数量</p>
+<h2 id="MaxPool2d参数"><a href="#MaxPool2d参数" class="headerlink" title="MaxPool2d参数"></a>MaxPool2d参数</h2><p>kernel_size ：表示做最大池化的窗口大小，可以是单个值，也可以是tuple元组</p>
+<p>stride ：步长，可以是单个值，也可以是tuple元组</p>
+<p>padding ：填充，可以是单个值，也可以是tuple元组</p>
+<p>kernel_size 的详解<br>注意这里的 kernel_size 跟卷积核不是一个东西。 kernel_size 可以看做是一个滑动窗口，这个窗口的大小由自己指定，如果输入是单个值，例如 3 ，那么窗口的大小就是 3 × 3 3 ，还可以输入元组，例如 (3, 2) ，那么窗口大小就是 3 × 2。<br>最大池化的方法就是取这个窗口覆盖元素中的最大值</p>
+<p>stride 的详解<br>上一个参数我们确定了滑动窗口的大小，现在我们来确定这个窗口如何进行滑动。如果不指定这个参数，那么默认步长跟最大池化窗口大小一致。如果指定了参数，那么将按照我们指定的参数进行滑动。例如 stride&#x3D;(2,3) ， 那么窗口将每次向右滑动三个元素位置，或者向下滑动两个元素位置</p>
+<h2 id="nn-Linear（）参数"><a href="#nn-Linear（）参数" class="headerlink" title="nn.Linear（）参数"></a>nn.Linear（）参数</h2><p>in_features指的是输入的二维张量的大小，即输入的[batch_size, size]中的size。<br>  out_features指的是输出的二维张量的大小，即输出的二维张量的形状为[batch_size，output_size]，当然，它也代表了该全连接层的神经元个数。<br>  从输入输出的张量的shape角度来理解，相当于一个输入为[batch_size, in_features]的张量变换成了[batch_size, out_features]的输出张量。<br>其实参数就是权重矩阵的行列数</p>
 
       
     </div>
