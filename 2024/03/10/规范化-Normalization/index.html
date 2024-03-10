@@ -4,15 +4,23 @@
   <meta charset="utf-8">
   
   
-  <title>Archives: 2024/3 | Forforevery</title>
+  <title>规范化(Normalization) | Forforevery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Forforevery">
-<meta property="og:url" content="https://kkkiiijjj.github.io/archives/2024/03/index.html">
+  <meta name="description" content="规范化包括归一化标准化正则化数据规范化的常用方法有三种：最小最大值规范化，z-score标准化和按小数定标规范化 归一化（normalization）最大最小（Min-Max Normalization） 标准化(Standardization)Z-score 标准化 正则化xi除以L2范数 在机器学习里，把数据变为正态分布是标准化，把数据的范围缩放到[0,1]是归一化，除以L2范数时正则化 标准">
+<meta property="og:type" content="article">
+<meta property="og:title" content="规范化(Normalization)">
+<meta property="og:url" content="https://kkkiiijjj.github.io/2024/03/10/%E8%A7%84%E8%8C%83%E5%8C%96-Normalization/index.html">
 <meta property="og:site_name" content="Forforevery">
+<meta property="og:description" content="规范化包括归一化标准化正则化数据规范化的常用方法有三种：最小最大值规范化，z-score标准化和按小数定标规范化 归一化（normalization）最大最小（Min-Max Normalization） 标准化(Standardization)Z-score 标准化 正则化xi除以L2范数 在机器学习里，把数据变为正态分布是标准化，把数据的范围缩放到[0,1]是归一化，除以L2范数时正则化 标准">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kkkiiijjj.github.io/image-75.png">
+<meta property="og:image" content="https://kkkiiijjj.github.io/image-76.png">
+<meta property="og:image" content="https://kkkiiijjj.github.io/image-77.png">
+<meta property="article:published_time" content="2024-03-10T07:55:20.000Z">
+<meta property="article:modified_time" content="2024-03-10T08:15:18.290Z">
 <meta property="article:author" content="Wang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kkkiiijjj.github.io/image-75.png">
   
     <link rel="alternate" href="/atom.xml" title="Forforevery" type="application/atom+xml">
   
@@ -75,96 +83,58 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/03/10/%E8%A7%84%E8%8C%83%E5%8C%96-Normalization/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-03-10T07:55:20.000Z" itemprop="datePublished">Mar 10</time>
+        <section id="main"><article id="post-规范化-Normalization" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/10/%E8%A7%84%E8%8C%83%E5%8C%96-Normalization/" class="article-date">
+  <time class="dt-published" datetime="2024-03-10T07:55:20.000Z" itemprop="datePublished">2024-03-10</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/10/%E8%A7%84%E8%8C%83%E5%8C%96-Normalization/">规范化(Normalization)</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      规范化(Normalization)
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/03/10/extract%E5%87%BD%E6%95%B0%E5%8F%8A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-03-10T06:14:20.000Z" itemprop="datePublished">Mar 10</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/10/extract%E5%87%BD%E6%95%B0%E5%8F%8A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">extract函数及正则表达式</a>
-    </h1>
-  
+        <p>规范化包括归一化标准化正则化<br>数据规范化的常用方法有三种：最小最大值规范化，z-score标准化和按小数定标规范化</p>
+<h2 id="归一化（normalization）"><a href="#归一化（normalization）" class="headerlink" title="归一化（normalization）"></a>归一化（normalization）</h2><h3 id="最大最小（Min-Max-Normalization）"><a href="#最大最小（Min-Max-Normalization）" class="headerlink" title="最大最小（Min-Max Normalization）"></a>最大最小（Min-Max Normalization）</h3><p><img src="/image-75.png" alt="alt text"></p>
+<h2 id="标准化-Standardization"><a href="#标准化-Standardization" class="headerlink" title="标准化(Standardization)"></a>标准化(Standardization)</h2><h3 id="Z-score-标准化"><a href="#Z-score-标准化" class="headerlink" title="Z-score 标准化"></a>Z-score 标准化</h3><p><img src="/image-76.png" alt="alt text"></p>
+<h2 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h2><p>xi除以L2范数<br><img src="/image-77.png" alt="alt text"></p>
+<p>在机器学习里，把数据变为正态分布是标准化，把数据的范围缩放到[0,1]是归一化，除以L2范数时正则化</p>
+<p>标准化加快收敛，正则化防止过拟合</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/03/09/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-03-09T03:19:36.000Z" itemprop="datePublished">Mar 9</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/09/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/">字符编码</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/03/04/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-03-04T12:22:19.000Z" itemprop="datePublished">Mar 4</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/03/10/%E8%A7%84%E8%8C%83%E5%8C%96-Normalization/" data-id="cltl8pnc4000e2ot054luevqs" data-title="规范化(Normalization)" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/04/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/">数据预处理</a>
-    </h1>
-  
-
-    </header>
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/03/10/extract%E5%87%BD%E6%95%B0%E5%8F%8A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">extract函数及正则表达式</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>
