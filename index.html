@@ -77,6 +77,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-链表力扣刷题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/22/%E9%93%BE%E8%A1%A8%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2024-03-22T09:31:32.000Z" itemprop="datePublished">2024-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/22/%E9%93%BE%E8%A1%A8%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98/">链表力扣刷题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/03/22/%E9%93%BE%E8%A1%A8%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98/" data-id="clu2gp6kk000048t01xsq43zq" data-title="链表力扣刷题" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-梯度消失与梯度爆炸" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/03/22/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/" class="article-date">
@@ -99,7 +137,16 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>产生原因：(1)层数太深，输入的数多次乘以小于1的权重得到一个趋于零的值导致梯度消失，或是乘一个大于1的权重得到趋于无穷的值导致梯度爆炸<br>        (2)激活函数选择不当<br>影响：无法进一步更新权重值（因为更新权重是要将梯度与零对比的，趋于零就不再更新了，而大太多则会一直更新，非常缓慢）<br>解决方法：</p>
+<ul>
+<li>预训练加微调</li>
+<li>梯度剪切、权重正则 （针对梯度爆炸）</li>
+<li>使用不同的激活函数 （如relu、leakrelu、elu等激活函数）</li>
+<li>使用batchnorm</li>
+<li>使用残差结构</li>
+<li>使用LSTM网络</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
@@ -452,66 +499,6 @@
 
 
   
-    <article id="post-torch-nn-init" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/12/27/torch-nn-init/" class="article-date">
-  <time class="dt-published" datetime="2023-12-27T01:46:52.000Z" itemprop="datePublished">2023-12-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/27/torch-nn-init/">torch.nn.init</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>torch.nn.init.uniform_                </li>
-<li>torch.nn.init.normal_</li>
-<li>torch.nn.init.constant_</li>
-<li>torch.nn.init.ones_</li>
-<li>torch.nn.init.zeros_</li>
-<li>torch.nn.init.xavier_uniform_</li>
-<li>torch.nn.init.xavier_normal_<br>下面这些暂时未接触</li>
-<li>torch.nn.init.calculate_gain</li>
-<li>torch.nn.init.eye_</li>
-<li>torch.nn.init.dirac_</li>
-<li>torch.nn.init.kaiming_normal_</li>
-<li>torch.nn.init.trunc_normal_</li>
-<li>torch.nn.init.orthogonal_</li>
-<li>torch.nn.init.sparse_</li>
-</ul>
-<h3 id="torch-nn-init-uniform"><a href="#torch-nn-init-uniform" class="headerlink" title="torch.nn.init.uniform_"></a>torch.nn.init.uniform_</h3><p>从均匀分布U ( a , b ) 中生成值<br>语法<br>torch.nn.init.uniform_(tensor, a&#x3D;0.0, b&#x3D;1.0)<br>a:下界<br>b:上界</p>
-<h3 id="torch-nn-init-normal"><a href="#torch-nn-init-normal" class="headerlink" title="torch.nn.init.normal_"></a>torch.nn.init.normal_</h3><p>给定均值和标准差的正态分布N ( mean , std ) N(\text{mean}, \text{std})N(mean,std)中生成值<br>语法<br>torch.nn.init.normal_(tensor, mean&#x3D;0.0, std&#x3D;1.0)</p>
-<h3 id="torch-nn-init-constant"><a href="#torch-nn-init-constant" class="headerlink" title="torch.nn.init.constant_"></a>torch.nn.init.constant_</h3><p>用val的值填充<br>语法<br>torch.nn.init.constant_(tensor, val)</p>
-<h3 id="torch-nn-init-xavier-uniform"><a href="#torch-nn-init-xavier-uniform" class="headerlink" title="torch.nn.init.xavier_uniform_"></a>torch.nn.init.xavier_uniform_</h3><p>张量中的值采样自U ( − a , a )，其中：<br><img src="/image-70.png" alt="Alt text"><br>语法<br>torch.nn.init.xavier_uniform_(tensor, gain&#x3D;1)<br>gain ：[float] 可选的缩放因子</p>
-<h3 id="torch-nn-init-xavier-normal"><a href="#torch-nn-init-xavier-normal" class="headerlink" title="torch.nn.init.xavier_normal_"></a>torch.nn.init.xavier_normal_</h3><p>结果张量中的值采样自N(0, ${std}^2$)的正态分布，其中标准差：<img src="/image-71.png" alt="Alt text"><br>语法<br>torch.nn.init.xavier_normal_(tensor, gain&#x3D;1.0)<br>gain ：[float] 可选的缩放因子</p>
-<p>节选自：<br><a target="_blank" rel="noopener" href="https://machinelearning.blog.csdn.net/article/details/132382885">https://machinelearning.blog.csdn.net/article/details/132382885</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2023/12/27/torch-nn-init/" data-id="cltl8pnc2000a2ot053zx31sc" data-title="torch.nn.init" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -548,6 +535,10 @@
       <ul>
         
           <li>
+            <a href="/2024/03/22/%E9%93%BE%E8%A1%A8%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98/">链表力扣刷题</a>
+          </li>
+        
+          <li>
             <a href="/2024/03/22/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/">梯度消失与梯度爆炸</a>
           </li>
         
@@ -561,10 +552,6 @@
         
           <li>
             <a href="/2024/03/10/%E9%80%92%E5%BD%92/">递归</a>
-          </li>
-        
-          <li>
-            <a href="/2024/03/10/%E8%A7%84%E8%8C%83%E5%8C%96-Normalization/">规范化(Normalization)</a>
           </li>
         
       </ul>
