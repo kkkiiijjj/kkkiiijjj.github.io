@@ -77,6 +77,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-房价预测代码解读" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/25/%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B%E4%BB%A3%E7%A0%81%E8%A7%A3%E8%AF%BB/" class="article-date">
+  <time class="dt-published" datetime="2024-03-25T06:09:16.000Z" itemprop="datePublished">2024-03-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/25/%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B%E4%BB%A3%E7%A0%81%E8%A7%A3%E8%AF%BB/">房价预测代码解读</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/03/25/%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B%E4%BB%A3%E7%A0%81%E8%A7%A3%E8%AF%BB/" data-id="clu6jsnhc0000bst0fcgi18nt" data-title="房价预测代码解读" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-马尔可夫" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/03/24/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB/" class="article-date">
@@ -99,7 +137,16 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>关于隐状态：<br>这里举一个经典的例子：有很多盒子。每个盒子里装着不同的球，每次随机从一个盒子里摸出一个球<br>在这个过程中，盒子出现的顺序是隐含状态序列，求出现的顺序是观测序列，隐含状态之间的转换过程是一个马尔可夫过程</p>
+<p>GRU(门控单元)<br>包含重置门（reset gate）和更新门（update gate）<br>具体运算：<br><img src="/image-87.png" alt="alt text"><br><img src="/image-88.png" alt="alt text"><br><img src="/image-89.png" alt="alt text"></p>
+<p>门控循环神经网络可以更好地捕获时间步距离很长的序列上的依赖关系。</p>
+<p>重置门有助于捕获序列中的短期依赖关系。</p>
+<p>更新门有助于捕获序列中的长期依赖关系。</p>
+<p>重置门打开时，门控循环单元包含基本循环神经网络；更新门打开时，门控循环单元可以跳过子序列。</p>
+<p>自回归模型（autoregressive models）<br>Mechanics：使用线性回归根据过去的数据预测将来，比如天气预报通过分析前几天的温度来预测接下来几天的温度</p>
+<p>自回归和马尔可夫的区别：自回归依赖过去的数据，而马尔可夫不，后者仅依赖current state<br>当数据之间存在线性关系时用自回归，短期预测用马尔可夫</p>
+<p>HMM(隐马尔可夫)与马尔可夫的区别<br><img src="/image-90.png" alt="alt text"></p>
+
       
     </div>
     <footer class="article-footer">
@@ -462,49 +509,6 @@
 
 
   
-    <article id="post-数据预处理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/04/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" class="article-date">
-  <time class="dt-published" datetime="2024-03-04T12:22:19.000Z" itemprop="datePublished">2024-03-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/03/04/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/">数据预处理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>数据预处理包括数据的清洗、集成、变换</p>
-<h2 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/109413107">https://zhuanlan.zhihu.com/p/109413107</a><br>删除无关数据、重复数据、平滑噪声数据，处理缺失值、异常值等。<br>一般进行数据清洗需要通过通过7个步骤进行处理： 选择子集，列名重命名，删除重复值，缺失值处理，一致化处理，数据排序处理，异常值处理</p>
-<h3 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h3><p>拉格朗日插值法、牛顿插值法<br><img src="/image-74.png" alt="alt text"></p>
-<h3 id="异常值处理"><a href="#异常值处理" class="headerlink" title="异常值处理"></a>异常值处理</h3><p><img src="/image-73.png" alt="alt text"></p>
-<h2 id="数据变换"><a href="#数据变换" class="headerlink" title="数据变换"></a>数据变换</h2><h3 id="规范化"><a href="#规范化" class="headerlink" title="规范化"></a>规范化</h3><p>a.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/03/04/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" data-id="cltl8pnc3000d2ot035ni85ch" data-title="数据预处理" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -541,6 +545,10 @@
       <ul>
         
           <li>
+            <a href="/2024/03/25/%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B%E4%BB%A3%E7%A0%81%E8%A7%A3%E8%AF%BB/">房价预测代码解读</a>
+          </li>
+        
+          <li>
             <a href="/2024/03/24/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB/">马尔可夫</a>
           </li>
         
@@ -554,10 +562,6 @@
         
           <li>
             <a href="/2024/03/13/time-machine-code%E8%A7%A3%E8%AF%BB/">time machine code解读</a>
-          </li>
-        
-          <li>
-            <a href="/2024/03/12/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/">关于反向传播</a>
           </li>
         
       </ul>
