@@ -13,10 +13,12 @@
 <meta property="og:site_name" content="Forforevery">
 <meta property="og:description" content="开始刷题啦！从链表开始刷的，顺序参考的是代码随想录这里记录下每道题的大致思路：  移除等于所给值的链表元素(203) (1)递归 (2)迭代+设置虚拟头节点 设计单链表与双链表(707)实现addAtIndex(index,val)：在链表中的第 index 个节点之前添加值为 val  的节点。如果 index 等于链表的长度，则该节点将附加到链表的末尾。如果 index 大于链表长度，则不会插">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kkkiiijjj.github.io/image-91.png">
 <meta property="article:published_time" content="2024-03-22T09:31:32.000Z">
-<meta property="article:modified_time" content="2024-03-22T10:04:17.627Z">
+<meta property="article:modified_time" content="2024-03-25T12:46:16.943Z">
 <meta property="article:author" content="Wang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kkkiiijjj.github.io/image-91.png">
   
     <link rel="alternate" href="/atom.xml" title="Forforevery" type="application/atom+xml">
   
@@ -108,7 +110,10 @@
 <li>反转链表（206）<br>(1)递归<br>(2)迭代(双指针法（虽然我觉得其实是三指针）)<br> 一个在头，一个在尾(null)<br> 然后四步走：<br> a.新建一个节点储存头的下一个节点<br> 然后就是挪来挪去了:<br>             b.头的下一个指向尾<br>             c.更新尾节点<br>             d.更新头节点</li>
 <li>两两交换链表中的节点(24)<br>(1)递归<br>(2)迭代+dummyhead<br>(这个比较简单)</li>
 <li>删除链表的倒数第N个节点(19)<br>(1)化为正序删除<br>(2)栈<br>(3)双指针</li>
+<li>链表相交(面试题02.07)<br>(1)哈希<br>先把A链表的所有元素放进哈希表里，再遍历B链表看什么时候重合。<br>(2)双指针<br>给两个链表的头节点，返回两链表的相交节点，若不相交，返回NULL<br>我觉得这是一道数学题<br>创建两个节点(如p,q)，分别指向两个链表的头，哪个把当前所在的链走完了就去走另外一条链，最后二者相遇的那个节点即为所求<br>就像互相暗恋的两个人，从陌生到相知，然后互相试探（你往前走一步我往前走一步），结果俩人总是隔着那么几步，然后其中一个忽然发现了对方喜欢自己的证据，另一个稍后也发现了，证据越来越多最后俩人都发现对方喜欢自己，然后他们在一起了，皆大欢喜。<br>（编得我都感动了）<br>好了回到正题：这种题肯定会用到循环，然后要想循环的终止条件是什么，我们希望最后俩指针重合</li>
+<li>环形链表<br>(1)哈希<br>循环结束条件为head为空，每次循环检查当前节点是否在哈希表中，不在则加且将head向前移动一步，在则返回头节点<br>(2)快慢指针<br>依然是一道数学题，而且是追及问题<br>快的一次移两步，慢的一步，假如有环，他们终将相遇，并且在相遇的这个点，新建一个指针指向头，同时释放两球（不是），让他和慢指针同步移动，最后二者将在入环点相遇<br>数学原理如下：<br><img src="/image-91.png" alt="alt text"></li>
 </ol>
+<p>所以哈希表很适合判定重复对吧？<br>然后关于dummyhead的使用：<br>dummyhead的好处：<br>(1)处理边缘值更容易<br>(2)无需检查即可access头节点<br>(3)便于插入与删除</p>
 
       
     </div>
@@ -160,7 +165,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
     </div>
   </div>
 
@@ -171,6 +176,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/04/08/LSTM/">LSTM</a>
+          </li>
         
           <li>
             <a href="/2024/03/25/%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B%E4%BB%A3%E7%A0%81%E8%A7%A3%E8%AF%BB/">房价预测代码解读</a>
@@ -186,10 +195,6 @@
         
           <li>
             <a href="/2024/03/22/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/">梯度消失与梯度爆炸</a>
-          </li>
-        
-          <li>
-            <a href="/2024/03/13/time-machine-code%E8%A7%A3%E8%AF%BB/">time machine code解读</a>
           </li>
         
       </ul>

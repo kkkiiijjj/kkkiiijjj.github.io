@@ -77,6 +77,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-LSTM" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/08/LSTM/" class="article-date">
+  <time class="dt-published" datetime="2024-04-08T08:44:35.000Z" itemprop="datePublished">2024-04-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/08/LSTM/">LSTM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/04/08/LSTM/" data-id="cluqpickq00004gt07w63bw7n" data-title="LSTM" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-房价预测代码解读" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/03/25/%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B%E4%BB%A3%E7%A0%81%E8%A7%A3%E8%AF%BB/" class="article-date">
@@ -99,7 +137,30 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>这里解析的是李沐深度学习4.10的代码</p>
+<h2 id="导入数据："><a href="#导入数据：" class="headerlink" title="导入数据："></a>导入数据：</h2><pre><code>用pd.read_csv(&quot;&quot;)导入本地数据,()内填写地址
+</code></pre>
+<p>没什么问题</p>
+<h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><pre><code>将数据的第一列即序号列去掉并将数据集与测试集通过concat()函数连接到一起
+
+这么做的原因是进行standardize和normalize时需用到全部数据,如果分别进行的话会使训练集和测试集的mean和standard deviation不一样，进而影响模型表现
+但这么做可能导致leakage(泄露)：比如用训练集的mean去填充测试集的空缺值
+
+是否应该concatenate取决于选择了什么方式填充空缺值
+适用concatenate的情况：用所有数据的mean\median\mode(众数)填充
+不适用：KNN(K折交叉验证)、插值法、决策树
+当不确定是否会造成leakage时，可以总选择分别进行
+</code></pre>
+<p>这里用的时0填充，所以concat与否无所谓</p>
+<p>一行代码需要解释的竟然这么多，读的我好累（</p>
+<p>‘’’<br>all_features &#x3D; pd.get_dummies(all_features, dummy_na&#x3D;True)<br>‘’’<br>此行代码将categorical variables转换成dummy variables，即将文字类型转换成数字类型</p>
+<p>而后把数据转换为张量并将之前连在一起的数据集和测试集分开</p>
+<p>然后定义net,这里用的是线性模型<br>感觉nn.Linear()在这里多余，因为只有一层，但是chatgpt告诉我即使是一层用这个也是有好处的<br>让我不再需要定义forward方法</p>
+<p>然后他重定义了loss函数<br>但我不明白为什么不用原来的MSELoss</p>
+<h2 id="定义train函数"><a href="#定义train函数" class="headerlink" title="定义train函数"></a>定义train函数</h2><p>这个train函数返回的是两个列表，分别是train和test的loss值<br>这里用了d2l包里的迭代器 分批加载数据<br>然后选择Adam作为优化算法<br>接着是常规操作</p>
+<h2 id="K折交叉验证"><a href="#K折交叉验证" class="headerlink" title="K折交叉验证"></a>K折交叉验证</h2><p>定义函数get_k_fold_data(k, i, X, y)<br>参数：<br>    k:k折,且后面加了断言assert k&gt;1,若不满足触发异常<br>    i:当前是第几折<br>    X:包含features的张量</p>
+<p>返回的值：<br>    X_train:当前折的训练features<br>    y_train:当前折的训练labels<br>    X_valid:当前折的验证features<br>    y_valid:当前折的验证labels</p>
+
       
     </div>
     <footer class="article-footer">
@@ -191,7 +252,10 @@
 <li>反转链表（206）<br>(1)递归<br>(2)迭代(双指针法（虽然我觉得其实是三指针）)<br> 一个在头，一个在尾(null)<br> 然后四步走：<br> a.新建一个节点储存头的下一个节点<br> 然后就是挪来挪去了:<br>             b.头的下一个指向尾<br>             c.更新尾节点<br>             d.更新头节点</li>
 <li>两两交换链表中的节点(24)<br>(1)递归<br>(2)迭代+dummyhead<br>(这个比较简单)</li>
 <li>删除链表的倒数第N个节点(19)<br>(1)化为正序删除<br>(2)栈<br>(3)双指针</li>
+<li>链表相交(面试题02.07)<br>(1)哈希<br>先把A链表的所有元素放进哈希表里，再遍历B链表看什么时候重合。<br>(2)双指针<br>给两个链表的头节点，返回两链表的相交节点，若不相交，返回NULL<br>我觉得这是一道数学题<br>创建两个节点(如p,q)，分别指向两个链表的头，哪个把当前所在的链走完了就去走另外一条链，最后二者相遇的那个节点即为所求<br>就像互相暗恋的两个人，从陌生到相知，然后互相试探（你往前走一步我往前走一步），结果俩人总是隔着那么几步，然后其中一个忽然发现了对方喜欢自己的证据，另一个稍后也发现了，证据越来越多最后俩人都发现对方喜欢自己，然后他们在一起了，皆大欢喜。<br>（编得我都感动了）<br>好了回到正题：这种题肯定会用到循环，然后要想循环的终止条件是什么，我们希望最后俩指针重合</li>
+<li>环形链表<br>(1)哈希<br>循环结束条件为head为空，每次循环检查当前节点是否在哈希表中，不在则加且将head向前移动一步，在则返回头节点<br>(2)快慢指针<br>依然是一道数学题，而且是追及问题<br>快的一次移两步，慢的一步，假如有环，他们终将相遇，并且在相遇的这个点，新建一个指针指向头，同时释放两球（不是），让他和慢指针同步移动，最后二者将在入环点相遇<br>数学原理如下：<br><img src="/image-91.png" alt="alt text"></li>
 </ol>
+<p>所以哈希表很适合判定重复对吧？<br>然后关于dummyhead的使用：<br>dummyhead的好处：<br>(1)处理边缘值更容易<br>(2)无需检查即可access头节点<br>(3)便于插入与删除</p>
 
       
     </div>
@@ -470,45 +534,6 @@
 
 
   
-    <article id="post-字符编码" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/09/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" class="article-date">
-  <time class="dt-published" datetime="2024-03-09T03:19:36.000Z" itemprop="datePublished">2024-03-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/03/09/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/">字符编码</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>今天在练习pandas库中途遇到了一道题，从CSV中创建 DataFrame，分隔符为“；”，编码格式为gbk<br>答案是<br>df &#x3D; pd.read_csv(‘test.csv’, encoding&#x3D;’gbk, sep&#x3D;’;’)<br>然后不懂这个编码格式，也不知道有没有必要了解一下，先开个坑，以后回来填</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/03/09/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" data-id="cltl8pnc2000b2ot01hgxh6rh" data-title="字符编码" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -532,7 +557,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
     </div>
   </div>
 
@@ -543,6 +568,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/04/08/LSTM/">LSTM</a>
+          </li>
         
           <li>
             <a href="/2024/03/25/%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B%E4%BB%A3%E7%A0%81%E8%A7%A3%E8%AF%BB/">房价预测代码解读</a>
@@ -558,10 +587,6 @@
         
           <li>
             <a href="/2024/03/22/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/">梯度消失与梯度爆炸</a>
-          </li>
-        
-          <li>
-            <a href="/2024/03/13/time-machine-code%E8%A7%A3%E8%AF%BB/">time machine code解读</a>
           </li>
         
       </ul>
