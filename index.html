@@ -77,6 +77,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-prompt" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/13/prompt/" class="article-date">
+  <time class="dt-published" datetime="2024-04-13T01:49:55.000Z" itemprop="datePublished">2024-04-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/13/prompt/">prompt</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/04/13/prompt/" data-id="cluxfwb0g00009ot0h4bpfvad" data-title="prompt" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-LSTM" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/04/08/LSTM/" class="article-date">
@@ -99,7 +137,20 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>是RNN的升级版，用于机器翻译，语音辨识，时间序列预测，文本生成</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>使用门控单元，使得能够长期记忆<br>缓解梯度消失和梯度爆炸</p>
+<h2 id="门控单元"><a href="#门控单元" class="headerlink" title="门控单元"></a>门控单元</h2><p>使用门控单元，包括：</p>
+<ol>
+<li>输入门   数据读入</li>
+<li>遗忘门   重置单元内容</li>
+<li>输出门   数据输出<br><img src="/image-93.png" alt="alt text"><br>图为这仨门的公式，红色框起的是输入，桔色是参数(b是偏置参数)，黄色是隐状态</li>
+</ol>
+<h2 id="候选记忆元"><a href="#候选记忆元" class="headerlink" title="候选记忆元"></a>候选记忆元</h2><p>与上面仨门类似，不同点是使用tanh作为激活函数<br><img src="/image-94.png" alt="alt text"><br><img src="/image-95.png" alt="alt text"></p>
+<h2 id="记忆元"><a href="#记忆元" class="headerlink" title="记忆元"></a>记忆元</h2><p>公式:<br><img src="/image-96.png" alt="alt text"><br>输入门$I_t$控制采用多少来自$C_t$的新数据， 而遗忘门$F_t$控制保留多少过去的 记忆元$C_{t-1}$的内容。<br><img src="/image-97.png" alt="alt text"></p>
+<h2 id="关于隐状态在LSTM中的使用："><a href="#关于隐状态在LSTM中的使用：" class="headerlink" title="关于隐状态在LSTM中的使用："></a>关于隐状态在LSTM中的使用：</h2><p>隐状态将输入的词转换为数字表示，<br>LSTM基于当前的  输入  &amp;  更新的隐状态  来预测下一个单词，如图：<br><img src="/image-99.png" alt="alt text"><br>公式：<img src="/image-98.png" alt="alt text"><br>这咋上来就遗忘呢，为啥不先输入？？</p>
+<p>只有隐状态会传递到输出层，而记忆元完全属于内部信息。</p>
+<p>在深度循环神经网络中，隐状态的信息被传递到当前层的下一时间步和下一层的当前时间步。</p>
+
       
     </div>
     <footer class="article-footer">
@@ -158,8 +209,10 @@
 <p>然后定义net,这里用的是线性模型<br>感觉nn.Linear()在这里多余，因为只有一层，但是chatgpt告诉我即使是一层用这个也是有好处的<br>让我不再需要定义forward方法</p>
 <p>然后他重定义了loss函数<br>但我不明白为什么不用原来的MSELoss</p>
 <h2 id="定义train函数"><a href="#定义train函数" class="headerlink" title="定义train函数"></a>定义train函数</h2><p>这个train函数返回的是两个列表，分别是train和test的loss值<br>这里用了d2l包里的迭代器 分批加载数据<br>然后选择Adam作为优化算法<br>接着是常规操作</p>
-<h2 id="K折交叉验证"><a href="#K折交叉验证" class="headerlink" title="K折交叉验证"></a>K折交叉验证</h2><p>定义函数get_k_fold_data(k, i, X, y)<br>参数：<br>    k:k折,且后面加了断言assert k&gt;1,若不满足触发异常<br>    i:当前是第几折<br>    X:包含features的张量</p>
-<p>返回的值：<br>    X_train:当前折的训练features<br>    y_train:当前折的训练labels<br>    X_valid:当前折的验证features<br>    y_valid:当前折的验证labels</p>
+<h2 id="K折交叉验证"><a href="#K折交叉验证" class="headerlink" title="K折交叉验证"></a>K折交叉验证</h2><p>定义函数get_k_fold_data(k, i, X, y)<br>参数：<br>    k:将数据分成k折<br>    i:验证集<br>    X:包含features的张量</p>
+<p>返回的值：<br>    X_train:train集 的 features<br>    y_train:train集 的labels<br>    X_valid:validation集 的 features<br>    y_valid:validation集 的 labels</p>
+<p>assert k &gt; 1 下断言，保证k&gt;1<br>然后计算fold_size的大小，即每一批有多少数据点<br>循环内将数据分成训练集和验证集</p>
+<p>下一个函数def k_fold(k, X_train, y_train, num_epochs, learning_rate, weight_decay,<br>           batch_size)</p>
 
       
     </div>
@@ -489,51 +542,6 @@
 
 
   
-    <article id="post-extract函数及正则表达式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/10/extract%E5%87%BD%E6%95%B0%E5%8F%8A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-date">
-  <time class="dt-published" datetime="2024-03-10T06:14:20.000Z" itemprop="datePublished">2024-03-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/03/10/extract%E5%87%BD%E6%95%B0%E5%8F%8A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">extract函数及正则表达式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>前言：练习Pandas时有数据清洗的题，要提取要求的字符<br>该函数对于对文本数据的处理非常有用，例如从数据集中提取日期和时间信息，或从大量电子邮件地址中提取用户名和域名。</p>
-<h2 id="Extract"><a href="#Extract" class="headerlink" title="Extract()"></a>Extract()</h2><p>使用方法：<br>pandas.str.extract(pat, flags&#x3D;0, expand&#x3D;True)</p>
-<p>参数说明<br>pat：正则表达式的模式字符串<br>flags：re模块的匹配标志，如re.IGNORECASE、re.DOTALL等，默认为0，即没有标志<br>expand：是否将每个匹配的字符串拆分成新的列，默认为True<br>返回值</p>
-<p>一个包含匹配子串的新Series或DataFrame。</p>
-<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>[ABC]   匹配A或B或C<br>[^ABC]  除了ABC<br>[A-Z]   A到Z<br>[\s]    空格（包括换行符）<br>[\S]    空格（不包含换行符）<br>.       匹配除换行符（\n、\r）之外的任何单个字符，相等于 [^\n\r]<br>\w      匹配字母、数字、下划线。等价于 [A-Za-z0-9_]（即不要中文、标点、符号）<br>\d      匹配任意一个阿拉伯数字（0 到 9）。等价于 [0-9]</p>
-<h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><p>标记位于表达式之外</p>
-<p>i   不分大小写<br>g   全局匹配<br>gm  全局多行匹配</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/03/10/extract%E5%87%BD%E6%95%B0%E5%8F%8A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="cltl8pnbz00062ot04e137irx" data-title="extract函数及正则表达式" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -570,6 +578,10 @@
       <ul>
         
           <li>
+            <a href="/2024/04/13/prompt/">prompt</a>
+          </li>
+        
+          <li>
             <a href="/2024/04/08/LSTM/">LSTM</a>
           </li>
         
@@ -583,10 +595,6 @@
         
           <li>
             <a href="/2024/03/22/%E9%93%BE%E8%A1%A8%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98/">链表力扣刷题</a>
-          </li>
-        
-          <li>
-            <a href="/2024/03/22/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/">梯度消失与梯度爆炸</a>
           </li>
         
       </ul>
