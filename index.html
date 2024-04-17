@@ -77,6 +77,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Kaggle-LLM-Science-Exam" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/17/Kaggle-LLM-Science-Exam/" class="article-date">
+  <time class="dt-published" datetime="2024-04-17T06:43:35.000Z" itemprop="datePublished">2024-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/17/Kaggle-LLM-Science-Exam/">Kaggle - LLM Science Exam</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/04/17/Kaggle-LLM-Science-Exam/" data-id="clv3g5d5p0000bgt0a3la0wud" data-title="Kaggle - LLM Science Exam" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-kaggle—HMS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/04/17/kaggle%E2%80%94HMS/" class="article-date">
@@ -99,7 +137,17 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>兜兜转转犹犹豫豫最后还是在淘宝上买了kaggle竞赛的课<br>花了我3600大洋呜呜呜呜，不过可以保证我拿银牌，我心里就有底了</p>
+<p>那么废话不多说，第一课讲的是HMS</p>
+<p>打比赛的流程：<br><img src="/image-100.png" alt="alt text"></p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>比赛目的：检测分类癫痫发作和其他类型的有害大脑活动。<br>比赛任务：开发一个model,根据从医院重症患者记录的脑电图(EEG)信号进行训练。<br>评价指标：KL散度(不常用)</p>
+<h2 id="熟悉数据"><a href="#熟悉数据" class="headerlink" title="熟悉数据"></a>熟悉数据</h2><p>data:<br>这数据有啥特征啊。。。</p>
+<p><img src="/image-103.png" alt="alt text"><br><img src="/image-101.png" alt="alt text"><br>train数据集包括50秒的EEG(相应匹配于频谱图)<br>[seizure&#x2F;lpd&#x2F;gpd&#x2F;lrda&#x2F;grda&#x2F;other]_vote：<br>人工打分的各类疾病投票<br>一共有6个label，分别是seizure(癫痫)、GRDA、Other、GPD、LRDA、LPD<br>(查不到都是啥病)</p>
+<h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><p>用librosa包进行特征提取</p>
+<h2 id="模型建立"><a href="#模型建立" class="headerlink" title="模型建立"></a>模型建立</h2><p><img src="/image-102.png" alt="alt text"><br><img src="/image-104.png" alt="alt text"><br>方案一直接用给的数据<br><img src="/image-105.png" alt="alt text"><br>方案二用提取特征后的<br><img src="/image-106.png" alt="alt text"><br>方案三用给的+提取特征后的(效果最好)</p>
+<p>提分要点：使用vote&gt;10的样本二次训练<br>(即第一次用全部的train集训练，第二次用vote高的进行训练，因为vote高代表准确率更高，但即便如此，vote少的依然可以提供一些信息(钱少也是钱啊))</p>
+<p>大致的思路我懂了，但是没怎么看代码</p>
+
       
     </div>
     <footer class="article-footer">
@@ -137,7 +185,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>最近在做大创，是关于数字人的，这个项目我很感兴趣，感觉未来可以应用的范围很广，前景也很好。<br>等以后元宇宙火起来了感觉这个会很赚钱</p>
+<p>好了回到正题<br><img src="/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240413094011.jpg" alt="alt text"><br>这是我们模型的框架</p>
+<h2 id="关于prompt"><a href="#关于prompt" class="headerlink" title="关于prompt:"></a>关于prompt:</h2><p>即提示词(咒语)，是LLM(large language model)的重要起点</p>
+<h2 id="RAG检索"><a href="#RAG检索" class="headerlink" title="RAG检索"></a>RAG检索</h2><p>(Retrieval Augmented Generation)<br>结合prompt和其他相关资料，使得LLM的能力更上一层楼<br>RAG可用于回答问题、总结、fact checking、对话系统</p>
+<h2 id="多模态融合"><a href="#多模态融合" class="headerlink" title="多模态融合"></a>多模态融合</h2><p>深度学习多模态融合指机器从文本、图像、语音、视频等多个领域获取信息</p>
+
       
     </div>
     <footer class="article-footer">
@@ -492,50 +545,6 @@
 
 
   
-    <article id="post-递归" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/10/%E9%80%92%E5%BD%92/" class="article-date">
-  <time class="dt-published" datetime="2024-03-10T13:09:48.000Z" itemprop="datePublished">2024-03-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/03/10/%E9%80%92%E5%BD%92/">递归</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>前言：最近在刷链表的题，好多用了递归，于是总结一下</p>
-<p>一般递归考虑三个问题：<br>1.终止条件<br>2.调用单元做了什么<br>3.返回值</p>
-<p>写函数的时候也是上面的顺序</p>
-<p>例一：206.反转链表<br>‘’’<br>    class Solution {<br>public:<br>    ListNode* reverseList(ListNode* head) {<br>        if (!head || !head-&gt;next) {<br>            return head;                    &#x2F;&#x2F;终止条件<br>        }<br>        ListNode* newHead &#x3D; reverseList(head-&gt;next);       &#x2F;&#x2F;操作<br>        head-&gt;next-&gt;next &#x3D; head;<br>        head-&gt;next &#x3D; nullptr;<br>        return newHead;                    &#x2F;&#x2F;return<br>    }<br>};</p>
-<p>‘’’<br>例二：24. 两两交换链表中的节点<br>‘’’<br>    class Solution {<br>public:<br>    ListNode* swapPairs(ListNode* head) {<br>        if (head &#x3D;&#x3D; nullptr || head-&gt;next &#x3D;&#x3D; nullptr) {<br>            return head;<br>        }               &#x2F;&#x2F;<br>        ListNode* newHead &#x3D; head-&gt;next;<br>        head-&gt;next &#x3D; swapPairs(newHead-&gt;next);<br>        newHead-&gt;next &#x3D; head;<br>        return newHead;<br>    }<br>};</p>
-<p>‘’’</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/03/10/%E9%80%92%E5%BD%92/" data-id="cltlj7r1w0000p0t0a4xe96by" data-title="递归" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -572,6 +581,10 @@
       <ul>
         
           <li>
+            <a href="/2024/04/17/Kaggle-LLM-Science-Exam/">Kaggle - LLM Science Exam</a>
+          </li>
+        
+          <li>
             <a href="/2024/04/17/kaggle%E2%80%94HMS/">kaggle—HMS</a>
           </li>
         
@@ -585,10 +598,6 @@
         
           <li>
             <a href="/2024/03/25/%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B%E4%BB%A3%E7%A0%81%E8%A7%A3%E8%AF%BB/">房价预测代码解读</a>
-          </li>
-        
-          <li>
-            <a href="/2024/03/24/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB/">马尔可夫</a>
           </li>
         
       </ul>

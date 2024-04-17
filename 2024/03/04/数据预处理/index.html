@@ -6,17 +6,17 @@
   
   <title>数据预处理 | Forforevery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="数据预处理包括数据的清洗、集成、变换 数据清洗参考链接：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;109413107删除无关数据、重复数据、平滑噪声数据，处理缺失值、异常值等。一般进行数据清洗需要通过通过7个步骤进行处理： 选择子集，列名重命名，删除重复值，缺失值处理，一致化处理，数据排序处理，异常值处理 缺失值处理拉格朗日插值法、牛顿插值法 异常值处理 数据变换规范化a.">
+  <meta name="description" content="数据预处理包括数据的清洗、集成、变换 数据清洗参考链接：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;109413107删除无关数据、重复数据、平滑噪声数据，处理缺失值、异常值等。一般进行数据清洗需要通过通过7个步骤进行处理： 选择子集，列名重命名，删除重复值，缺失值处理，一致化处理，数据排序处理，异常值处理 缺失值处理拉格朗日插值法、牛顿插值法 异常值处理 数据变换规范化a. 序列数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据预处理">
 <meta property="og:url" content="https://kkkiiijjj.github.io/2024/03/04/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="Forforevery">
-<meta property="og:description" content="数据预处理包括数据的清洗、集成、变换 数据清洗参考链接：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;109413107删除无关数据、重复数据、平滑噪声数据，处理缺失值、异常值等。一般进行数据清洗需要通过通过7个步骤进行处理： 选择子集，列名重命名，删除重复值，缺失值处理，一致化处理，数据排序处理，异常值处理 缺失值处理拉格朗日插值法、牛顿插值法 异常值处理 数据变换规范化a.">
+<meta property="og:description" content="数据预处理包括数据的清洗、集成、变换 数据清洗参考链接：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;109413107删除无关数据、重复数据、平滑噪声数据，处理缺失值、异常值等。一般进行数据清洗需要通过通过7个步骤进行处理： 选择子集，列名重命名，删除重复值，缺失值处理，一致化处理，数据排序处理，异常值处理 缺失值处理拉格朗日插值法、牛顿插值法 异常值处理 数据变换规范化a. 序列数">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://kkkiiijjj.github.io/image-74.png">
 <meta property="og:image" content="https://kkkiiijjj.github.io/image-73.png">
 <meta property="article:published_time" content="2024-03-04T12:22:19.000Z">
-<meta property="article:modified_time" content="2024-03-04T12:33:50.608Z">
+<meta property="article:modified_time" content="2024-04-17T06:40:07.039Z">
 <meta property="article:author" content="Wang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://kkkiiijjj.github.io/image-74.png">
@@ -109,6 +109,17 @@
 <h3 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h3><p>拉格朗日插值法、牛顿插值法<br><img src="/image-74.png" alt="alt text"></p>
 <h3 id="异常值处理"><a href="#异常值处理" class="headerlink" title="异常值处理"></a>异常值处理</h3><p><img src="/image-73.png" alt="alt text"></p>
 <h2 id="数据变换"><a href="#数据变换" class="headerlink" title="数据变换"></a>数据变换</h2><h3 id="规范化"><a href="#规范化" class="headerlink" title="规范化"></a>规范化</h3><p>a.</p>
+<h1 id="序列数据的数据清洗"><a href="#序列数据的数据清洗" class="headerlink" title="序列数据的数据清洗"></a>序列数据的数据清洗</h1><p>经常要进行的如</p>
+<ol>
+<li>大写字母转小写或小写转大写</li>
+<li>去掉多余的whitespaces,如换行符、tab、非间断空格</li>
+<li>去掉没用的符号</li>
+<li>去掉链接</li>
+<li>Expanding abbreviations扩充缩写</li>
+<li>纠正拼写错误</li>
+<li>词元化(tokenization)</li>
+<li>去掉stop word如the,a,is(可选)<br>具体情况具体分析</li>
+</ol>
 
       
     </div>
@@ -173,6 +184,10 @@
       <ul>
         
           <li>
+            <a href="/2024/04/17/Kaggle-LLM-Science-Exam/">Kaggle - LLM Science Exam</a>
+          </li>
+        
+          <li>
             <a href="/2024/04/17/kaggle%E2%80%94HMS/">kaggle—HMS</a>
           </li>
         
@@ -186,10 +201,6 @@
         
           <li>
             <a href="/2024/03/25/%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B%E4%BB%A3%E7%A0%81%E8%A7%A3%E8%AF%BB/">房价预测代码解读</a>
-          </li>
-        
-          <li>
-            <a href="/2024/03/24/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB/">马尔可夫</a>
           </li>
         
       </ul>
