@@ -77,6 +77,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-RNN" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/19/RNN/" class="article-date">
+  <time class="dt-published" datetime="2024-04-19T02:26:46.000Z" itemprop="datePublished">2024-04-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/19/RNN/">RNN</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/04/19/RNN/" data-id="clv61usel0000qgt0gk46hjjd" data-title="RNN" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Kaggle-LLM-Science-Exam" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/04/17/Kaggle-LLM-Science-Exam/" class="article-date">
@@ -99,7 +137,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>目的：this competition challenges participants to answer difficult science-based questions written by a Large Language Model.<br>任务：预测前三个最可能是正确答案的选项<br>评价标准：Mean Average Precision @ 3 (MAP@3):<br><img src="/image-107.png" alt="alt text"></p>
+<h2 id="熟悉数据"><a href="#熟悉数据" class="headerlink" title="熟悉数据"></a>熟悉数据</h2><p>train集:包括一个问题、五个选项及正确答案<br>test集:是train集的copy,只是没了answer列(啊？这不妥妥过拟合了吗？)</p>
+<h2 id="提取特征"><a href="#提取特征" class="headerlink" title="提取特征"></a>提取特征</h2><h2 id="模型建立"><a href="#模型建立" class="headerlink" title="模型建立"></a>模型建立</h2><p>选用Embedding模型：gte-base<br>    还有很多其他Embeding方法，如bge-large-en-v1.5\bge-base-en-v1.5\ember-v1\gte-large\e5-large\bge-small<br>不一定哪个表现最好，视具体情况而定<br>可以拿小样本跑一跑看哪个表现好</p>
+<p><img src="/image-108.png" alt="alt text"><br>这里有个问题是若使用检索2的话会使Prompt占的比重很小</p>
+<p>一些tricks:若GPU性能没那么好，就调小batch_size(1或2)<br>若改成1还跑不了就调小max_input</p>
+
       
     </div>
     <footer class="article-footer">
@@ -342,7 +385,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>关于隐状态：<br>这里举一个经典的例子：有很多盒子。每个盒子里装着不同的球，每次随机从一个盒子里摸出一个球<br>在这个过程中，盒子出现的顺序是隐含状态序列，求出现的顺序是观测序列，隐含状态之间的转换过程是一个马尔可夫过程</p>
+        <p>关于隐状态：<br>从过去的输入中提取重要特征并用于预测当前或下一个output<br>RNN会一步步更新隐状态，这个更新过程会将 目前的输入 与 去除过去不相关信息后的信息 结合在一起<br>这里举一个经典的例子：有很多盒子。每个盒子里装着不同的球，每次随机从一个盒子里摸出一个球<br>在这个过程中，盒子出现的顺序是隐含状态序列，球出现的顺序是观测序列，隐含状态之间的转换过程是一个马尔可夫过程</p>
 <p>GRU(门控单元)<br>包含重置门（reset gate）和更新门（update gate）<br>具体运算：<br><img src="/image-87.png" alt="alt text"><br><img src="/image-88.png" alt="alt text"><br><img src="/image-89.png" alt="alt text"></p>
 <p>门控循环神经网络可以更好地捕获时间步距离很长的序列上的依赖关系。</p>
 <p>重置门有助于捕获序列中的短期依赖关系。</p>
@@ -391,7 +434,7 @@
       
         <p>开始刷题啦！<br>从链表开始刷的，顺序参考的是代码随想录<br>这里记录下每道题的大致思路：</p>
 <ol>
-<li>移除等于所给值的链表元素(203)<br> (1)递归<br> (2)迭代+设置虚拟头节点</li>
+<li>移除等于所给值的链表元素(203)<br> (1)递归<br> 首先考虑返回值，想返回的是去掉特定节点的链表，而考虑到递归是一步步返回的，所以返回的数据形式应该是节点。<br> 然后返回的上一行代码应该是调用函数本身<br> (2)迭代+设置虚拟头节点</li>
 <li>设计单链表与双链表(707)<br>实现<br>addAtIndex(index,val)：在链表中的第 index 个节点之前添加值为 val  的节点。如果 index 等于链表的长度，则该节点将附加到链表的末尾。如果 index 大于链表长度，则不会插入节点。如果index小于0，则在头部插入节点。<br>新建节点保存要插入的值<br>（这个有待完善）</li>
 <li>反转链表（206）<br>(1)递归<br>(2)迭代(双指针法（虽然我觉得其实是三指针）)<br> 一个在头，一个在尾(null)<br> 然后四步走：<br> a.新建一个节点储存头的下一个节点<br> 然后就是挪来挪去了:<br>             b.头的下一个指向尾<br>             c.更新尾节点<br>             d.更新头节点</li>
 <li>两两交换链表中的节点(24)<br>(1)递归<br>(2)迭代+dummyhead<br>(这个比较简单)</li>
@@ -400,6 +443,8 @@
 <li>环形链表<br>(1)哈希<br>循环结束条件为head为空，每次循环检查当前节点是否在哈希表中，不在则加且将head向前移动一步，在则返回头节点<br>(2)快慢指针<br>依然是一道数学题，而且是追及问题<br>快的一次移两步，慢的一步，假如有环，他们终将相遇，并且在相遇的这个点，新建一个指针指向头，同时释放两球（不是），让他和慢指针同步移动，最后二者将在入环点相遇<br>数学原理如下：<br><img src="/image-91.png" alt="alt text"></li>
 </ol>
 <p>所以哈希表很适合判定重复对吧？<br>然后关于dummyhead的使用：<br>dummyhead的好处：<br>(1)处理边缘值更容易<br>(2)无需检查即可access头节点<br>(3)便于插入与删除</p>
+<p>以及递归方法的使用：<br>(1)if判断句(比如判空)<br>(2)自调语句<br>(3)其他操作(可选)<br>(4)返回<br>我发现这个递归消耗内存好像普遍比较多啊</p>
+<p>链表题中用到递归的几个：<br><img src="/image-109.png" alt="alt text"><br><img src="/image-110.png" alt="alt text"><br><img src="/image-111.png" alt="alt text"><br>可以感受一下递归的格式</p>
 
       
     </div>
@@ -503,48 +548,6 @@
 
 
   
-    <article id="post-关于反向传播" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/12/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" class="article-date">
-  <time class="dt-published" datetime="2024-03-12T07:33:32.000Z" itemprop="datePublished">2024-03-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/03/12/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/">关于反向传播</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>没想到我一直没弄懂的反向传播更改参数竟然被ChatGpt教会了。。。<br>虽然这个例子有个小错误：众所周知，2是比0大的<br><img src="/image-78.png" alt="alt text"><br><img src="/image-79.png" alt="alt text"><br><img src="/image-80.png" alt="alt text"><br>简而言之，就是选择一个optimizer（如Stochastic Gradient Descent (SGD)，Adam (Adaptive Moment Estimation)这里选的好像是SGD）计算预测值与估计值之间的误差，然后调整weights和bias<br>新的权重是由旧的权重经过一系列计算得到的，其中learning rate影响每次改变权重的step</p>
-<p>当然我还是建议直接看例子更好理解，虽然是错的，但是可以体会其精神</p>
-<p>下面是关于为什么要计算梯度：<br><img src="/image-81.png" alt="alt text"><br><img src="/image-82.png" alt="alt text"><br>即若求出的梯度为正数，则调大权重，反之则调小<br>Gradient的正负重要，而大小不重要<br>SGD:<br>New Weight &#x3D; Old Weight - (Learning Rate * Gradient)</p>
-<p>我貌似是懂了</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/03/12/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" data-id="cltobh7o30000tct02p9s3x6c" data-title="关于反向传播" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -581,6 +584,10 @@
       <ul>
         
           <li>
+            <a href="/2024/04/19/RNN/">RNN</a>
+          </li>
+        
+          <li>
             <a href="/2024/04/17/Kaggle-LLM-Science-Exam/">Kaggle - LLM Science Exam</a>
           </li>
         
@@ -594,10 +601,6 @@
         
           <li>
             <a href="/2024/04/08/LSTM/">LSTM</a>
-          </li>
-        
-          <li>
-            <a href="/2024/03/25/%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B%E4%BB%A3%E7%A0%81%E8%A7%A3%E8%AF%BB/">房价预测代码解读</a>
           </li>
         
       </ul>

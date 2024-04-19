@@ -77,6 +77,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2023-12-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/09/2023-12-10/" class="article-date">
+  <time class="dt-published" datetime="2023-12-09T13:10:32.000Z" itemprop="datePublished">2023-12-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/09/2023-12-10/">2023-12-9</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>ImageFolder(root, transform&#x3D;None, target_transform&#x3D;None, loader&#x3D;default_loader)<br>root：在root指定的路径下寻找图片<br>transform：对PIL Image进行的转换操作，transform的输入是使用loader读取图片的返回对象<br>target_transform：对label的转换<br>loader：给定路径后如何读取图片，默认读取为RGB格式的PIL Image对象</p>
+<h2 id="eval-函数"><a href="#eval-函数" class="headerlink" title="eval() 函数"></a>eval() 函数</h2><p>用来执行一个字符串表达式，并返回表达式的值<br>expression – 表达式。<br>globals – 变量作用域，全局命名空间，如果被提供，则必须是一个字典对象。<br>locals – 变量作用域，局部命名空间，如果被提供，可以是任何映射对象。<br>实例 1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;x = 7</span><br><span class="line">&gt;&gt;&gt; eval( &#x27;3 * x&#x27; )</span><br><span class="line">21</span><br><span class="line">&gt;&gt;&gt; eval(&#x27;pow(2,2)&#x27;)</span><br><span class="line">4</span><br><span class="line">&gt;&gt;&gt; eval(&#x27;2 + 2&#x27;)</span><br><span class="line">4</span><br><span class="line">&gt;&gt;&gt; n=81</span><br><span class="line">&gt;&gt;&gt; eval(&quot;n + 4&quot;)</span><br><span class="line">85</span><br></pre></td></tr></table></figure>
+<p>实例 2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">## 执行简单的数学表达式</span><br><span class="line">result = eval(&quot;2 + 3 * 4&quot;)</span><br><span class="line">print(result)  # 输出: 14</span><br><span class="line"></span><br><span class="line">## 执行变量引用</span><br><span class="line">x = 10</span><br><span class="line">result = eval(&quot;x + 5&quot;)</span><br><span class="line">print(result)  # 输出: 15</span><br><span class="line"></span><br><span class="line">## 在指定命名空间中执行表达式</span><br><span class="line">namespace = &#123;&#x27;a&#x27;: 2, &#x27;b&#x27;: 3&#125;</span><br><span class="line">result = eval(&quot;a + b&quot;, namespace)</span><br><span class="line">print(result)  # 输出: 5</span><br></pre></td></tr></table></figure>
+<p>eval()使用原因：</p>
+<p>1）在编译语言里要动态地产生代码，基本上是不可能的，但动态语言是可以，意味着软件已经部署到服务器上了，但只要作很少的更改，只好直接修改这部分的代码，就可立即实现变化，不用整个软件重新加载。</p>
+<p>2）在machin learning里根据用户使用这个软件频率，以及方式，可动态地修改代码，适应用户的变化</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2023/12/09/2023-12-10/" data-id="cltl8pnbo00002ot05vg549y5" data-title="2023-12-9" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-2023-12-8" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/12/08/2023-12-8/" class="article-date">
@@ -589,6 +635,10 @@ return dp[m][n];
       <ul>
         
           <li>
+            <a href="/2024/04/19/RNN/">RNN</a>
+          </li>
+        
+          <li>
             <a href="/2024/04/17/Kaggle-LLM-Science-Exam/">Kaggle - LLM Science Exam</a>
           </li>
         
@@ -602,10 +652,6 @@ return dp[m][n];
         
           <li>
             <a href="/2024/04/08/LSTM/">LSTM</a>
-          </li>
-        
-          <li>
-            <a href="/2024/03/25/%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B%E4%BB%A3%E7%A0%81%E8%A7%A3%E8%AF%BB/">房价预测代码解读</a>
           </li>
         
       </ul>
