@@ -77,6 +77,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-MATLAB" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/09/MATLAB/" class="article-date">
+  <time class="dt-published" datetime="2024-05-09T06:08:16.000Z" itemprop="datePublished">2024-05-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/05/09/MATLAB/">MATLAB</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/05/09/MATLAB/" data-id="clvyukxh70000rwt04j3x4byy" data-title="MATLAB" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-RNN" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/04/19/RNN/" class="article-date">
@@ -99,7 +137,24 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>在看enconder代码的时候发现里面竟然有RNN<br>我还是好好整理一下RNN吧</p>
+<p>enconder里的RNN层的作用：<br>实例：（复制chatgpt的，嫌长可以不看）</p>
+<ol>
+<li>Sentence: “The movie was a disappointment, the acting was terrible.”<br> Processing Words Sequentially: The RNN in the encoder processes the sentence word by word:</li>
+</ol>
+<p>Word 1: “The”</p>
+<p>The RNN receives the embedding vector for “The” and combines it with the initial hidden state (often initialized with zeros).<br>Based on this combination, the RNN updates the hidden state h_1. This initial hidden state doesn’t hold much sentiment information yet.<br>Word 2: “movie”</p>
+<p>The RNN receives the embedding vector for “movie” and combines it with the updated hidden state h_1.<br>Now, h_1 contains some context about “The,” which might be neutral. The RNN updates the hidden state h_2 to reflect this context along with the meaning of “movie.”<br>Word 3: “was”</p>
+<p>The process repeats. The RNN receives the embedding vector for “was” and combines it with the previous hidden state h_2.<br>h_2 carries information about “The movie,” which could be neutral or slightly positive depending on the embedding vectors. The RNN updates the hidden state h_3 to incorporate the meaning of “was” in this context.<br>Word 4: “a” (similar to “The”)</p>
+<p>Word 5: “disappointment”</p>
+<p>The RNN receives the embedding vector for “disappointment,” a negative word.<br>The previous hidden state h_4 likely held some neutral or slightly positive sentiment. The RNN updates h_5 to reflect the strong negative connotation of “disappointment,” shifting the overall sentiment towards negative.<br>Words 6-7 follow similarly, likely reinforcing the negative sentiment.</p>
+<ol start="3">
+<li>Final Hidden State: After processing all words, the RNN in the encoder reaches the final hidden state, let’s call it h_final. This state encapsulates the sentiment of the entire sentence, considering the sequence of words and their relationships.</li>
+<li>Using the Hidden State: The h_final can then be used for various tasks:</li>
+</ol>
+<p>Sentiment Classification: This hidden state can be fed into a classifier (e.g., a simple neural network) to predict the overall sentiment of the sentence (likely negative in this case).<br>Machine Translation: If this is part of a machine translation system, the h_final might be used to encode the meaning of the sentence and generate a corresponding translation in another language.</p>
+<p>简而言之，RNN每步读入当前的Word并将其与之前的隐状态结合、更新隐状态，隐状态反映当前输入的所有词之间的relationship<br>在读完整个句子后，我们会得到最后的隐状态，最后的隐状态包含了整句话的所有词之间的relationship<br>最后的隐状态可用于情感分类、机器翻译</p>
+
       
     </div>
     <footer class="article-footer">
@@ -508,46 +563,6 @@
 
 
   
-    <article id="post-time-machine-code解读" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/13/time-machine-code%E8%A7%A3%E8%AF%BB/" class="article-date">
-  <time class="dt-published" datetime="2024-03-13T02:46:02.000Z" itemprop="datePublished">2024-03-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/03/13/time-machine-code%E8%A7%A3%E8%AF%BB/">time machine code解读</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/image-83.png" alt="alt text"><br>一个例子：（我觉得果然还是例子更利于帮助理解）<br><img src="/image-84.png" alt="alt text"><br>ps:z这个例子是chatgpt给我的，太好用了呜呜呜</p>
-<p><img src="/image-85.png" alt="alt text"><br>if部分判断输入是否符合标准，前者判断是否为空，后者判断是否是一个列表而非word<br>使用示例：<br><img src="/image-86.png" alt="alt text"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/03/13/time-machine-code%E8%A7%A3%E8%AF%BB/" data-id="cltpismf20000k4t01qx05yn5" data-title="time machine code解读" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -571,7 +586,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
     </div>
   </div>
 
@@ -582,6 +597,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/05/09/MATLAB/">MATLAB</a>
+          </li>
         
           <li>
             <a href="/2024/04/19/RNN/">RNN</a>
@@ -597,10 +616,6 @@
         
           <li>
             <a href="/2024/04/13/prompt/">prompt</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/08/LSTM/">LSTM</a>
           </li>
         
       </ul>

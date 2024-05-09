@@ -6,13 +6,15 @@
   
   <title>RNN | Forforevery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="article">
+  <meta name="description" content="在看enconder代码的时候发现里面竟然有RNN我还是好好整理一下RNN吧 enconder里的RNN层的作用：实例：（复制chatgpt的，嫌长可以不看）  Sentence: “The movie was a disappointment, the acting was terrible.” Processing Words Sequentially: The RNN in the enco">
+<meta property="og:type" content="article">
 <meta property="og:title" content="RNN">
 <meta property="og:url" content="https://kkkiiijjj.github.io/2024/04/19/RNN/index.html">
 <meta property="og:site_name" content="Forforevery">
+<meta property="og:description" content="在看enconder代码的时候发现里面竟然有RNN我还是好好整理一下RNN吧 enconder里的RNN层的作用：实例：（复制chatgpt的，嫌长可以不看）  Sentence: “The movie was a disappointment, the acting was terrible.” Processing Words Sequentially: The RNN in the enco">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-04-19T02:26:46.000Z">
-<meta property="article:modified_time" content="2024-04-19T02:26:46.526Z">
+<meta property="article:modified_time" content="2024-04-19T02:52:06.374Z">
 <meta property="article:author" content="Wang">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +101,24 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>在看enconder代码的时候发现里面竟然有RNN<br>我还是好好整理一下RNN吧</p>
+<p>enconder里的RNN层的作用：<br>实例：（复制chatgpt的，嫌长可以不看）</p>
+<ol>
+<li>Sentence: “The movie was a disappointment, the acting was terrible.”<br> Processing Words Sequentially: The RNN in the encoder processes the sentence word by word:</li>
+</ol>
+<p>Word 1: “The”</p>
+<p>The RNN receives the embedding vector for “The” and combines it with the initial hidden state (often initialized with zeros).<br>Based on this combination, the RNN updates the hidden state h_1. This initial hidden state doesn’t hold much sentiment information yet.<br>Word 2: “movie”</p>
+<p>The RNN receives the embedding vector for “movie” and combines it with the updated hidden state h_1.<br>Now, h_1 contains some context about “The,” which might be neutral. The RNN updates the hidden state h_2 to reflect this context along with the meaning of “movie.”<br>Word 3: “was”</p>
+<p>The process repeats. The RNN receives the embedding vector for “was” and combines it with the previous hidden state h_2.<br>h_2 carries information about “The movie,” which could be neutral or slightly positive depending on the embedding vectors. The RNN updates the hidden state h_3 to incorporate the meaning of “was” in this context.<br>Word 4: “a” (similar to “The”)</p>
+<p>Word 5: “disappointment”</p>
+<p>The RNN receives the embedding vector for “disappointment,” a negative word.<br>The previous hidden state h_4 likely held some neutral or slightly positive sentiment. The RNN updates h_5 to reflect the strong negative connotation of “disappointment,” shifting the overall sentiment towards negative.<br>Words 6-7 follow similarly, likely reinforcing the negative sentiment.</p>
+<ol start="3">
+<li>Final Hidden State: After processing all words, the RNN in the encoder reaches the final hidden state, let’s call it h_final. This state encapsulates the sentiment of the entire sentence, considering the sequence of words and their relationships.</li>
+<li>Using the Hidden State: The h_final can then be used for various tasks:</li>
+</ol>
+<p>Sentiment Classification: This hidden state can be fed into a classifier (e.g., a simple neural network) to predict the overall sentiment of the sentence (likely negative in this case).<br>Machine Translation: If this is part of a machine translation system, the h_final might be used to encode the meaning of the sentence and generate a corresponding translation in another language.</p>
+<p>简而言之，RNN每步读入当前的Word并将其与之前的隐状态结合、更新隐状态，隐状态反映当前输入的所有词之间的relationship<br>在读完整个句子后，我们会得到最后的隐状态，最后的隐状态包含了整句话的所有词之间的relationship<br>最后的隐状态可用于情感分类、机器翻译</p>
+
       
     </div>
     <footer class="article-footer">
@@ -112,6 +131,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2024/05/09/MATLAB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MATLAB
+        
+      </div>
+    </a>
   
   
     <a href="/2024/04/17/Kaggle-LLM-Science-Exam/" id="article-nav-older" class="article-nav-link-wrap">
@@ -141,7 +169,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
     </div>
   </div>
 
@@ -152,6 +180,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/05/09/MATLAB/">MATLAB</a>
+          </li>
         
           <li>
             <a href="/2024/04/19/RNN/">RNN</a>
@@ -167,10 +199,6 @@
         
           <li>
             <a href="/2024/04/13/prompt/">prompt</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/08/LSTM/">LSTM</a>
           </li>
         
       </ul>
