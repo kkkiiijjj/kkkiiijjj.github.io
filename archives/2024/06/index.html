@@ -4,17 +4,13 @@
   <meta charset="utf-8">
   
   
-  <title>extract函数及正则表达式 | Forforevery</title>
+  <title>Archives: 2024/6 | Forforevery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="前言：练习Pandas时有数据清洗的题，要提取要求的字符该函数对于对文本数据的处理非常有用，例如从数据集中提取日期和时间信息，或从大量电子邮件地址中提取用户名和域名。 Extract()使用方法：pandas.str.extract(pat, flags&#x3D;0, expand&#x3D;True) 参数说明pat：正则表达式的模式字符串flags：re模块的匹配标志，如re.IGNOREC">
-<meta property="og:type" content="article">
-<meta property="og:title" content="extract函数及正则表达式">
-<meta property="og:url" content="https://kkkiiijjj.github.io/2024/03/10/extract%E5%87%BD%E6%95%B0%E5%8F%8A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Forforevery">
+<meta property="og:url" content="https://kkkiiijjj.github.io/archives/2024/06/index.html">
 <meta property="og:site_name" content="Forforevery">
-<meta property="og:description" content="前言：练习Pandas时有数据清洗的题，要提取要求的字符该函数对于对文本数据的处理非常有用，例如从数据集中提取日期和时间信息，或从大量电子邮件地址中提取用户名和域名。 Extract()使用方法：pandas.str.extract(pat, flags&#x3D;0, expand&#x3D;True) 参数说明pat：正则表达式的模式字符串flags：re模块的匹配标志，如re.IGNOREC">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-03-10T06:14:20.000Z">
-<meta property="article:modified_time" content="2024-03-10T06:46:11.230Z">
 <meta property="article:author" content="Wang">
 <meta name="twitter:card" content="summary">
   
@@ -79,68 +75,39 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-extract函数及正则表达式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/10/extract%E5%87%BD%E6%95%B0%E5%8F%8A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-date">
-  <time class="dt-published" datetime="2024-03-10T06:14:20.000Z" itemprop="datePublished">2024-03-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="p-name article-title" itemprop="headline name">
-      extract函数及正则表达式
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2024" class="archive-year">2024</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2024/06/22/kaggle%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94AI-Mathematical/" class="archive-article-date">
+  <time class="dt-published" datetime="2024-06-22T06:41:17.000Z" itemprop="datePublished">Jun 22</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2024/06/22/kaggle%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94AI-Mathematical/">kaggle竞赛——AI Mathematical</a>
     </h1>
   
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>前言：练习Pandas时有数据清洗的题，要提取要求的字符<br>该函数对于对文本数据的处理非常有用，例如从数据集中提取日期和时间信息，或从大量电子邮件地址中提取用户名和域名。</p>
-<h2 id="Extract"><a href="#Extract" class="headerlink" title="Extract()"></a>Extract()</h2><p>使用方法：<br>pandas.str.extract(pat, flags&#x3D;0, expand&#x3D;True)</p>
-<p>参数说明<br>pat：正则表达式的模式字符串<br>flags：re模块的匹配标志，如re.IGNORECASE、re.DOTALL等，默认为0，即没有标志<br>expand：是否将每个匹配的字符串拆分成新的列，默认为True<br>返回值</p>
-<p>一个包含匹配子串的新Series或DataFrame。</p>
-<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>[ABC]   匹配A或B或C<br>[^ABC]  除了ABC<br>[A-Z]   A到Z<br>[\s]    空格（包括换行符）<br>[\S]    空格（不包含换行符）<br>.       匹配除换行符（\n、\r）之外的任何单个字符，相等于 [^\n\r]<br>\w      匹配字母、数字、下划线。等价于 [A-Za-z0-9_]（即不要中文、标点、符号）<br>\d      匹配任意一个阿拉伯数字（0 到 9）。等价于 [0-9]</p>
-<h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><p>标记位于表达式之外</p>
-<p>i   不分大小写<br>g   全局匹配<br>gm  全局多行匹配</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/03/10/extract%E5%87%BD%E6%95%B0%E5%8F%8A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="cltl8pnbz00062ot04e137irx" data-title="extract函数及正则表达式" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2024/03/10/%E8%A7%84%E8%8C%83%E5%8C%96-Normalization/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          规范化(Normalization)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2024/03/09/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">字符编码</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
 
 </section>

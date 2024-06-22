@@ -77,6 +77,66 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-torch-nn-init" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/27/torch-nn-init/" class="article-date">
+  <time class="dt-published" datetime="2023-12-27T01:46:52.000Z" itemprop="datePublished">2023-12-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/27/torch-nn-init/">torch.nn.init</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>torch.nn.init.uniform_                </li>
+<li>torch.nn.init.normal_</li>
+<li>torch.nn.init.constant_</li>
+<li>torch.nn.init.ones_</li>
+<li>torch.nn.init.zeros_</li>
+<li>torch.nn.init.xavier_uniform_</li>
+<li>torch.nn.init.xavier_normal_<br>下面这些暂时未接触</li>
+<li>torch.nn.init.calculate_gain</li>
+<li>torch.nn.init.eye_</li>
+<li>torch.nn.init.dirac_</li>
+<li>torch.nn.init.kaiming_normal_</li>
+<li>torch.nn.init.trunc_normal_</li>
+<li>torch.nn.init.orthogonal_</li>
+<li>torch.nn.init.sparse_</li>
+</ul>
+<h3 id="torch-nn-init-uniform"><a href="#torch-nn-init-uniform" class="headerlink" title="torch.nn.init.uniform_"></a>torch.nn.init.uniform_</h3><p>从均匀分布U ( a , b ) 中生成值<br>语法<br>torch.nn.init.uniform_(tensor, a&#x3D;0.0, b&#x3D;1.0)<br>a:下界<br>b:上界</p>
+<h3 id="torch-nn-init-normal"><a href="#torch-nn-init-normal" class="headerlink" title="torch.nn.init.normal_"></a>torch.nn.init.normal_</h3><p>给定均值和标准差的正态分布N ( mean , std ) N(\text{mean}, \text{std})N(mean,std)中生成值<br>语法<br>torch.nn.init.normal_(tensor, mean&#x3D;0.0, std&#x3D;1.0)</p>
+<h3 id="torch-nn-init-constant"><a href="#torch-nn-init-constant" class="headerlink" title="torch.nn.init.constant_"></a>torch.nn.init.constant_</h3><p>用val的值填充<br>语法<br>torch.nn.init.constant_(tensor, val)</p>
+<h3 id="torch-nn-init-xavier-uniform"><a href="#torch-nn-init-xavier-uniform" class="headerlink" title="torch.nn.init.xavier_uniform_"></a>torch.nn.init.xavier_uniform_</h3><p>张量中的值采样自U ( − a , a )，其中：<br><img src="/image-70.png" alt="Alt text"><br>语法<br>torch.nn.init.xavier_uniform_(tensor, gain&#x3D;1)<br>gain ：[float] 可选的缩放因子</p>
+<h3 id="torch-nn-init-xavier-normal"><a href="#torch-nn-init-xavier-normal" class="headerlink" title="torch.nn.init.xavier_normal_"></a>torch.nn.init.xavier_normal_</h3><p>结果张量中的值采样自N(0, ${std}^2$)的正态分布，其中标准差：<img src="/image-71.png" alt="Alt text"><br>语法<br>torch.nn.init.xavier_normal_(tensor, gain&#x3D;1.0)<br>gain ：[float] 可选的缩放因子</p>
+<p>节选自：<br><a target="_blank" rel="noopener" href="https://machinelearning.blog.csdn.net/article/details/132382885">https://machinelearning.blog.csdn.net/article/details/132382885</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2023/12/27/torch-nn-init/" data-id="cltl8pnc2000a2ot053zx31sc" data-title="torch.nn.init" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-CNN" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/12/23/CNN/" class="article-date">
@@ -768,7 +828,7 @@ return dp[m][n];
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
     </div>
   </div>
 
@@ -779,6 +839,10 @@ return dp[m][n];
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/06/22/kaggle%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94AI-Mathematical/">kaggle竞赛——AI Mathematical</a>
+          </li>
         
           <li>
             <a href="/2024/05/24/2024-5-24/">2024-5-24</a>
@@ -794,10 +858,6 @@ return dp[m][n];
         
           <li>
             <a href="/2024/04/17/Kaggle-LLM-Science-Exam/">Kaggle - LLM Science Exam</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/17/kaggle%E2%80%94HMS/">kaggle—HMS</a>
           </li>
         
       </ul>
