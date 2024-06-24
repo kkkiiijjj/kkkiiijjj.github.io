@@ -77,6 +77,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-注意力机制" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="article-date">
+  <time class="dt-published" datetime="2024-06-24T01:37:03.000Z" itemprop="datePublished">2024-06-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/06/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">注意力机制</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/06/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" data-id="clxsb52zg0000ykt04sz46xoe" data-title="注意力机制" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-kaggle竞赛——AI-Mathematical" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/06/22/kaggle%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94AI-Mathematical/" class="article-date">
@@ -99,7 +137,11 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>OK,这是我参加的第一个kaggle比赛<br>还花钱报了班<br>比赛6月28出成绩结果到现在我一个代码都还没敲(汗)<br>比赛传送门：<a target="_blank" rel="noopener" href="https://www.kaggle.com/competitions/ai-mathematical-olympiad-prize/overview">https://www.kaggle.com/competitions/ai-mathematical-olympiad-prize/overview</a></p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>AI Mathematical Olympiad - Progress Prize 1<br>目的：创建算法和model解决困难的数学问题(问题是LaTex格式的)，旨在帮助AI模型提高数学逻辑推理能力<br>任务：给出test集的数学题的答案<br>评价标准：预测值的准确度</p>
+<h2 id="熟悉数据"><a href="#熟悉数据" class="headerlink" title="熟悉数据"></a>熟悉数据</h2><p>train集：包含十个问题及其答案的.csv文件<br>test集：说是给了50个问题，但是我只看到了3个</p>
+<h2 id="模型建立"><a href="#模型建立" class="headerlink" title="模型建立"></a>模型建立</h2><p>好像很多人用的Gemma</p>
+
       
     </div>
     <footer class="article-footer">
@@ -174,8 +216,45 @@ def update(self, val, n=1):
 <h3 id="该函数将s改为几min几s的形式"><a href="#该函数将s改为几min几s的形式" class="headerlink" title="该函数将s改为几min几s的形式"></a>该函数将s改为几min几s的形式</h3><p>def asMinutes(s):<br>    m &#x3D; math.floor(s &#x2F; 60)<br>    s -&#x3D; m * 60<br>    return ‘%dm %ds’ % (m, s)</p>
 <h3 id="该函数给出已过去的时间以及根据当前进度预计完成任务所需时间"><a href="#该函数给出已过去的时间以及根据当前进度预计完成任务所需时间" class="headerlink" title="该函数给出已过去的时间以及根据当前进度预计完成任务所需时间"></a>该函数给出已过去的时间以及根据当前进度预计完成任务所需时间</h3><p>def timeSince(since, percent):<br>    now &#x3D; time.time()# 获取当前时间<br>    s &#x3D; now - since# 经过的时间<br>    es &#x3D; s &#x2F; (percent)# es:estimated total time 估计所需总时长<br>    # percent:当前进度<br>    rs &#x3D; es - s# 还要多久完事儿<br>    return ‘%s (remain %s)’ % (asMinutes(s), asMinutes(rs))</p>
 <h3 id="该函数创建一个字典，该字典从config类捕获基本参数，更易于管理，以便在训练脚本中进一步使用"><a href="#该函数创建一个字典，该字典从config类捕获基本参数，更易于管理，以便在训练脚本中进一步使用" class="headerlink" title="该函数创建一个字典，该字典从config类捕获基本参数，更易于管理，以便在训练脚本中进一步使用"></a>该函数创建一个字典，该字典从config类捕获基本参数，更易于管理，以便在训练脚本中进一步使用</h3><p>def get_config_dict(config):<br>    config_dict &#x3D; dict((key, value) for key, value in config.<strong>dict</strong>.items()<br>    if not callable(value) and not key.startswith(‘__’))<br>    return config_dict</p>
-<h4 id="该函数为model量身定制learning-rates-和-weight-decay"><a href="#该函数为model量身定制learning-rates-和-weight-decay" class="headerlink" title="该函数为model量身定制learning rates 和 weight decay"></a>该函数为model量身定制learning rates 和 weight decay</h4><p>def get_optimizer_params(model, encoder_lr, decoder_lr, weight_decay&#x3D;0.0):<br>    param_optimizer &#x3D; list(model.named_parameters())<br>    no_decay &#x3D; [“bias”, “LayerNorm.bias”, “LayerNorm.weight”]<br>    optimizer_parameters &#x3D; [<br>        {‘params’: [p for n, p in model.model.named_parameters() if not any(nd in n for nd in no_decay)],<br>         ‘lr’: encoder_lr, ‘weight_decay’: weight_decay},<br>        {‘params’: [p for n, p in model.model.named_parameters() if any(nd in n for nd in no_decay)],<br>         ‘lr’: encoder_lr, ‘weight_decay’: 0.0},<br>        {‘params’: [p for n, p in model.named_parameters() if “model” not in n],<br>         ‘lr’: decoder_lr, ‘weight_decay’: 0.0}<br>    ]<br>    return optimizer_parameters</p>
-<h4 id="在Seq2Seq-模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training-effiency"><a href="#在Seq2Seq-模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training-effiency" class="headerlink" title="在Seq2Seq 模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training effiency"></a>在Seq2Seq 模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training effiency</h4><h1 id="data"><a href="#data" class="headerlink" title="data"></a>data</h1>
+<h3 id="该函数为model量身定制learning-rates-和-weight-decay"><a href="#该函数为model量身定制learning-rates-和-weight-decay" class="headerlink" title="该函数为model量身定制learning rates 和 weight decay"></a>该函数为model量身定制learning rates 和 weight decay</h3><p>def get_optimizer_params(model, encoder_lr, decoder_lr, weight_decay&#x3D;0.0):<br>    param_optimizer &#x3D; list(model.named_parameters())<br>    no_decay &#x3D; [“bias”, “LayerNorm.bias”, “LayerNorm.weight”]<br>    optimizer_parameters &#x3D; [<br>        {‘params’: [p for n, p in model.model.named_parameters() if not any(nd in n for nd in no_decay)],<br>         ‘lr’: encoder_lr, ‘weight_decay’: weight_decay},<br>        {‘params’: [p for n, p in model.model.named_parameters() if any(nd in n for nd in no_decay)],<br>         ‘lr’: encoder_lr, ‘weight_decay’: 0.0},<br>        {‘params’: [p for n, p in model.named_parameters() if “model” not in n],<br>         ‘lr’: decoder_lr, ‘weight_decay’: 0.0}<br>    ]<br>    return optimizer_parameters</p>
+<h4 id="在Seq2Seq-模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training-effiency"><a href="#在Seq2Seq-模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training-effiency" class="headerlink" title="在Seq2Seq 模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training effiency"></a>在Seq2Seq 模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training effiency</h4><h3 id="get-logger-函数将信息加载到控制台与文件里"><a href="#get-logger-函数将信息加载到控制台与文件里" class="headerlink" title="get_logger()函数将信息加载到控制台与文件里"></a>get_logger()函数将信息加载到控制台与文件里</h3><pre><code>def get_logger(filename=paths.OUTPUT_DIR+&#39;/&#39;+paths.LOGGER):##将信息加载到控制台与文件里，控制台用于实时监控program的进展，而文件用于储存program的进展，相当于存档
+from logging import getLogger, INFO, StreamHandler, FileHandler, Formatter
+logger = getLogger(__name__)
+logger.setLevel(INFO)
+handler1 = StreamHandler()
+handler1.setFormatter(Formatter(&quot;%(message)s&quot;))
+handler2 = FileHandler(filename=f&quot;&#123;filename&#125;.log&quot;)
+handler2.setFormatter(Formatter(&quot;%(message)s&quot;))
+logger.addHandler(handler1)
+logger.addHandler(handler2)
+return logger
+</code></pre>
+<h3 id="seed-everything-为各种随机数生成器-RNG-设置种子"><a href="#seed-everything-为各种随机数生成器-RNG-设置种子" class="headerlink" title="seed_everything()为各种随机数生成器(RNG)设置种子"></a>seed_everything()为各种随机数生成器(RNG)设置种子</h3><pre><code>def seed_everything(seed=20):
+random.seed(seed)
+os.environ[&#39;PYTHONHASHSEED&#39;] = str(seed)
+np.random.seed(seed)
+torch.manual_seed(seed)
+torch.cuda.manual_seed(seed)
+torch.backends.cudnn.deterministic = True
+</code></pre>
+<h3 id="generate-uuid-创建编号"><a href="#generate-uuid-创建编号" class="headerlink" title="generate_uuid()创建编号"></a>generate_uuid()创建编号</h3><p>def generate_uuid():#创建编号，产生随机且独一无二的uuid<br>    return str(uuid.uuid4())</p>
+<h3 id="将tensor-dictionary移动到GPU"><a href="#将tensor-dictionary移动到GPU" class="headerlink" title="将tensor dictionary移动到GPU"></a>将tensor dictionary移动到GPU</h3><p>def to_device(inputs, device: str &#x3D; device):#将tensor dictionary移动到GPU<br>    return {k: v.to(device) for k, v in inputs.items()}</p>
+<p>LOGGER &#x3D; get_logger()<br>seed_everything(seed&#x3D;config.SEED)</p>
+<p>tokenizer &#x3D; AutoTokenizer.from_pretrained(config.MODEL)<br>tokenizer.save_pretrained(paths.OUTPUT_DIR + ‘&#x2F;tokenizer&#x2F;‘)</p>
+<h3 id="将原始的文本数据转换为表格"><a href="#将原始的文本数据转换为表格" class="headerlink" title="将原始的文本数据转换为表格"></a>将原始的文本数据转换为表格</h3><p>def prepare_input(cfg: type, text: np.ndarray, tokenizer):</p>
+<pre><code>inputs = tokenizer.encode_plus(
+    text,
+    return_tensors=None,
+    add_special_tokens=True,
+    max_length=cfg.MAX_LEN,
+    padding=&#39;max_length&#39;, # TODO: check padding to max sequence in batch
+    truncation=True
+)
+for k, v in inputs.items():
+    inputs[k] = torch.tensor(v, dtype=torch.long) # TODO: check dtypes
+return inputs
+</code></pre>
+<h1 id="data"><a href="#data" class="headerlink" title="data"></a>data</h1>
       
     </div>
     <footer class="article-footer">
@@ -534,58 +613,11 @@ def update(self, val, n=1):
 
 
   
-    <article id="post-马尔可夫" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/24/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB/" class="article-date">
-  <time class="dt-published" datetime="2024-03-24T07:15:03.000Z" itemprop="datePublished">2024-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/03/24/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB/">马尔可夫</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>关于隐状态：<br>从过去的输入中提取重要特征并用于预测当前或下一个output<br>RNN会一步步更新隐状态，这个更新过程会将 目前的输入 与 去除过去不相关信息后的信息 结合在一起<br>这里举一个经典的例子：有很多盒子。每个盒子里装着不同的球，每次随机从一个盒子里摸出一个球<br>在这个过程中，盒子出现的顺序是隐含状态序列，球出现的顺序是观测序列，隐含状态之间的转换过程是一个马尔可夫过程</p>
-<p>GRU(门控单元)<br>包含重置门（reset gate）和更新门（update gate）<br>具体运算：<br><img src="/image-87.png" alt="alt text"><br><img src="/image-88.png" alt="alt text"><br><img src="/image-89.png" alt="alt text"></p>
-<p>门控循环神经网络可以更好地捕获时间步距离很长的序列上的依赖关系。</p>
-<p>重置门有助于捕获序列中的短期依赖关系。</p>
-<p>更新门有助于捕获序列中的长期依赖关系。</p>
-<p>重置门打开时，门控循环单元包含基本循环神经网络；更新门打开时，门控循环单元可以跳过子序列。</p>
-<p>自回归模型（autoregressive models）<br>Mechanics：使用线性回归根据过去的数据预测将来，比如天气预报通过分析前几天的温度来预测接下来几天的温度</p>
-<p>自回归和马尔可夫的区别：自回归依赖过去的数据，而马尔可夫不，后者仅依赖current state<br>当数据之间存在线性关系时用自回归，短期预测用马尔可夫</p>
-<p>HMM(隐马尔可夫)与马尔可夫的区别<br><img src="/image-90.png" alt="alt text"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/03/24/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB/" data-id="clu56pfe40000sot0322g9ubw" data-title="马尔可夫" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -617,6 +649,10 @@ def update(self, val, n=1):
       <ul>
         
           <li>
+            <a href="/2024/06/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">注意力机制</a>
+          </li>
+        
+          <li>
             <a href="/2024/06/22/kaggle%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94AI-Mathematical/">kaggle竞赛——AI Mathematical</a>
           </li>
         
@@ -630,10 +666,6 @@ def update(self, val, n=1):
         
           <li>
             <a href="/2024/04/19/RNN/">RNN</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/17/Kaggle-LLM-Science-Exam/">Kaggle - LLM Science Exam</a>
           </li>
         
       </ul>

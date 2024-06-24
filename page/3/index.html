@@ -77,6 +77,46 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-数据集划分" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/01/07/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%92%E5%88%86/" class="article-date">
+  <time class="dt-published" datetime="2024-01-07T03:26:06.000Z" itemprop="datePublished">2024-01-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/01/07/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%92%E5%88%86/">数据集划分</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>下载后的数据集类型：</p>
+<p><img src="/image-72.png" alt="Alt text"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/01/07/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%92%E5%88%86/" data-id="cltl8pnc3000c2ot0degbbs5y" data-title="数据集划分" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-torch-nn-init" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/12/27/torch-nn-init/" class="article-date">
@@ -381,7 +421,7 @@
 <p>这里的<strong>dtype</strong>的作用：给array中初始化值指定名字和数据类型。每一项初始化值的第一项被指定为’x’，第二项被指定为’y’。<br>分别使用名字索引访问x中的元素：<br>print(x[‘x’])  # 输出 [1 0]<br>print(x[‘y’])  # 输出 [1000 1111]</p>
 <p><strong>yield</strong><br>如果不太好理解yield，可以先把yield当作return的同胞兄弟来看。<br>这两者的区别是：<br>有return的函数直接返回所有结果，程序终止不再运行，并销毁局部变量；<br>在调用生成器函数的过程中，每次遇到 yield 时函数会暂停并保存当前所有的运行信息（保留局部变量），返回yield的值, 并在下一次执行next()方法时从当前位置继续运行，直到生成器被全部遍历完。<br><img src="/image-14.png" alt="Alt text"><br><img src="/image-15.png" alt="Alt text"><br><img src="/image-16.png" alt="Alt text"><br><img src="/image-17.png" alt="Alt text"></p>
 <p>**attach_grad()**函数：求梯度</p>
-<h1 id="线性回归过程：生成数据集——读取数据集——数据预处理——初始化模型参数——定义模型——定义损失函数——定义优化算法——训练"><a href="#线性回归过程：生成数据集——读取数据集——数据预处理——初始化模型参数——定义模型——定义损失函数——定义优化算法——训练" class="headerlink" title="线性回归过程：生成数据集——读取数据集——数据预处理——初始化模型参数——定义模型——定义损失函数——定义优化算法——训练"></a>线性回归过程：生成数据集——读取数据集——数据预处理——初始化模型参数——定义模型——定义损失函数——定义优化算法——训练</h1><p>model——loss——optimizer</p>
+<h1 id="线性回归过程：-生成数据集——-读取数据集——数据预处理——初始化模型参数——定义模型——定义损失函数——定义优化算法——训练"><a href="#线性回归过程：-生成数据集——-读取数据集——数据预处理——初始化模型参数——定义模型——定义损失函数——定义优化算法——训练" class="headerlink" title="线性回归过程：(生成数据集——)读取数据集——数据预处理——初始化模型参数——定义模型——定义损失函数——定义优化算法——训练"></a>线性回归过程：(生成数据集——)读取数据集——数据预处理——初始化模型参数——定义模型——定义损失函数——定义优化算法——训练</h1><p>model——loss——optimizer</p>
 <h2 id="交叉熵损失"><a href="#交叉熵损失" class="headerlink" title="交叉熵损失"></a>交叉熵损失</h2><p>待补充</p>
 <h2 id="torchvision主要包括以下几个包：-vision-datasets-几个常用视觉数据集，可以下载和加载，这里主要的高级用法就是可以看源码如何自己写自己的Dataset的子类-vision-models-流行的模型，例如-AlexNet-VGG-ResNet-和-Densenet-以及-与训练好的参数。-vision-transforms-常用的图像操作，例如：随机切割，旋转，数据类型转换，图像到tensor-numpy-数组到tensor-tensor-到-图像等。-vision-utils-用于把形似-3-x-H-x-W-的张量保存到硬盘中，给一个mini-batch的图像可以产生一个图像格网。"><a href="#torchvision主要包括以下几个包：-vision-datasets-几个常用视觉数据集，可以下载和加载，这里主要的高级用法就是可以看源码如何自己写自己的Dataset的子类-vision-models-流行的模型，例如-AlexNet-VGG-ResNet-和-Densenet-以及-与训练好的参数。-vision-transforms-常用的图像操作，例如：随机切割，旋转，数据类型转换，图像到tensor-numpy-数组到tensor-tensor-到-图像等。-vision-utils-用于把形似-3-x-H-x-W-的张量保存到硬盘中，给一个mini-batch的图像可以产生一个图像格网。" class="headerlink" title="torchvision主要包括以下几个包：* vision.datasets : 几个常用视觉数据集，可以下载和加载，这里主要的高级用法就是可以看源码如何自己写自己的Dataset的子类* vision.models : 流行的模型，例如 AlexNet, VGG, ResNet 和 Densenet 以及 与训练好的参数。* vision.transforms : 常用的图像操作，例如：随机切割，旋转，数据类型转换，图像到tensor ,numpy 数组到tensor , tensor 到 图像等。* vision.utils : 用于把形似 (3 x H x W) 的张量保存到硬盘中，给一个mini-batch的图像可以产生一个图像格网。"></a>torchvision主要包括以下几个包：<br>* vision.datasets : 几个常用视觉数据集，可以下载和加载，这里主要的高级用法就是可以看源码如何自己写自己的Dataset的子类<br>* vision.models : 流行的模型，例如 AlexNet, VGG, ResNet 和 Densenet 以及 与训练好的参数。<br>* vision.transforms : 常用的图像操作，例如：随机切割，旋转，数据类型转换，图像到tensor ,numpy 数组到tensor , tensor 到 图像等。<br>* vision.utils : 用于把形似 (3 x H x W) 的张量保存到硬盘中，给一个mini-batch的图像可以产生一个图像格网。</h2><h2 id="torch-rand（）："><a href="#torch-rand（）：" class="headerlink" title="torch.rand（）："></a>torch.rand（）：</h2><p>张量生成函数（torch.rand的作用通俗来说就是产生均匀分布的数据！<br>torch.rand（）里面有几个数字那么就是生成几维张量！<br>生成一个有四个随机张量元素的一维张量：<br>x &#x3D; torch.rand(4)<br>结果：<br><img src="/image-18.png" alt="Alt text"><br>x &#x3D; torch.rand(2,4)<br>生成了个两行四列的张量（矩阵）：<br><img src="/image-19.png" alt="Alt text"><br>x &#x3D; torch.rand(2,3,4)<br><img src="/image-20.png" alt="Alt text"><br>这里通俗理解为，生成了2个平行摆放的3行4列的二维张量！</p>
 <h2 id="flatten-函数："><a href="#flatten-函数：" class="headerlink" title="flatten()函数："></a>flatten()函数：</h2><p>flatten()是对多维数据的降维函数。flatten(),默认缺省参数为0，有参数则从第dim个维度开始展开<br>常用在从卷积层到全连接层的过渡<br>例：<br>a &#x3D; torch.rand(2,3,4)<br><img src="/image-21.png" alt="Alt text"><br>b &#x3D; a.flatten()<br><img src="/image-22.png" alt="Alt text"><br>d &#x3D; a.flatten(1)<br><img src="/image-23.png" alt="Alt text"><br>ps:这不就是去中括号吗</p>
@@ -504,7 +544,7 @@
 <p>深度学习中更经常地使用L2范数的平方，也会经常遇到L1范数，它表示为向量元素的绝对值之和：<br>$||x||<em>1&#x3D;\sum</em>{i&#x3D;1}^n|x_i|$<br>与L2范数相比，L1范数受异常值的影响较小。为了计算L1范数，我们将绝对值函数和按元素求和组合起来。<br>np.abs(u).sum()<br> array(7.)<br> %.5f：表示按浮点数输出，小数点后面取5位<br> <strong>SVG</strong> 意为可缩放矢量图形（Scalable Vector Graphics）。<br> multinomial distribution:多项式分布<br> binomial:二项式</p>
 <p> 为了知道模块中可以调用哪些函数和类，可以调用dir函数。<br>  print(dir(np.random))<br> 有关如何使用给定函数或类的更具体说明，可以调用help函数<br> help(np.ones)</p>
 <h2 id="线性模型"><a href="#线性模型" class="headerlink" title="线性模型"></a>线性模型</h2><p> ˆ<br> y &#x3D;Xw+b<br> X的每一行是一个样本，每一列是一种特征。权重放到向量w∈Rd中\</p>
-<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p> 回归问题中最常用的损失函数是平方误差函数。<br> <img src="/image-13.png" alt="Alt text"><br> 梯度下降（gradientdescent）的方法，这种方法几乎可以优化所有深度学习模型。<br>它通过不断地在损失函数递减的方向上更新参数来降低误差。\</p>
+<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p> 回归问题中最常用的损失函数是平方误差函数。<br> <img src="/image-13.png" alt="Alt text"><br> 话说这玩意好像在数值分析里学过,不过没有1\2<br> 梯度下降（gradientdescent）的方法，这种方法几乎可以优化所有深度学习模型。<br>它通过不断地在损失函数递减的方向上更新参数来降低误差。\</p>
 <h2 id="numpy-random-normal"><a href="#numpy-random-normal" class="headerlink" title="numpy.random.normal"></a>numpy.random.normal</h2><p>用例:<br>numpy.random.normal(loc&#x3D;0.0, scale&#x3D;1.0, size&#x3D;None)<br>功能:<br>从正态（高斯）分布中抽取随机样本。<br>loc：标准差<br>scale:方差<br>size:输出值的维度</p>
 
       
@@ -653,163 +693,11 @@ b=-1061109568
 
 
   
-    <article id="post-Passage-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/10/21/Passage-1/" class="article-date">
-  <time class="dt-published" datetime="2023-10-21T02:57:24.000Z" itemprop="datePublished">2023-10-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/10/21/Passage-1/">Passage 1 :)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>背包问题是一类经典的动态规划问题，它非常灵活，需要仔细琢磨体会，本文先对背包问题的几种常见类型作一个总结，然后再看看LeetCode上几个相关题目。</p>
-<p>本文首发于我的博客，传送门<br>根据维基百科，背包问题（Knapsack problem）是一种组合优化的NP完全（NP-Complete，NPC）问题。问题可以描述为：给定一组物品，每种物品都有自己的重量和价格，在限定的总重量内，我们如何选择，才能使得物品的总价格最高。NPC问题是没有多项式时间复杂度的解法的，但是利用动态规划，我们可以以伪多项式时间复杂度求解背包问题。一般来讲，背包问题有以下几种分类：</p>
-<p>01背包问题<br>完全背包问题<br>多重背包问题<br>此外，还存在一些其他考法，例如恰好装满、求方案总数、求所有的方案等。本文接下来就分别讨论一下这些问题。</p>
-<ol>
-<li>01背包<br>1.1 题目<br>最基本的背包问题就是01背包问题（01 knapsack problem）：一共有N件物品，第i（i从1开始）件物品的重量为w[i]，价值为v[i]。在总重量不超过背包承载上限W的情况下，能够装入背包的最大价值是多少？</li>
-</ol>
-<p>1.2 分析<br>如果采用暴力穷举的方式，每件物品都存在装入和不装入两种情况，所以总的时间复杂度是O(2^N)，这是不可接受的。而使用动态规划可以将复杂度降至O(NW)。我们的目标是书包内物品的总价值，而变量是物品和书包的限重，所以我们可定义状态dp:</p>
-<p>dp[i][j]表示将前i件物品装进限重为j的背包可以获得的最大价值, 0&lt;&#x3D;i&lt;&#x3D;N, 0&lt;&#x3D;j&lt;&#x3D;W<br>那么我们可以将dp[0][0…W]初始化为0，表示将前0个物品（即没有物品）装入书包的最大价值为0。那么当 i &gt; 0 时dp[i][j]有两种情况：</p>
-<p>不装入第i件物品，即dp[i−1][j]；<br>装入第i件物品（前提是能装下），即dp[i−1][j−w[i]] + v[i]。<br>即状态转移方程为</p>
-<p>dp[i][j] &#x3D; max(dp[i−1][j], dp[i−1][j−w[i]]+v[i]) &#x2F;&#x2F; j &gt;&#x3D; w[i]<br>由上述状态转移方程可知，dp[i][j]的值只与dp[i-1][0,…,j-1]有关，所以我们可以采用动态规划常用的方法（滚动数组）对空间进行优化（即去掉dp的第一维）。需要注意的是，为了防止上一层循环的dp[0,…,j-1]被覆盖，循环的时候 j 只能逆向枚举（空间优化前没有这个限制），伪代码为：</p>
-<p>&#x2F;&#x2F; 01背包问题伪代码(空间优化版)<br>dp[0,…,W] &#x3D; 0<br>for i &#x3D; 1,…,N<br>    for j &#x3D; W,…,w[i] &#x2F;&#x2F; 必须逆向枚举!!!<br>        dp[j] &#x3D; max(dp[j], dp[j−w[i]]+v[i])<br>时间复杂度为O(NW), 空间复杂度为O(W)。由于W的值是W的位数的幂，所以这个时间复杂度是伪多项式时间。</p>
-<p>动态规划的核心思想避免重复计算在01背包问题中体现得淋漓尽致。第i件物品装入或者不装入而获得的最大价值完全可以由前面i-1件物品的最大价值决定，暴力枚举忽略了这个事实。</p>
-<ol start="2">
-<li>完全背包<br>2.1 题目<br>完全背包（unbounded knapsack problem）与01背包不同就是每种物品可以有无限多个：一共有N种物品，每种物品有无限多个，第i（i从1开始）种物品的重量为w[i]，价值为v[i]。在总重量不超过背包承载上限W的情况下，能够装入背包的最大价值是多少？</li>
-</ol>
-<p>2.2 分析一<br>我们的目标和变量和01背包没有区别，所以我们可定义与01背包问题几乎完全相同的状态dp:</p>
-<p>dp[i][j]表示将前i种物品装进限重为j的背包可以获得的最大价值, 0&lt;&#x3D;i&lt;&#x3D;N, 0&lt;&#x3D;j&lt;&#x3D;W<br>初始状态也是一样的，我们将dp[0][0…W]初始化为0，表示将前0种物品（即没有物品）装入书包的最大价值为0。那么当 i &gt; 0 时dp[i][j]也有两种情况：</p>
-<p>不装入第i种物品，即dp[i−1][j]，同01背包；<br>装入第i种物品，此时和01背包不太一样，因为每种物品有无限个（但注意书包限重是有限的），所以此时不应该转移到dp[i−1][j−w[i]]而应该转移到dp[i][j−w[i]]，即装入第i种商品后还可以再继续装入第种商品。<br>所以状态转移方程为</p>
-<p>dp[i][j] &#x3D; max(dp[i−1][j], dp[i][j−w[i]]+v[i]) &#x2F;&#x2F; j &gt;&#x3D; w[i]<br>这个状态转移方程与01背包问题唯一不同就是max第二项不是dp[i-1]而是dp[i]。</p>
-<p>和01背包问题类似，也可进行空间优化，优化后不同点在于这里的 j 只能正向枚举而01背包只能逆向枚举，因为这里的max第二项是dp[i]而01背包是dp[i-1]，即这里就是需要覆盖而01背包需要避免覆盖。所以伪代码如下：</p>
-<p>&#x2F;&#x2F; 完全背包问题思路一伪代码(空间优化版)<br>dp[0,…,W] &#x3D; 0<br>for i &#x3D; 1,…,N<br>    for j &#x3D; w[i],…,W &#x2F;&#x2F; 必须正向枚举!!!<br>        dp[j] &#x3D; max(dp[j], dp[j−w[i]]+v[i])<br>由上述伪代码看出，01背包和完全背包问题此解法的空间优化版解法唯一不同就是前者的 j 只能逆向枚举而后者的 j 只能正向枚举，这是由二者的状态转移方程决定的。此解法时间复杂度为O(NW), 空间复杂度为O(W)。</p>
-<p>2.3 分析二<br>除了分析一的思路外，完全背包还有一种常见的思路，但是复杂度高一些。我们从装入第 i 种物品多少件出发，01背包只有两种情况即取0件和取1件，而这里是取0件、1件、2件…直到超过限重（k &gt; j&#x2F;w[i]），所以状态转移方程为：</p>
-<h1 id="k为装入第i种物品的件数-k"><a href="#k为装入第i种物品的件数-k" class="headerlink" title="k为装入第i种物品的件数, k &lt;&#x3D; j&#x2F;w[i]"></a>k为装入第i种物品的件数, k &lt;&#x3D; j&#x2F;w[i]</h1><p>dp[i][j] &#x3D; max{(dp[i-1][j − k<em>w[i]] + k</em>v[i]) for every k}<br>同理也可以进行空间优化，需要注意的是，这里max里面是dp[i-1]，和01背包一样，所以 j 必须逆向枚举，优化后伪代码为</p>
-<p>&#x2F;&#x2F; 完全背包问题思路二伪代码(空间优化版)<br>dp[0,…,W] &#x3D; 0<br>for i &#x3D; 1,…,N<br>    for j &#x3D; W,…,w[i] &#x2F;&#x2F; 必须逆向枚举!!!<br>        for k &#x3D; [0, 1,…, j&#x2F;w[i]]<br>            dp[j] &#x3D; max(dp[j], dp[j−k<em>w[i]]+k</em>v[i])<br>相比于分析一，此种方法不是在O(1)时间求得dp[i][j]，所以总的时间复杂度就比分析一大些了，为<br>级别。</p>
-<p>2.4 分析三、转换成01背包<br>01背包问题是最基本的背包问题，我们可以考虑把完全背包问题转化为01背包问题来解：将一种物品转换成若干件只能装入0件或者1件的01背包中的物品。</p>
-<p>最简单的想法是，考虑到第 i 种物品最多装入 W&#x2F;w[i] 件，于是可以把第 i 种物品转化为 W&#x2F;w[i] 件费用及价值均不变的物品，然后求解这个01背包问题。</p>
-<p>更高效的转化方法是采用二进制的思想：把第 i 种物品拆成重量为<br> 、价值为<br> 的若干件物品，其中 k 取遍满足<br> 的非负整数。这是因为不管最优策略选几件第 i 种物品，总可以表示成若干个刚才这些物品的和（例：13 &#x3D; 1 + 4 + 8）。这样就将转换后的物品数目降成了对数级别。</p>
-<ol start="3">
-<li>多重背包<br>3.1 题目<br>多重背包（bounded knapsack problem）与前面不同就是每种物品是有限个：一共有N种物品，第i（i从1开始）种物品的数量为n[i]，重量为w[i]，价值为v[i]。在总重量不超过背包承载上限W的情况下，能够装入背包的最大价值是多少？</li>
-</ol>
-<p>3.2 分析一<br>此时的分析和完全背包的分析二差不多，也是从装入第 i 种物品多少件出发：装入第i种物品0件、1件、…n[i]件（还要满足不超过限重）。所以状态方程为：</p>
-<h1 id="k为装入第i种物品的件数-k-1"><a href="#k为装入第i种物品的件数-k-1" class="headerlink" title="k为装入第i种物品的件数, k &lt;&#x3D; min(n[i], j&#x2F;w[i])"></a>k为装入第i种物品的件数, k &lt;&#x3D; min(n[i], j&#x2F;w[i])</h1><p>dp[i][j] &#x3D; max{(dp[i-1][j − k<em>w[i]] + k</em>v[i]) for every k}<br>同理也可以进行空间优化，而且 j 也必须逆向枚举，优化后伪代码为</p>
-<p>&#x2F;&#x2F; 完全背包问题思路二伪代码(空间优化版)<br>dp[0,…,W] &#x3D; 0<br>for i &#x3D; 1,…,N<br>    for j &#x3D; W,…,w[i] &#x2F;&#x2F; 必须逆向枚举!!!<br>        for k &#x3D; [0, 1,…, min(n[i], j&#x2F;w[i])]<br>            dp[j] &#x3D; max(dp[j], dp[j−k<em>w[i]]+k</em>v[i])<br>总的时间复杂度约为<br> 级别。</p>
-<p>3.3 分析二、转换成01背包<br>采用2.4节类似的思路可以将多重背包转换成01背包问题，采用二进制思路将第 i 种物品分成了<br> 件物品，将原问题转化为了复杂度为<br> 的 01 背包问题，相对于分析一是很大的改进。</p>
-<ol start="4">
-<li>其他情形<br>除了上述三种基本的背包问题外，还有一些其他的变种，如下图所示（图片来源）。</li>
-</ol>
-<p>本节列举几种比较常见的。</p>
-<p>4.1 恰好装满<br>背包问题有时候还有一个限制就是必须恰好装满背包，此时基本思路没有区别，只是在初始化的时候有所不同。</p>
-<p>如果没有恰好装满背包的限制，我们将dp全部初始化成0就可以了。因为任何容量的背包都有一个合法解“什么都不装”，这个解的价值为0，所以初始时状态的值也就全部为0了。如果有恰好装满的限制，那只应该将dp[0,…,N][0]初始为0，其它dp值均初始化为-inf，因为此时只有容量为0的背包可以在什么也不装情况下被“恰好装满”，其它容量的背包初始均没有合法的解，应该被初始化为-inf。</p>
-<p>4.2 求方案总数<br>除了在给定每个物品的价值后求可得到的最大价值外，还有一类问题是问装满背包或将背包装至某一指定容量的方案总数。对于这类问题，需要将状态转移方程中的 max 改成 sum ，大体思路是不变的。例如若每件物品均是完全背包中的物品，转移方程即为</p>
-<p>dp[i][j] &#x3D; sum(dp[i−1][j], dp[i][j−w[i]]) &#x2F;&#x2F; j &gt;&#x3D; w[i]<br>4.3 二维背包<br>前面讨论的背包容量都是一个量：重量。二维背包问题是指每个背包有两个限制条件（比如重量和体积限制），选择物品必须要满足这两个条件。此类问题的解法和一维背包问题不同就是dp数组要多开一维，其他和一维背包完全一样，例如5.4节。</p>
-<p>4.4 求最优方案<br>一般而言，背包问题是要求一个最优值，如果要求输出这个最优值的方案，可以参照一般动态规划问题输出方案的方法：记录下每个状态的最优值是由哪一个策略推出来的，这样便可根据这条策略找到上一个状态，从上一个状态接着向前推即可。</p>
-<p>以01背包为例，我们可以再用一个数组G[i][j]来记录方案，设 G[i][j] &#x3D; 0表示计算 dp[i][j] 的值时是采用了max中的前一项(也即dp[i−1][j])，G[i][j] &#x3D; 1 表示采用了方程的后一项。即分别表示了两种策略: 未装入第 i 个物品及装了第 i 个物品。其实我们也可以直接从求好的dp[i][j]反推方案：若 dp[i][j] &#x3D; dp[i−1][j] 说明未选第i个物品，反之说明选了。</p>
-<ol start="5">
-<li>LeetCode相关题目<br>本节对LeetCode上面的背包问题进行讨论。</li>
-</ol>
-<p>5.1 Partition Equal Subset Sum（分割等和子集）<br>Loading…<br>​leetcode.com&#x2F;problems&#x2F;partition-equal-subset-sum&#x2F;</p>
-<p>题目给定一个只包含正整数的非空数组。问是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。</p>
-<p>由于所有元素的和sum已知，所以两个子集的和都应该是sum&#x2F;2（所以前提是sum不能是奇数），即题目转换成从这个数组里面选取一些元素使这些元素和为sum&#x2F;2。如果我们将所有元素的值看做是物品的重量，每件物品价值都为1，所以这就是一个恰好装满的01背包问题。</p>
-<p>我们定义空间优化后的状态数组dp，由于是恰好装满，所以应该将dp[0]初始化为0而将其他全部初始化为INT_MIN，然后按照类似1.2节的伪代码更新dp：</p>
-<p>int capacity &#x3D; sum &#x2F; 2;<br>vector<int>dp(capacity + 1, INT_MIN);<br>dp[0] &#x3D; 0;<br>for(int i &#x3D; 1; i &lt;&#x3D; n; i++)<br>    for(int j &#x3D; capacity; j &gt;&#x3D; nums[i-1]; j–)<br>        dp[j] &#x3D; max(dp[j], 1 + dp[j - nums[i-1]]);<br>更新完毕后，如果dp[sum&#x2F;2]大于0说明满足题意。</p>
-<p>由于此题最后求的是能不能进行划分，所以dp的每个元素定义成bool型就可以了，然后将dp[0]初始为true其他初始化为false，而转移方程就应该是用或操作而不是max操作。完整代码如下：</p>
-<p>bool canPartition(vector<int>&amp; nums) {<br>    int sum &#x3D; 0, n &#x3D; nums.size();<br>    for(int &amp;num: nums) sum +&#x3D; num;<br>    if(sum % 2) return false;</p>
-<pre><code>int capacity = sum / 2;
-vector&lt;bool&gt;dp(capacity + 1, false);
-dp[0] = true;
-for(int i = 1; i &lt;= n; i++)
-    for(int j = capacity; j &gt;= nums[i-1]; j--)
-        dp[j] = dp[j] || dp[j - nums[i-1]];
-
-return dp[capacity];
-</code></pre>
-<p>}<br>另外此题还有一个更巧妙更快的解法，基本思路是用一个bisets来记录所有可能子集的和，详见我的Github。<br>5.2 Coin Change（零钱兑换）<br>Loading…<br>​leetcode.com&#x2F;problems&#x2F;coin-change&#x2F;</p>
-<p>题目给定一个价值amount和一些面值，假设每个面值的硬币数都是无限的，问我们最少能用几个硬币组成给定的价值。</p>
-<p>如果我们将面值看作是物品，面值金额看成是物品的重量，每件物品的价值均为1，这样此题就是是一个恰好装满的完全背包问题了。不过这里不是求最多装入多少物品而是求最少，我们只需要将2.2节的转态转移方程中的max改成min即可，又由于是恰好装满，所以除了dp[0]，其他都应初始化为INT_MAX。完整代码如下：</p>
-<p>int coinChange(vector<int>&amp; coins, int amount) {<br>    vector<int>dp(amount + 1, INT_MAX);<br>    dp[0] &#x3D; 0;</p>
-<pre><code>for(int i = 1; i &lt;= coins.size(); i++)
-    for(int j = coins[i-1]; j &lt;= amount; j++)&#123;
-        // 下行代码会在 1+INT_MAX 时溢出
-        // dp[j] = min(dp[j], 1 + dp[j - coins[i-1]]); 
-        if(dp[j] - 1 &gt; dp[j - coins[i-1]])
-            dp[j] = 1 + dp[j - coins[i-1]];   
-    &#125;
-return dp[amount] == INT_MAX ? -1 : dp[amount];   
-</code></pre>
-<p>}<br>注意上面1 + dp[j - coins[i-1]]会存在溢出的风险，所以我们换了个写法。</p>
-<p>另外此题还可以进行搜索所有可能然后保持一个全局的结果res，但是直接搜索会超时，所以需要进行精心剪枝，剪枝后可击败99%。详见我的Github。<br>5.3 Target Sum（目标和）<br>Loading…<br>​leetcode.com&#x2F;problems&#x2F;target-sum&#x2F;</p>
-<p>这道题给了我们一个数组（元素非负），和一个目标值，要求给数组中每个数字前添加正号或负号所组成的表达式结果与目标值S相等，求有多少种情况。</p>
-<p>假设所有元素和为sum，所有添加正号的元素的和为A，所有添加负号的元素和为B，则有sum &#x3D; A + B 且 S &#x3D; A - B，解方程得A &#x3D; (sum + S)&#x2F;2。即题目转换成：从数组中选取一些元素使和恰好为(sum + S) &#x2F; 2。可见这是一个恰好装满的01背包问题，要求所有方案数，将1.2节状态转移方程中的max改成求和即可。需要注意的是，虽然这里是恰好装满，但是dp初始值不应该是inf，因为这里求的不是总价值而是方案数，应该全部初始为0（除了dp[0]初始化为1）。所以代码如下：</p>
-<p>int findTargetSumWays(vector<int>&amp; nums, int S) {<br>    int sum &#x3D; 0;<br>    &#x2F;&#x2F; for(int &amp;num: nums) sum +&#x3D; num;<br>    sum &#x3D; accumulate(nums.begin(), nums.end(), 0);<br>    if(S &gt; sum || sum &lt; -S) return 0; &#x2F;&#x2F; 肯定不行<br>    if((S + sum) &amp; 1) return 0; &#x2F;&#x2F; 奇数<br>    int target &#x3D; (S + sum) &gt;&gt; 1;</p>
-<pre><code>vector&lt;int&gt;dp(target + 1, 0);
-
-dp[0] = 1;
-for(int i = 1; i &lt;= nums.size(); i++)
-    for(int j = target; j &gt;= nums[i-1]; j--)
-        dp[j] = dp[j] + dp[j - nums[i-1]];
-
-return dp[target];
-</code></pre>
-<p>}<br>5.4 Ones and Zeros（一和零）<br>Loading…<br>​leetcode.com&#x2F;problems&#x2F;ones-and-zeroes&#x2F;</p>
-<p>题目给定一个仅包含 0 和 1 字符串的数组。任务是从数组中选取尽可能多的字符串，使这些字符串包含的0和1的数目分别不超过m和n。</p>
-<p>我们把每个字符串看做是一件物品，把字符串中0的数目和1的数目看做是两种“重量”，所以就变成了一个二维01背包问题，书包的两个限重分别是 m 和 n，要求书包能装下的物品的最大数目（也相当于价值最大，设每个物品价值为1）。</p>
-<p>我们可以提前把每个字符串的两个“重量” w0和w1算出来用数组存放，但是注意到只需要用一次这两个值，所以我们只需在用到的时候计算w0和w1就行了，这样就不用额外的数组存放。完整代码如下：</p>
-<p>int findMaxForm(vector<string>&amp; strs, int m, int n) {<br>    int num &#x3D; strs.size();<br>    int w0, w1;</p>
-<pre><code>vector&lt;vector&lt;int&gt;&gt;dp(m+1, vector&lt;int&gt;(n+1, 0));
-
-for(int i = 1; i &lt;= num; i++)&#123;
-    w0 = 0; w1 = 0;
-    // 计算第i-1个字符串的两个重量
-    for(char &amp;c: strs[i - 1])&#123;
-        if(c == &#39;0&#39;) w0 += 1;
-        else w1 += 1;
-    &#125;
-
-    // 01背包, 逆向迭代更新dp
-    for(int j = m; j &gt;= w0; j--)
-        for(int k = n; k &gt;= w1; k--)
-            dp[j][k] = max(dp[j][k], 1+dp[j-w0][k-w1]);
-&#125;
-
-return dp[m][n];
-</code></pre>
-<p>}</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2023/10/21/Passage-1/" data-id="cltl8pnbz00052ot0c20z10nn" data-title="Passage 1 :)" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -841,6 +729,10 @@ return dp[m][n];
       <ul>
         
           <li>
+            <a href="/2024/06/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">注意力机制</a>
+          </li>
+        
+          <li>
             <a href="/2024/06/22/kaggle%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94AI-Mathematical/">kaggle竞赛——AI Mathematical</a>
           </li>
         
@@ -854,10 +746,6 @@ return dp[m][n];
         
           <li>
             <a href="/2024/04/19/RNN/">RNN</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/17/Kaggle-LLM-Science-Exam/">Kaggle - LLM Science Exam</a>
           </li>
         
       </ul>

@@ -77,6 +77,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-马尔可夫" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/24/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB/" class="article-date">
+  <time class="dt-published" datetime="2024-03-24T07:15:03.000Z" itemprop="datePublished">2024-03-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/24/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB/">马尔可夫</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>关于隐状态：<br>从过去的输入中提取重要特征并用于预测当前或下一个output<br>RNN会一步步更新隐状态，这个更新过程会将 目前的输入 与 去除过去不相关信息后的信息 结合在一起<br>这里举一个经典的例子：有很多盒子。每个盒子里装着不同的球，每次随机从一个盒子里摸出一个球<br>在这个过程中，盒子出现的顺序是隐含状态序列，球出现的顺序是观测序列，隐含状态之间的转换过程是一个马尔可夫过程</p>
+<p>GRU(门控单元)<br>包含重置门（reset gate）和更新门（update gate）<br>具体运算：<br><img src="/image-87.png" alt="alt text"><br><img src="/image-88.png" alt="alt text"><br><img src="/image-89.png" alt="alt text"></p>
+<p>门控循环神经网络可以更好地捕获时间步距离很长的序列上的依赖关系。</p>
+<p>重置门有助于捕获序列中的短期依赖关系。</p>
+<p>更新门有助于捕获序列中的长期依赖关系。</p>
+<p>重置门打开时，门控循环单元包含基本循环神经网络；更新门打开时，门控循环单元可以跳过子序列。</p>
+<p>自回归模型（autoregressive models）<br>Mechanics：使用线性回归根据过去的数据预测将来，比如天气预报通过分析前几天的温度来预测接下来几天的温度</p>
+<p>自回归和马尔可夫的区别：自回归依赖过去的数据，而马尔可夫不，后者仅依赖current state<br>当数据之间存在线性关系时用自回归，短期预测用马尔可夫</p>
+<p>HMM(隐马尔可夫)与马尔可夫的区别<br><img src="/image-90.png" alt="alt text"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/03/24/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB/" data-id="clu56pfe40000sot0322g9ubw" data-title="马尔可夫" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-链表力扣刷题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/03/22/%E9%93%BE%E8%A1%A8%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98/" class="article-date">
@@ -483,51 +530,11 @@
 
 
   
-    <article id="post-数据集划分" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/01/07/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%92%E5%88%86/" class="article-date">
-  <time class="dt-published" datetime="2024-01-07T03:26:06.000Z" itemprop="datePublished">2024-01-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/01/07/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%92%E5%88%86/">数据集划分</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>下载后的数据集类型：</p>
-<p><img src="/image-72.png" alt="Alt text"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/01/07/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%92%E5%88%86/" data-id="cltl8pnc3000c2ot0degbbs5y" data-title="数据集划分" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -559,6 +566,10 @@
       <ul>
         
           <li>
+            <a href="/2024/06/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">注意力机制</a>
+          </li>
+        
+          <li>
             <a href="/2024/06/22/kaggle%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94AI-Mathematical/">kaggle竞赛——AI Mathematical</a>
           </li>
         
@@ -572,10 +583,6 @@
         
           <li>
             <a href="/2024/04/19/RNN/">RNN</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/17/Kaggle-LLM-Science-Exam/">Kaggle - LLM Science Exam</a>
           </li>
         
       </ul>

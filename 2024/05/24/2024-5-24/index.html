@@ -15,7 +15,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://kkkiiijjj.github.io/image-112.png">
 <meta property="article:published_time" content="2024-05-24T08:27:09.000Z">
-<meta property="article:modified_time" content="2024-06-08T08:38:33.806Z">
+<meta property="article:modified_time" content="2024-06-22T06:47:55.267Z">
 <meta property="article:author" content="Wang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://kkkiiijjj.github.io/image-112.png">
@@ -140,8 +140,45 @@ def update(self, val, n=1):
 <h3 id="该函数将s改为几min几s的形式"><a href="#该函数将s改为几min几s的形式" class="headerlink" title="该函数将s改为几min几s的形式"></a>该函数将s改为几min几s的形式</h3><p>def asMinutes(s):<br>    m &#x3D; math.floor(s &#x2F; 60)<br>    s -&#x3D; m * 60<br>    return ‘%dm %ds’ % (m, s)</p>
 <h3 id="该函数给出已过去的时间以及根据当前进度预计完成任务所需时间"><a href="#该函数给出已过去的时间以及根据当前进度预计完成任务所需时间" class="headerlink" title="该函数给出已过去的时间以及根据当前进度预计完成任务所需时间"></a>该函数给出已过去的时间以及根据当前进度预计完成任务所需时间</h3><p>def timeSince(since, percent):<br>    now &#x3D; time.time()# 获取当前时间<br>    s &#x3D; now - since# 经过的时间<br>    es &#x3D; s &#x2F; (percent)# es:estimated total time 估计所需总时长<br>    # percent:当前进度<br>    rs &#x3D; es - s# 还要多久完事儿<br>    return ‘%s (remain %s)’ % (asMinutes(s), asMinutes(rs))</p>
 <h3 id="该函数创建一个字典，该字典从config类捕获基本参数，更易于管理，以便在训练脚本中进一步使用"><a href="#该函数创建一个字典，该字典从config类捕获基本参数，更易于管理，以便在训练脚本中进一步使用" class="headerlink" title="该函数创建一个字典，该字典从config类捕获基本参数，更易于管理，以便在训练脚本中进一步使用"></a>该函数创建一个字典，该字典从config类捕获基本参数，更易于管理，以便在训练脚本中进一步使用</h3><p>def get_config_dict(config):<br>    config_dict &#x3D; dict((key, value) for key, value in config.<strong>dict</strong>.items()<br>    if not callable(value) and not key.startswith(‘__’))<br>    return config_dict</p>
-<h4 id="该函数为model量身定制learning-rates-和-weight-decay"><a href="#该函数为model量身定制learning-rates-和-weight-decay" class="headerlink" title="该函数为model量身定制learning rates 和 weight decay"></a>该函数为model量身定制learning rates 和 weight decay</h4><p>def get_optimizer_params(model, encoder_lr, decoder_lr, weight_decay&#x3D;0.0):<br>    param_optimizer &#x3D; list(model.named_parameters())<br>    no_decay &#x3D; [“bias”, “LayerNorm.bias”, “LayerNorm.weight”]<br>    optimizer_parameters &#x3D; [<br>        {‘params’: [p for n, p in model.model.named_parameters() if not any(nd in n for nd in no_decay)],<br>         ‘lr’: encoder_lr, ‘weight_decay’: weight_decay},<br>        {‘params’: [p for n, p in model.model.named_parameters() if any(nd in n for nd in no_decay)],<br>         ‘lr’: encoder_lr, ‘weight_decay’: 0.0},<br>        {‘params’: [p for n, p in model.named_parameters() if “model” not in n],<br>         ‘lr’: decoder_lr, ‘weight_decay’: 0.0}<br>    ]<br>    return optimizer_parameters</p>
-<h4 id="在Seq2Seq-模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training-effiency"><a href="#在Seq2Seq-模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training-effiency" class="headerlink" title="在Seq2Seq 模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training effiency"></a>在Seq2Seq 模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training effiency</h4><h1 id="data"><a href="#data" class="headerlink" title="data"></a>data</h1>
+<h3 id="该函数为model量身定制learning-rates-和-weight-decay"><a href="#该函数为model量身定制learning-rates-和-weight-decay" class="headerlink" title="该函数为model量身定制learning rates 和 weight decay"></a>该函数为model量身定制learning rates 和 weight decay</h3><p>def get_optimizer_params(model, encoder_lr, decoder_lr, weight_decay&#x3D;0.0):<br>    param_optimizer &#x3D; list(model.named_parameters())<br>    no_decay &#x3D; [“bias”, “LayerNorm.bias”, “LayerNorm.weight”]<br>    optimizer_parameters &#x3D; [<br>        {‘params’: [p for n, p in model.model.named_parameters() if not any(nd in n for nd in no_decay)],<br>         ‘lr’: encoder_lr, ‘weight_decay’: weight_decay},<br>        {‘params’: [p for n, p in model.model.named_parameters() if any(nd in n for nd in no_decay)],<br>         ‘lr’: encoder_lr, ‘weight_decay’: 0.0},<br>        {‘params’: [p for n, p in model.named_parameters() if “model” not in n],<br>         ‘lr’: decoder_lr, ‘weight_decay’: 0.0}<br>    ]<br>    return optimizer_parameters</p>
+<h4 id="在Seq2Seq-模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training-effiency"><a href="#在Seq2Seq-模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training-effiency" class="headerlink" title="在Seq2Seq 模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training effiency"></a>在Seq2Seq 模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training effiency</h4><h3 id="get-logger-函数将信息加载到控制台与文件里"><a href="#get-logger-函数将信息加载到控制台与文件里" class="headerlink" title="get_logger()函数将信息加载到控制台与文件里"></a>get_logger()函数将信息加载到控制台与文件里</h3><pre><code>def get_logger(filename=paths.OUTPUT_DIR+&#39;/&#39;+paths.LOGGER):##将信息加载到控制台与文件里，控制台用于实时监控program的进展，而文件用于储存program的进展，相当于存档
+from logging import getLogger, INFO, StreamHandler, FileHandler, Formatter
+logger = getLogger(__name__)
+logger.setLevel(INFO)
+handler1 = StreamHandler()
+handler1.setFormatter(Formatter(&quot;%(message)s&quot;))
+handler2 = FileHandler(filename=f&quot;&#123;filename&#125;.log&quot;)
+handler2.setFormatter(Formatter(&quot;%(message)s&quot;))
+logger.addHandler(handler1)
+logger.addHandler(handler2)
+return logger
+</code></pre>
+<h3 id="seed-everything-为各种随机数生成器-RNG-设置种子"><a href="#seed-everything-为各种随机数生成器-RNG-设置种子" class="headerlink" title="seed_everything()为各种随机数生成器(RNG)设置种子"></a>seed_everything()为各种随机数生成器(RNG)设置种子</h3><pre><code>def seed_everything(seed=20):
+random.seed(seed)
+os.environ[&#39;PYTHONHASHSEED&#39;] = str(seed)
+np.random.seed(seed)
+torch.manual_seed(seed)
+torch.cuda.manual_seed(seed)
+torch.backends.cudnn.deterministic = True
+</code></pre>
+<h3 id="generate-uuid-创建编号"><a href="#generate-uuid-创建编号" class="headerlink" title="generate_uuid()创建编号"></a>generate_uuid()创建编号</h3><p>def generate_uuid():#创建编号，产生随机且独一无二的uuid<br>    return str(uuid.uuid4())</p>
+<h3 id="将tensor-dictionary移动到GPU"><a href="#将tensor-dictionary移动到GPU" class="headerlink" title="将tensor dictionary移动到GPU"></a>将tensor dictionary移动到GPU</h3><p>def to_device(inputs, device: str &#x3D; device):#将tensor dictionary移动到GPU<br>    return {k: v.to(device) for k, v in inputs.items()}</p>
+<p>LOGGER &#x3D; get_logger()<br>seed_everything(seed&#x3D;config.SEED)</p>
+<p>tokenizer &#x3D; AutoTokenizer.from_pretrained(config.MODEL)<br>tokenizer.save_pretrained(paths.OUTPUT_DIR + ‘&#x2F;tokenizer&#x2F;‘)</p>
+<h3 id="将原始的文本数据转换为表格"><a href="#将原始的文本数据转换为表格" class="headerlink" title="将原始的文本数据转换为表格"></a>将原始的文本数据转换为表格</h3><p>def prepare_input(cfg: type, text: np.ndarray, tokenizer):</p>
+<pre><code>inputs = tokenizer.encode_plus(
+    text,
+    return_tensors=None,
+    add_special_tokens=True,
+    max_length=cfg.MAX_LEN,
+    padding=&#39;max_length&#39;, # TODO: check padding to max sequence in batch
+    truncation=True
+)
+for k, v in inputs.items():
+    inputs[k] = torch.tensor(v, dtype=torch.long) # TODO: check dtypes
+return inputs
+</code></pre>
+<h1 id="data"><a href="#data" class="headerlink" title="data"></a>data</h1>
       
     </div>
     <footer class="article-footer">
@@ -205,6 +242,10 @@ def update(self, val, n=1):
       <ul>
         
           <li>
+            <a href="/2024/06/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">注意力机制</a>
+          </li>
+        
+          <li>
             <a href="/2024/06/22/kaggle%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94AI-Mathematical/">kaggle竞赛——AI Mathematical</a>
           </li>
         
@@ -218,10 +259,6 @@ def update(self, val, n=1):
         
           <li>
             <a href="/2024/04/19/RNN/">RNN</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/17/Kaggle-LLM-Science-Exam/">Kaggle - LLM Science Exam</a>
           </li>
         
       </ul>
