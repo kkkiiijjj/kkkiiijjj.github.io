@@ -77,6 +77,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-LSTM" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/08/LSTM/" class="article-date">
+  <time class="dt-published" datetime="2024-04-08T08:44:35.000Z" itemprop="datePublished">2024-04-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/08/LSTM/">LSTM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>是RNN的升级版，用于机器翻译，语音辨识，时间序列预测，文本生成</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>使用门控单元，使得能够长期记忆<br>缓解梯度消失和梯度爆炸</p>
+<h2 id="门控单元"><a href="#门控单元" class="headerlink" title="门控单元"></a>门控单元</h2><p>使用门控单元，包括：</p>
+<ol>
+<li>输入门   数据读入</li>
+<li>遗忘门   重置单元内容</li>
+<li>输出门   数据输出<br><img src="/image-93.png" alt="alt text"><br>图为这仨门的公式，红色框起的是输入，桔色是参数(b是偏置参数)，黄色是隐状态</li>
+</ol>
+<h2 id="候选记忆元"><a href="#候选记忆元" class="headerlink" title="候选记忆元"></a>候选记忆元</h2><p>与上面仨门类似，不同点是使用tanh作为激活函数<br><img src="/image-94.png" alt="alt text"><br><img src="/image-95.png" alt="alt text"></p>
+<h2 id="记忆元"><a href="#记忆元" class="headerlink" title="记忆元"></a>记忆元</h2><p>公式:<br><img src="/image-96.png" alt="alt text"><br>输入门$I_t$控制采用多少来自$C_t$的新数据， 而遗忘门$F_t$控制保留多少过去的 记忆元$C_{t-1}$的内容。<br><img src="/image-97.png" alt="alt text"></p>
+<h2 id="关于隐状态在LSTM中的使用："><a href="#关于隐状态在LSTM中的使用：" class="headerlink" title="关于隐状态在LSTM中的使用："></a>关于隐状态在LSTM中的使用：</h2><p>隐状态将输入的词转换为数字表示，<br>LSTM基于当前的  输入  &amp;  更新的隐状态  来预测下一个单词，如图：<br><img src="/image-99.png" alt="alt text"><br>公式：<img src="/image-98.png" alt="alt text"><br>这咋上来就遗忘呢，为啥不先输入？？</p>
+<p>只有隐状态会传递到输出层，而记忆元完全属于内部信息。</p>
+<p>在深度循环神经网络中，隐状态的信息被传递到当前层的下一时间步和下一层的当前时间步。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/04/08/LSTM/" data-id="cluqpickq00004gt07w63bw7n" data-title="LSTM" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-房价预测代码解读" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/03/25/%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B%E4%BB%A3%E7%A0%81%E8%A7%A3%E8%AF%BB/" class="article-date">
@@ -500,45 +551,6 @@
 
 
   
-    <article id="post-字符编码" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/09/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" class="article-date">
-  <time class="dt-published" datetime="2024-03-09T03:19:36.000Z" itemprop="datePublished">2024-03-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/03/09/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/">字符编码</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>今天在练习pandas库中途遇到了一道题，从CSV中创建 DataFrame，分隔符为“；”，编码格式为gbk<br>答案是<br>df &#x3D; pd.read_csv(‘test.csv’, encoding&#x3D;’gbk, sep&#x3D;’;’)<br>然后不懂这个编码格式，也不知道有没有必要了解一下，先开个坑，以后回来填</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/03/09/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" data-id="cltl8pnc2000b2ot01hgxh6rh" data-title="字符编码" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -562,7 +574,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
     </div>
   </div>
 
@@ -573,6 +585,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/08/01/llm%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">llm应用开发</a>
+          </li>
         
           <li>
             <a href="/2024/07/03/metaverse/">metaverse</a>
@@ -588,10 +604,6 @@
         
           <li>
             <a href="/2024/05/24/2024-5-24/">2024-5-24</a>
-          </li>
-        
-          <li>
-            <a href="/2024/05/09/MATLAB/">MATLAB</a>
           </li>
         
       </ul>
