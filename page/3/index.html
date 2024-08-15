@@ -77,6 +77,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-extract函数及正则表达式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/10/extract%E5%87%BD%E6%95%B0%E5%8F%8A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-date">
+  <time class="dt-published" datetime="2024-03-10T06:14:20.000Z" itemprop="datePublished">2024-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/10/extract%E5%87%BD%E6%95%B0%E5%8F%8A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">extract函数及正则表达式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>前言：练习Pandas时有数据清洗的题，要提取要求的字符<br>该函数对于对文本数据的处理非常有用，例如从数据集中提取日期和时间信息，或从大量电子邮件地址中提取用户名和域名。</p>
+<h2 id="Extract"><a href="#Extract" class="headerlink" title="Extract()"></a>Extract()</h2><p>使用方法：<br>pandas.str.extract(pat, flags&#x3D;0, expand&#x3D;True)</p>
+<p>参数说明<br>pat：正则表达式的模式字符串<br>flags：re模块的匹配标志，如re.IGNORECASE、re.DOTALL等，默认为0，即没有标志<br>expand：是否将每个匹配的字符串拆分成新的列，默认为True<br>返回值</p>
+<p>一个包含匹配子串的新Series或DataFrame。</p>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>[ABC]   匹配A或B或C<br>[^ABC]  除了ABC<br>[A-Z]   A到Z<br>[\s]    空格（包括换行符）<br>[\S]    空格（不包含换行符）<br>.       匹配除换行符（\n、\r）之外的任何单个字符，相等于 [^\n\r]<br>\w      匹配字母、数字、下划线。等价于 [A-Za-z0-9_]（即不要中文、标点、符号）<br>\d      匹配任意一个阿拉伯数字（0 到 9）。等价于 [0-9]</p>
+<h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><p>标记位于表达式之外</p>
+<p>i   不分大小写<br>g   全局匹配<br>gm  全局多行匹配</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/03/10/extract%E5%87%BD%E6%95%B0%E5%8F%8A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="cltl8pnbz00062ot04e137irx" data-title="extract函数及正则表达式" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-字符编码" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/03/09/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" class="article-date">
@@ -655,45 +700,6 @@
 
 
   
-    <article id="post-machine-learning" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/11/07/machine-learning/" class="article-date">
-  <time class="dt-published" datetime="2023-11-07T13:14:29.000Z" itemprop="datePublished">2023-11-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/11/07/machine-learning/">machine learning</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Sklearn.metrics<br>示例：from sklearn.metrics import mean_squared_error<br>mean_absolute_error 即MAE 平均绝对误差<br>我好像明白为啥推荐用typora了，这儿放不了公式<br>MAE&#x3D;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2023/11/07/machine-learning/" data-id="cltl8pnc000072ot08vwjhprs" data-title="machine learning" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -730,6 +736,10 @@
       <ul>
         
           <li>
+            <a href="/2024/08/15/llm%E8%AE%AD%E7%BB%83%E6%96%B9%E6%B3%95%E6%A6%82%E8%BF%B0/">llm训练方法概述</a>
+          </li>
+        
+          <li>
             <a href="/2024/08/01/llm%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">llm应用开发</a>
           </li>
         
@@ -743,10 +753,6 @@
         
           <li>
             <a href="/2024/06/22/kaggle%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94AI-Mathematical/">kaggle竞赛——AI Mathematical</a>
-          </li>
-        
-          <li>
-            <a href="/2024/05/24/2024-5-24/">2024-5-24</a>
           </li>
         
       </ul>
