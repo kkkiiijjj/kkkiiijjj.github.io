@@ -77,6 +77,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-规范化-Normalization" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/10/%E8%A7%84%E8%8C%83%E5%8C%96-Normalization/" class="article-date">
+  <time class="dt-published" datetime="2024-03-10T07:55:20.000Z" itemprop="datePublished">2024-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/10/%E8%A7%84%E8%8C%83%E5%8C%96-Normalization/">规范化(Normalization)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>规范化包括归一化标准化正则化<br>数据规范化的常用方法有三种：最小最大值规范化，z-score标准化和按小数定标规范化</p>
+<h2 id="归一化（normalization）"><a href="#归一化（normalization）" class="headerlink" title="归一化（normalization）"></a>归一化（normalization）</h2><h3 id="最大最小（Min-Max-Normalization）"><a href="#最大最小（Min-Max-Normalization）" class="headerlink" title="最大最小（Min-Max Normalization）"></a>最大最小（Min-Max Normalization）</h3><p><img src="/image-75.png" alt="alt text"></p>
+<h2 id="标准化-Standardization"><a href="#标准化-Standardization" class="headerlink" title="标准化(Standardization)"></a>标准化(Standardization)</h2><h3 id="Z-score-标准化"><a href="#Z-score-标准化" class="headerlink" title="Z-score 标准化"></a>Z-score 标准化</h3><p><img src="/image-76.png" alt="alt text"></p>
+<h2 id="正则化-regularization"><a href="#正则化-regularization" class="headerlink" title="正则化(regularization)"></a>正则化(regularization)</h2><p>xi除以L2范数<br><img src="/image-77.png" alt="alt text"></p>
+<p>在机器学习里，把数据变为正态分布是标准化，把数据的范围缩放到[0,1]是归一化，除以L2范数时正则化</p>
+<p>标准化加快收敛，正则化防止过拟合</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/03/10/%E8%A7%84%E8%8C%83%E5%8C%96-Normalization/" data-id="cltl8pnc4000e2ot054luevqs" data-title="规范化(Normalization)" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-extract函数及正则表达式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/03/10/extract%E5%87%BD%E6%95%B0%E5%8F%8A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-date">
@@ -613,93 +657,6 @@
 
 
   
-    <article id="post-2023-12-6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/12/06/2023-12-6/" class="article-date">
-  <time class="dt-published" datetime="2023-12-06T02:54:08.000Z" itemprop="datePublished">2023-12-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/06/2023-12-6/">2023-12-6</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="epoch与batch-size"><a href="#epoch与batch-size" class="headerlink" title="epoch与batch size"></a>epoch与batch size</h2><p>epoch &#x3D; 10 指的是把整个数据集丢进神经网络训练10次。</p>
-<p>batch size 指的是数据的个数，batch size &#x3D; 10 指的是每次扔进神经网络训练的数据是10个。</p>
-<p>iteration同样指的是次数，iteration &#x3D; 10 指的是把整个数据集分成10次扔进神经网络。<br>假如有100个训练数据，epoch &#x3D; 10, batch size &#x3D; 5, iteration &#x3D; ?<br>interation&#x3D;100&#x2F;5&#x3D;20.<br><img src="/image-7.png" alt="Alt text"></p>
-<hr>
-<p>机器学习：给数据——&gt;定义模型——&gt;训练&#x2F;<br>神图，偷了&#x2F;<br><img src="/image-8.png" alt="Alt text"><br>mlp是ANN中的一种<br>mxnet与pytorth相似<br><a target="_blank" rel="noopener" href="https://v.subnice.top/api/v1/client/subscribe?token=b570429dacabcd3b06b59c513bfdd745">https://v.subnice.top/api/v1/client/subscribe?token=b570429dacabcd3b06b59c513bfdd745</a><br>成功搭了个梯子(≧∇≦)ﾉ</p>
-<p>我还是一点点慢慢学吧，代码看不懂</p>
-<h2 id="今天先学数据预处理"><a href="#今天先学数据预处理" class="headerlink" title="今天先学数据预处理"></a>今天先学数据预处理</h2><p>​ 数据预处理的主要内容包括：数据清洗、数据集成、数据变换和数据规约<br><strong>csv</strong>:一种用逗号分隔数据的文件<br><strong>os</strong>:是“operating system”的缩写<br><strong>os.makedirs</strong>(name, mode&#x3D;0o777, exist_ok&#x3D;False)<br><em>作用</em>:<br>用来创建多层目录（单层请用os.mkdir）<br><em>参数说明</em>：<br>name：你想创建的目录名<br>mode：要为目录设置的权限数字模式，默认的模式为 0o777 (八进制)<br>exist_ok：是否在目录存在时触发异常。如果exist_ok为False（默认值），则在目标目录已存在的情况下触发FileExistsError异常；如果exist_ok为True，则在目标目录已存在的情况下不会触发FileExistsError异常</p>
-<p><strong>os.path.join</strong>(path1[, path2[, …]])	把目录和文件名合成一个路径<br><strong>iloc[]函数</strong>，属于pandas库，全称为index location<br>例子：</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>姓名（列索引10）</th>
-<th>班级（列索引1）</th>
-<th>分数（列索引2）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>0（行索引0）</td>
-<td>小明</td>
-<td>302</td>
-<td>87</td>
-</tr>
-<tr>
-<td>1（行索引1）</td>
-<td>小王</td>
-<td>303</td>
-<td>95</td>
-</tr>
-<tr>
-<td>2（行索引2）</td>
-<td>小方</td>
-<td>303</td>
-<td>100</td>
-</tr>
-</tbody></table>
-<p>1.iloc[a,b]:取行索引为a列索引为b的数据。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import pandas</span><br><span class="line">df = pandas.read_csv(&#x27;a.csv&#x27;)</span><br><span class="line">print(df.iloc[1,2])</span><br><span class="line">Out：95</span><br></pre></td></tr></table></figure>
-<p>iloc[a:b,c]:取行索引从a到b-1，列索引为c的数据。注意：在iloc中a:b是左到右不到的</p>
-<h2 id="get-dummies"><a href="#get-dummies" class="headerlink" title="get_dummies"></a>get_dummies</h2><p>是利用pandas实现one hot encode的方式。<br>例子：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">df = pd.DataFrame([  </span><br><span class="line">            [&#x27;green&#x27; , &#x27;A&#x27;],   </span><br><span class="line">            [&#x27;red&#x27;   , &#x27;B&#x27;],   </span><br><span class="line">            [&#x27;blue&#x27;  , &#x27;A&#x27;]])  </span><br><span class="line"></span><br><span class="line">df.columns = [&#x27;color&#x27;,  &#x27;class&#x27;] </span><br><span class="line">pd.get_dummies(df) </span><br></pre></td></tr></table></figure>
-<p>get_dummies 前：<br><img src="/image-9.png" alt="Alt text"><br>get_dummies 后：<br><img src="/image-10.png" alt="Alt text"><br>上述执行完以后再打印df 出来的还是get_dummies 前的图，因为你没有写df &#x3D; pd.get_dummies(df)</p>
-<p>可以对指定列进行get_dummies<br>pd.get_dummies(df.color)<br><img src="/image-11.png" alt="Alt text"><br>将指定列进行get_dummies 后合并到元数据中<br>df &#x3D; df.join(pd.get_dummies(df.color))<br><img src="/image-12.png" alt="Alt text">\</p>
-<h2 id="范数："><a href="#范数：" class="headerlink" title="范数："></a>范数：</h2><p>  欧几里得距离是一个L2范数：假设n维向量x中的元素是x1,…,xn，其L2范数是向量元素平方和的平方根<br>  $||x||<em>2&#x3D;\sqrt{\sum</em>{i&#x3D;1}^nx_i^2}$<br>  其中，在L2范数中常常省略下标2，也就是说∥x∥等同于∥x∥2。在代码中，我们可以按如下方式计算向量的L2范数。<br>u &#x3D; np.array([3,-4])<br> np.linalg.norm(u)</p>
-<p>深度学习中更经常地使用L2范数的平方，也会经常遇到L1范数，它表示为向量元素的绝对值之和：<br>$||x||<em>1&#x3D;\sum</em>{i&#x3D;1}^n|x_i|$<br>与L2范数相比，L1范数受异常值的影响较小。为了计算L1范数，我们将绝对值函数和按元素求和组合起来。<br>np.abs(u).sum()<br> array(7.)<br> %.5f：表示按浮点数输出，小数点后面取5位<br> <strong>SVG</strong> 意为可缩放矢量图形（Scalable Vector Graphics）。<br> multinomial distribution:多项式分布<br> binomial:二项式</p>
-<p> 为了知道模块中可以调用哪些函数和类，可以调用dir函数。<br>  print(dir(np.random))<br> 有关如何使用给定函数或类的更具体说明，可以调用help函数<br> help(np.ones)</p>
-<h2 id="线性模型"><a href="#线性模型" class="headerlink" title="线性模型"></a>线性模型</h2><p> ˆ<br> y &#x3D;Xw+b<br> X的每一行是一个样本，每一列是一种特征。权重放到向量w∈Rd中\</p>
-<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p> 回归问题中最常用的损失函数是平方误差函数。<br> <img src="/image-13.png" alt="Alt text"><br> 话说这玩意好像在数值分析里学过,不过没有1\2<br> 梯度下降（gradientdescent）的方法，这种方法几乎可以优化所有深度学习模型。<br>它通过不断地在损失函数递减的方向上更新参数来降低误差。\</p>
-<h2 id="numpy-random-normal"><a href="#numpy-random-normal" class="headerlink" title="numpy.random.normal"></a>numpy.random.normal</h2><p>用例:<br>numpy.random.normal(loc&#x3D;0.0, scale&#x3D;1.0, size&#x3D;None)<br>功能:<br>从正态（高斯）分布中抽取随机样本。<br>loc：标准差<br>scale:方差<br>size:输出值的维度</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2023/12/06/2023-12-6/" data-id="cltl8pnbx00032ot0drnh79lx" data-title="2023-12-6" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -723,7 +680,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
     </div>
   </div>
 
@@ -734,6 +691,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/12/08/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90/">大模型小项目解析</a>
+          </li>
         
           <li>
             <a href="/2024/08/15/llm%E8%AE%AD%E7%BB%83%E6%96%B9%E6%B3%95%E6%A6%82%E8%BF%B0/">llm训练方法概述</a>
@@ -749,10 +710,6 @@
         
           <li>
             <a href="/2024/06/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">注意力机制</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/22/kaggle%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94AI-Mathematical/">kaggle竞赛——AI Mathematical</a>
           </li>
         
       </ul>

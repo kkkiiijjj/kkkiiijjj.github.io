@@ -77,6 +77,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-kaggle—HMS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/17/kaggle%E2%80%94HMS/" class="article-date">
+  <time class="dt-published" datetime="2024-04-17T00:57:30.000Z" itemprop="datePublished">2024-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/17/kaggle%E2%80%94HMS/">kaggle—HMS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>兜兜转转犹犹豫豫最后还是在淘宝上买了kaggle竞赛的课<br>花了我3600大洋呜呜呜呜，不过可以保证我拿银牌，我心里就有底了</p>
+<p>那么废话不多说，第一课讲的是HMS</p>
+<p>打比赛的流程：<br><img src="/image-100.png" alt="alt text"></p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>比赛目的：检测分类癫痫发作和其他类型的有害大脑活动。<br>比赛任务：开发一个model,根据从医院重症患者记录的脑电图(EEG)信号进行训练。<br>评价指标：KL散度(不常用)</p>
+<h2 id="熟悉数据"><a href="#熟悉数据" class="headerlink" title="熟悉数据"></a>熟悉数据</h2><p>data:<br>这数据有啥特征啊。。。</p>
+<p><img src="/image-103.png" alt="alt text"><br><img src="/image-101.png" alt="alt text"><br>train数据集包括50秒的EEG(相应匹配于频谱图)<br>[seizure&#x2F;lpd&#x2F;gpd&#x2F;lrda&#x2F;grda&#x2F;other]_vote：<br>人工打分的各类疾病投票<br>一共有6个label，分别是seizure(癫痫)、GRDA、Other、GPD、LRDA、LPD<br>(查不到都是啥病)</p>
+<h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><p>用librosa包进行特征提取</p>
+<h2 id="模型建立"><a href="#模型建立" class="headerlink" title="模型建立"></a>模型建立</h2><p><img src="/image-102.png" alt="alt text"><br><img src="/image-104.png" alt="alt text"><br>方案一直接用给的数据<br><img src="/image-105.png" alt="alt text"><br>方案二用提取特征后的<br><img src="/image-106.png" alt="alt text"><br>方案三用给的+提取特征后的(效果最好)</p>
+<p>提分要点：使用vote&gt;10的样本二次训练<br>(即第一次用全部的train集训练，第二次用vote高的进行训练，因为vote高代表准确率更高，但即便如此，vote少的依然可以提供一些信息(钱少也是钱啊))</p>
+<p>大致的思路我懂了，但是没怎么看代码</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/04/17/kaggle%E2%80%94HMS/" data-id="clv33sa2q0000ekt0akf20t8c" data-title="kaggle—HMS" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-prompt" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/04/13/prompt/" class="article-date">
@@ -505,50 +553,6 @@
 
 
   
-    <article id="post-规范化-Normalization" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/10/%E8%A7%84%E8%8C%83%E5%8C%96-Normalization/" class="article-date">
-  <time class="dt-published" datetime="2024-03-10T07:55:20.000Z" itemprop="datePublished">2024-03-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/03/10/%E8%A7%84%E8%8C%83%E5%8C%96-Normalization/">规范化(Normalization)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>规范化包括归一化标准化正则化<br>数据规范化的常用方法有三种：最小最大值规范化，z-score标准化和按小数定标规范化</p>
-<h2 id="归一化（normalization）"><a href="#归一化（normalization）" class="headerlink" title="归一化（normalization）"></a>归一化（normalization）</h2><h3 id="最大最小（Min-Max-Normalization）"><a href="#最大最小（Min-Max-Normalization）" class="headerlink" title="最大最小（Min-Max Normalization）"></a>最大最小（Min-Max Normalization）</h3><p><img src="/image-75.png" alt="alt text"></p>
-<h2 id="标准化-Standardization"><a href="#标准化-Standardization" class="headerlink" title="标准化(Standardization)"></a>标准化(Standardization)</h2><h3 id="Z-score-标准化"><a href="#Z-score-标准化" class="headerlink" title="Z-score 标准化"></a>Z-score 标准化</h3><p><img src="/image-76.png" alt="alt text"></p>
-<h2 id="正则化-regularization"><a href="#正则化-regularization" class="headerlink" title="正则化(regularization)"></a>正则化(regularization)</h2><p>xi除以L2范数<br><img src="/image-77.png" alt="alt text"></p>
-<p>在机器学习里，把数据变为正态分布是标准化，把数据的范围缩放到[0,1]是归一化，除以L2范数时正则化</p>
-<p>标准化加快收敛，正则化防止过拟合</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/03/10/%E8%A7%84%E8%8C%83%E5%8C%96-Normalization/" data-id="cltl8pnc4000e2ot054luevqs" data-title="规范化(Normalization)" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -572,7 +576,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
     </div>
   </div>
 
@@ -583,6 +587,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/12/08/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90/">大模型小项目解析</a>
+          </li>
         
           <li>
             <a href="/2024/08/15/llm%E8%AE%AD%E7%BB%83%E6%96%B9%E6%B3%95%E6%A6%82%E8%BF%B0/">llm训练方法概述</a>
@@ -598,10 +606,6 @@
         
           <li>
             <a href="/2024/06/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">注意力机制</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/22/kaggle%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94AI-Mathematical/">kaggle竞赛——AI Mathematical</a>
           </li>
         
       </ul>
