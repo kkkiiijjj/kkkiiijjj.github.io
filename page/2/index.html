@@ -77,6 +77,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Kaggle-LLM-Science-Exam" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/17/Kaggle-LLM-Science-Exam/" class="article-date">
+  <time class="dt-published" datetime="2024-04-17T06:43:35.000Z" itemprop="datePublished">2024-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/17/Kaggle-LLM-Science-Exam/">Kaggle - LLM Science Exam</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>目的：this competition challenges participants to answer difficult science-based questions written by a Large Language Model.<br>任务：预测前三个最可能是正确答案的选项<br>评价标准：Mean Average Precision @ 3 (MAP@3):<br><img src="/image-107.png" alt="alt text"></p>
+<h2 id="熟悉数据"><a href="#熟悉数据" class="headerlink" title="熟悉数据"></a>熟悉数据</h2><p>train集:包括一个问题、五个选项及正确答案<br>test集:是train集的copy,只是没了answer列(啊？这不妥妥过拟合了吗？)</p>
+<h2 id="提取特征"><a href="#提取特征" class="headerlink" title="提取特征"></a>提取特征</h2><h2 id="模型建立"><a href="#模型建立" class="headerlink" title="模型建立"></a>模型建立</h2><p>选用Embedding模型：gte-base<br>    还有很多其他Embeding方法，如bge-large-en-v1.5\bge-base-en-v1.5\ember-v1\gte-large\e5-large\bge-small<br>不一定哪个表现最好，视具体情况而定<br>可以拿小样本跑一跑看哪个表现好</p>
+<p><img src="/image-108.png" alt="alt text"><br>这里有个问题是若使用检索2的话会使Prompt占的比重很小</p>
+<p>一些tricks:若GPU性能没那么好，就调小batch_size(1或2)<br>若改成1还跑不了就调小max_input</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/04/17/Kaggle-LLM-Science-Exam/" data-id="clv3g5d5p0000bgt0a3la0wud" data-title="Kaggle - LLM Science Exam" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-kaggle—HMS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/04/17/kaggle%E2%80%94HMS/" class="article-date">
@@ -509,50 +552,6 @@
 
 
   
-    <article id="post-递归" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/10/%E9%80%92%E5%BD%92/" class="article-date">
-  <time class="dt-published" datetime="2024-03-10T13:09:48.000Z" itemprop="datePublished">2024-03-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/03/10/%E9%80%92%E5%BD%92/">递归</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>前言：最近在刷链表的题，好多用了递归，于是总结一下</p>
-<p>一般递归考虑三个问题：<br>1.终止条件<br>2.调用单元做了什么<br>3.返回值</p>
-<p>写函数的时候也是上面的顺序</p>
-<p>例一：206.反转链表<br>‘’’<br>    class Solution {<br>public:<br>    ListNode* reverseList(ListNode* head) {<br>        if (!head || !head-&gt;next) {<br>            return head;                    &#x2F;&#x2F;终止条件<br>        }<br>        ListNode* newHead &#x3D; reverseList(head-&gt;next);       &#x2F;&#x2F;操作<br>        head-&gt;next-&gt;next &#x3D; head;<br>        head-&gt;next &#x3D; nullptr;<br>        return newHead;                    &#x2F;&#x2F;return<br>    }<br>};</p>
-<p>‘’’<br>例二：24. 两两交换链表中的节点<br>‘’’<br>    class Solution {<br>public:<br>    ListNode* swapPairs(ListNode* head) {<br>        if (head &#x3D;&#x3D; nullptr || head-&gt;next &#x3D;&#x3D; nullptr) {<br>            return head;<br>        }               &#x2F;&#x2F;<br>        ListNode* newHead &#x3D; head-&gt;next;<br>        head-&gt;next &#x3D; swapPairs(newHead-&gt;next);<br>        newHead-&gt;next &#x3D; head;<br>        return newHead;<br>    }<br>};</p>
-<p>‘’’</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/03/10/%E9%80%92%E5%BD%92/" data-id="cltlj7r1w0000p0t0a4xe96by" data-title="递归" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -589,6 +588,10 @@
       <ul>
         
           <li>
+            <a href="/2024/12/13/llm%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90-%E6%A1%8C%E5%AE%A0/">llm项目解析-桌宠</a>
+          </li>
+        
+          <li>
             <a href="/2024/12/08/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90/">大模型小项目解析</a>
           </li>
         
@@ -602,10 +605,6 @@
         
           <li>
             <a href="/2024/07/03/metaverse/">metaverse</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">注意力机制</a>
           </li>
         
       </ul>

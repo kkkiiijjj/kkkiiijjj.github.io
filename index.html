@@ -77,6 +77,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-llm项目解析-桌宠" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/12/13/llm%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90-%E6%A1%8C%E5%AE%A0/" class="article-date">
+  <time class="dt-published" datetime="2024-12-12T19:45:08.000Z" itemprop="datePublished">2024-12-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/12/13/llm%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90-%E6%A1%8C%E5%AE%A0/">llm项目解析-桌宠</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/12/13/llm%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90-%E6%A1%8C%E5%AE%A0/" data-id="cm4lqb2te0000zkt0fofr889f" data-title="llm项目解析-桌宠" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-大模型小项目解析" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/12/08/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90/" class="article-date">
@@ -99,7 +137,25 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>这个项目是从github上搜到的，一个比较简单的应用到了大语言模型的项目<br>实现了从键盘获取用户输入并传给大模型进行分析与回复，主要功能是天气查询<br>读了.md文件配置好环境之后发现它载入的大模型好大个，占我内存，不悦<br>而且回复很慢，不知道为啥</p>
+<p>首先分析一下代码</p>
+<h1 id="大致结构"><a href="#大致结构" class="headerlink" title="大致结构"></a>大致结构</h1><p>(可以去语雀看大体框架)</p>
+<h2 id="从main函数开始看"><a href="#从main函数开始看" class="headerlink" title="从main函数开始看"></a>从main函数开始看</h2><ol>
+<li>首先提示用户按下w键进入文字模式</li>
+<li>然后无限循环判断用户是否按下了W键，如果按下，那么跳出循环</li>
+<li>进入下一个循环，提示用户输入，并将输入的内容存储在 user_input 变量中。<br>如果输入不是退出则运行函数send_message_to_ollama</li>
+<li>往上翻查看send_message_to_ollama函数的定义：该函数的参数为用户当前输入及上下文<br>调用该函数会用到langchain库初始化一个agent，（from langchain.agents import initialize_agent, Tool, AgentType）<br>运行这个Agent（以prompt_value为参数，prompt_value包含了用户的输入、上下文（也是该函数的参数）以及agent的设定prompt）<br>并返回结果</li>
+<li>回看main函数，结果被保存进response里了</li>
+<li>对response进行再加工，用正则表达式去除尾部空格</li>
+<li>显示结果并更新上下文</li>
+</ol>
+<h1 id="详细解读"><a href="#详细解读" class="headerlink" title="详细解读"></a>详细解读</h1><h2 id="异步函数"><a href="#异步函数" class="headerlink" title="异步函数"></a>异步函数</h2><p>main函数是异步函数，异步函数通常用于非阻塞操作，比如等待用户输入<br>由于使用了 async&#x2F;await 语法，需要在运行时使用 asyncio 模块。例如：<br>import asyncio<br>asyncio.run(main())</p>
+<h2 id="无限循环"><a href="#无限循环" class="headerlink" title="无限循环"></a>无限循环</h2><p>while True:创建一个无限循环，不断检查用户的键盘输入。</p>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>try-except块 用于捕获可能发生的异常，并进行相应的处理。</p>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p> re.sub(r’\s+$’, ‘’, response)<br> r代表represent<br> $代表结尾<br> \s匹配一个空格符号<br>\s+匹配一或多个空格<br>合起来就是若结尾有一或多个空格则用一个空格代替</p>
+<h2 id="f-string："><a href="#f-string：" class="headerlink" title="f-string："></a>f-string：</h2><p>print(f”羽汐: {response}”)</p>
+<p>Python 3.6 及以上版本引入的一种字符串格式化方式，以 f 开头。<br>在 f-string 中，可以使用花括号 {} 将变量或表达式嵌入到字符串中<br>其中{response}是占位符</p>
+
       
     </div>
     <footer class="article-footer">
@@ -555,49 +611,6 @@ return inputs
 
 
   
-    <article id="post-Kaggle-LLM-Science-Exam" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/17/Kaggle-LLM-Science-Exam/" class="article-date">
-  <time class="dt-published" datetime="2024-04-17T06:43:35.000Z" itemprop="datePublished">2024-04-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/17/Kaggle-LLM-Science-Exam/">Kaggle - LLM Science Exam</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>目的：this competition challenges participants to answer difficult science-based questions written by a Large Language Model.<br>任务：预测前三个最可能是正确答案的选项<br>评价标准：Mean Average Precision @ 3 (MAP@3):<br><img src="/image-107.png" alt="alt text"></p>
-<h2 id="熟悉数据"><a href="#熟悉数据" class="headerlink" title="熟悉数据"></a>熟悉数据</h2><p>train集:包括一个问题、五个选项及正确答案<br>test集:是train集的copy,只是没了answer列(啊？这不妥妥过拟合了吗？)</p>
-<h2 id="提取特征"><a href="#提取特征" class="headerlink" title="提取特征"></a>提取特征</h2><h2 id="模型建立"><a href="#模型建立" class="headerlink" title="模型建立"></a>模型建立</h2><p>选用Embedding模型：gte-base<br>    还有很多其他Embeding方法，如bge-large-en-v1.5\bge-base-en-v1.5\ember-v1\gte-large\e5-large\bge-small<br>不一定哪个表现最好，视具体情况而定<br>可以拿小样本跑一跑看哪个表现好</p>
-<p><img src="/image-108.png" alt="alt text"><br>这里有个问题是若使用检索2的话会使Prompt占的比重很小</p>
-<p>一些tricks:若GPU性能没那么好，就调小batch_size(1或2)<br>若改成1还跑不了就调小max_input</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/04/17/Kaggle-LLM-Science-Exam/" data-id="clv3g5d5p0000bgt0a3la0wud" data-title="Kaggle - LLM Science Exam" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -634,6 +647,10 @@ return inputs
       <ul>
         
           <li>
+            <a href="/2024/12/13/llm%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90-%E6%A1%8C%E5%AE%A0/">llm项目解析-桌宠</a>
+          </li>
+        
+          <li>
             <a href="/2024/12/08/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90/">大模型小项目解析</a>
           </li>
         
@@ -647,10 +664,6 @@ return inputs
         
           <li>
             <a href="/2024/07/03/metaverse/">metaverse</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">注意力机制</a>
           </li>
         
       </ul>
