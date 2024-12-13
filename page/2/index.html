@@ -77,6 +77,61 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-RNN" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/19/RNN/" class="article-date">
+  <time class="dt-published" datetime="2024-04-19T02:26:46.000Z" itemprop="datePublished">2024-04-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/19/RNN/">RNN</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在看enconder代码的时候发现里面竟然有RNN<br>我还是好好整理一下RNN吧</p>
+<p>enconder里的RNN层的作用：<br>实例：（复制chatgpt的，嫌长可以不看）</p>
+<ol>
+<li>Sentence: “The movie was a disappointment, the acting was terrible.”<br> Processing Words Sequentially: The RNN in the encoder processes the sentence word by word:</li>
+</ol>
+<p>Word 1: “The”</p>
+<p>The RNN receives the embedding vector for “The” and combines it with the initial hidden state (often initialized with zeros).<br>Based on this combination, the RNN updates the hidden state h_1. This initial hidden state doesn’t hold much sentiment information yet.<br>Word 2: “movie”</p>
+<p>The RNN receives the embedding vector for “movie” and combines it with the updated hidden state h_1.<br>Now, h_1 contains some context about “The,” which might be neutral. The RNN updates the hidden state h_2 to reflect this context along with the meaning of “movie.”<br>Word 3: “was”</p>
+<p>The process repeats. The RNN receives the embedding vector for “was” and combines it with the previous hidden state h_2.<br>h_2 carries information about “The movie,” which could be neutral or slightly positive depending on the embedding vectors. The RNN updates the hidden state h_3 to incorporate the meaning of “was” in this context.<br>Word 4: “a” (similar to “The”)</p>
+<p>Word 5: “disappointment”</p>
+<p>The RNN receives the embedding vector for “disappointment,” a negative word.<br>The previous hidden state h_4 likely held some neutral or slightly positive sentiment. The RNN updates h_5 to reflect the strong negative connotation of “disappointment,” shifting the overall sentiment towards negative.<br>Words 6-7 follow similarly, likely reinforcing the negative sentiment.</p>
+<ol start="3">
+<li>Final Hidden State: After processing all words, the RNN in the encoder reaches the final hidden state, let’s call it h_final. This state encapsulates the sentiment of the entire sentence, considering the sequence of words and their relationships.</li>
+<li>Using the Hidden State: The h_final can then be used for various tasks:</li>
+</ol>
+<p>Sentiment Classification: This hidden state can be fed into a classifier (e.g., a simple neural network) to predict the overall sentiment of the sentence (likely negative in this case).<br>Machine Translation: If this is part of a machine translation system, the h_final might be used to encode the meaning of the sentence and generate a corresponding translation in another language.</p>
+<p>简而言之，RNN每步读入当前的Word并将其与之前的隐状态结合、更新隐状态，隐状态反映当前输入的所有词之间的relationship<br>在读完整个句子后，我们会得到最后的隐状态，最后的隐状态包含了整句话的所有词之间的relationship<br>最后的隐状态可用于情感分类、机器翻译</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/04/19/RNN/" data-id="clv61usel0000qgt0gk46hjjd" data-title="RNN" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Kaggle-LLM-Science-Exam" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/04/17/Kaggle-LLM-Science-Exam/" class="article-date">
@@ -510,48 +565,6 @@
 
 
   
-    <article id="post-关于反向传播" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/12/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" class="article-date">
-  <time class="dt-published" datetime="2024-03-12T07:33:32.000Z" itemprop="datePublished">2024-03-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/03/12/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/">关于反向传播</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>没想到我一直没弄懂的反向传播更改参数竟然被ChatGpt教会了。。。<br>虽然这个例子有个小错误：众所周知，2是比0大的<br><img src="/image-78.png" alt="alt text"><br><img src="/image-79.png" alt="alt text"><br><img src="/image-80.png" alt="alt text"><br>简而言之，就是选择一个optimizer（如Stochastic Gradient Descent (SGD)，Adam (Adaptive Moment Estimation)这里选的好像是SGD）计算预测值与估计值之间的误差，然后调整weights和bias<br>新的权重是由旧的权重经过一系列计算得到的，其中learning rate影响每次改变权重的step</p>
-<p>当然我还是建议直接看例子更好理解，虽然是错的，但是可以体会其精神</p>
-<p>下面是关于为什么要计算梯度：<br><img src="/image-81.png" alt="alt text"><br><img src="/image-82.png" alt="alt text"><br>即若求出的梯度为正数，则调大权重，反之则调小<br>Gradient的正负重要，而大小不重要<br>SGD:<br>New Weight &#x3D; Old Weight - (Learning Rate * Gradient)</p>
-<p>我貌似是懂了</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/03/12/%E5%85%B3%E4%BA%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" data-id="cltobh7o30000tct02p9s3x6c" data-title="关于反向传播" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -588,6 +601,10 @@
       <ul>
         
           <li>
+            <a href="/2024/12/13/Cursor%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">Cursor使用教程</a>
+          </li>
+        
+          <li>
             <a href="/2024/12/13/llm%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90-%E6%A1%8C%E5%AE%A0/">llm项目解析-桌宠</a>
           </li>
         
@@ -601,10 +618,6 @@
         
           <li>
             <a href="/2024/08/01/llm%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">llm应用开发</a>
-          </li>
-        
-          <li>
-            <a href="/2024/07/03/metaverse/">metaverse</a>
           </li>
         
       </ul>

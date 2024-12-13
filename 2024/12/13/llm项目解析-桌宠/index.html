@@ -6,15 +6,19 @@
   
   <title>llm项目解析-桌宠 | Forforevery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="article">
+  <meta name="description" content="整个压缩包里需要读的代码基本就两个文件：main.py和talk_show.py 阅读readme文件得知基本功能是  显示动图和文字 大模型生成文本 休息一下，隔一小时提醒休息  试着运行程序tm一直报错，qtmd我要自己写了 使用了huggingface里的模型学到了怎么从huggingface里导入模型这里导入的pipeline包据说是简化复杂文本生成任务的包 读main文件吓到了，总共30">
+<meta property="og:type" content="article">
 <meta property="og:title" content="llm项目解析-桌宠">
 <meta property="og:url" content="https://kkkiiijjj.github.io/2024/12/13/llm%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90-%E6%A1%8C%E5%AE%A0/index.html">
 <meta property="og:site_name" content="Forforevery">
+<meta property="og:description" content="整个压缩包里需要读的代码基本就两个文件：main.py和talk_show.py 阅读readme文件得知基本功能是  显示动图和文字 大模型生成文本 休息一下，隔一小时提醒休息  试着运行程序tm一直报错，qtmd我要自己写了 使用了huggingface里的模型学到了怎么从huggingface里导入模型这里导入的pipeline包据说是简化复杂文本生成任务的包 读main文件吓到了，总共30">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kkkiiijjj.github.io/image-119.png">
 <meta property="article:published_time" content="2024-12-12T19:45:08.000Z">
-<meta property="article:modified_time" content="2024-12-12T19:45:08.224Z">
+<meta property="article:modified_time" content="2024-12-13T11:28:03.823Z">
 <meta property="article:author" content="Wang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kkkiiijjj.github.io/image-119.png">
   
     <link rel="alternate" href="/atom.xml" title="Forforevery" type="application/atom+xml">
   
@@ -99,7 +103,46 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>整个压缩包里需要读的代码基本就两个文件：main.py和talk_show.py</p>
+<h1 id="阅读readme文件"><a href="#阅读readme文件" class="headerlink" title="阅读readme文件"></a>阅读readme文件</h1><p>得知基本功能是</p>
+<ol>
+<li>显示动图和文字</li>
+<li>大模型生成文本</li>
+<li>休息一下，隔一小时提醒休息</li>
+</ol>
+<h1 id="试着运行程序"><a href="#试着运行程序" class="headerlink" title="试着运行程序"></a>试着运行程序</h1><p>tm一直报错，qtmd我要自己写了</p>
+<p>使用了huggingface里的模型<br>学到了怎么从huggingface里导入模型<br><img src="/image-119.png" alt="alt text"><br>这里导入的pipeline包据说是简化复杂文本生成任务的包</p>
+<h1 id="读main文件"><a href="#读main文件" class="headerlink" title="读main文件"></a>读main文件</h1><p>吓到了，总共300+行代码。。。<br>不知道从哪开始看了<br>折叠了一下，发现怎么就是一个DesktopPet类加一段运行用的代码啊<br>然后里面写了十几个函数分别实现一些功能</p>
+<ol>
+<li><strong>init</strong>(self, parent&#x3D;None, **kwargs)构造函数</li>
+<li>init(self)实现初始化</li>
+<li>initPall(self)实现托盘初始化</li>
+<li>initPetImage(self)实现宠物静态gif图加载</li>
+<li>petNormalAction(self)宠物正常待机动作</li>
+<li>randomAct(self)随机动作切换</li>
+<li>talk(self)宠物对话框行为处理</li>
+<li>quit(self)退出操作，关闭程序</li>
+<li>showwin(self)显示宠物</li>
+<li>randomPosition(self)宠物随机位置</li>
+<li>mousePressEvent(self, event)鼠标左键按下时, 宠物将和鼠标位置绑定</li>
+<li>mouseMoveEvent(self, event)鼠标移动时调用，实现宠物随鼠标移动</li>
+<li>mouseReleaseEvent(self, event)鼠标释放调用，取消绑定</li>
+<li>enterEvent(self, event)鼠标移进时调用</li>
+<li>contextMenuEvent(self, event)宠物右键点击交互</li>
+<li>haveRest(self)休息时间<br>核心功能的实现主要靠4、5、6、7、9、15、16</li>
+</ol>
+<p>2.初始化窗口用PyQt5(待了解)</p>
+<p>这边我打算自己写一个桌宠了<br>去问了一下chatgpt怎么写一个桌宠程序，他给我推荐了以下方案：</p>
+<ol>
+<li>Python +   PyQt</li>
+<li>C++    +   Qt</li>
+<li>Java   +   JavaFx<br>核心功能：</li>
+<li>创造一个窗口显示宠物</li>
+<li>加载宠物图像</li>
+<li>优化宠物行为比如移动、与用户互动</li>
+</ol>
+<p>查了一下AI助写工具，有Cursor、Copilot、Claude<br>这边新开一篇笔记讲Cursor</p>
+
       
     </div>
     <footer class="article-footer">
@@ -112,6 +155,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2024/12/13/Cursor%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Cursor使用教程
+        
+      </div>
+    </a>
   
   
     <a href="/2024/12/08/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
@@ -154,6 +206,10 @@
       <ul>
         
           <li>
+            <a href="/2024/12/13/Cursor%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">Cursor使用教程</a>
+          </li>
+        
+          <li>
             <a href="/2024/12/13/llm%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90-%E6%A1%8C%E5%AE%A0/">llm项目解析-桌宠</a>
           </li>
         
@@ -167,10 +223,6 @@
         
           <li>
             <a href="/2024/08/01/llm%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">llm应用开发</a>
-          </li>
-        
-          <li>
-            <a href="/2024/07/03/metaverse/">metaverse</a>
           </li>
         
       </ul>

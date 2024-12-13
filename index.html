@@ -77,6 +77,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Cursor使用教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/12/13/Cursor%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-12-13T11:30:56.000Z" itemprop="datePublished">2024-12-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/12/13/Cursor%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">Cursor使用教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/12/13/Cursor%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" data-id="cm4mo3c1y0000o0t0e3puf6ia" data-title="Cursor使用教程" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-llm项目解析-桌宠" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/12/13/llm%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90-%E6%A1%8C%E5%AE%A0/" class="article-date">
@@ -99,7 +137,46 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>整个压缩包里需要读的代码基本就两个文件：main.py和talk_show.py</p>
+<h1 id="阅读readme文件"><a href="#阅读readme文件" class="headerlink" title="阅读readme文件"></a>阅读readme文件</h1><p>得知基本功能是</p>
+<ol>
+<li>显示动图和文字</li>
+<li>大模型生成文本</li>
+<li>休息一下，隔一小时提醒休息</li>
+</ol>
+<h1 id="试着运行程序"><a href="#试着运行程序" class="headerlink" title="试着运行程序"></a>试着运行程序</h1><p>tm一直报错，qtmd我要自己写了</p>
+<p>使用了huggingface里的模型<br>学到了怎么从huggingface里导入模型<br><img src="/image-119.png" alt="alt text"><br>这里导入的pipeline包据说是简化复杂文本生成任务的包</p>
+<h1 id="读main文件"><a href="#读main文件" class="headerlink" title="读main文件"></a>读main文件</h1><p>吓到了，总共300+行代码。。。<br>不知道从哪开始看了<br>折叠了一下，发现怎么就是一个DesktopPet类加一段运行用的代码啊<br>然后里面写了十几个函数分别实现一些功能</p>
+<ol>
+<li><strong>init</strong>(self, parent&#x3D;None, **kwargs)构造函数</li>
+<li>init(self)实现初始化</li>
+<li>initPall(self)实现托盘初始化</li>
+<li>initPetImage(self)实现宠物静态gif图加载</li>
+<li>petNormalAction(self)宠物正常待机动作</li>
+<li>randomAct(self)随机动作切换</li>
+<li>talk(self)宠物对话框行为处理</li>
+<li>quit(self)退出操作，关闭程序</li>
+<li>showwin(self)显示宠物</li>
+<li>randomPosition(self)宠物随机位置</li>
+<li>mousePressEvent(self, event)鼠标左键按下时, 宠物将和鼠标位置绑定</li>
+<li>mouseMoveEvent(self, event)鼠标移动时调用，实现宠物随鼠标移动</li>
+<li>mouseReleaseEvent(self, event)鼠标释放调用，取消绑定</li>
+<li>enterEvent(self, event)鼠标移进时调用</li>
+<li>contextMenuEvent(self, event)宠物右键点击交互</li>
+<li>haveRest(self)休息时间<br>核心功能的实现主要靠4、5、6、7、9、15、16</li>
+</ol>
+<p>2.初始化窗口用PyQt5(待了解)</p>
+<p>这边我打算自己写一个桌宠了<br>去问了一下chatgpt怎么写一个桌宠程序，他给我推荐了以下方案：</p>
+<ol>
+<li>Python +   PyQt</li>
+<li>C++    +   Qt</li>
+<li>Java   +   JavaFx<br>核心功能：</li>
+<li>创造一个窗口显示宠物</li>
+<li>加载宠物图像</li>
+<li>优化宠物行为比如移动、与用户互动</li>
+</ol>
+<p>查了一下AI助写工具，有Cursor、Copilot、Claude<br>这边新开一篇笔记讲Cursor</p>
+
       
     </div>
     <footer class="article-footer">
@@ -556,61 +633,6 @@ return inputs
 
 
   
-    <article id="post-RNN" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/19/RNN/" class="article-date">
-  <time class="dt-published" datetime="2024-04-19T02:26:46.000Z" itemprop="datePublished">2024-04-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/19/RNN/">RNN</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>在看enconder代码的时候发现里面竟然有RNN<br>我还是好好整理一下RNN吧</p>
-<p>enconder里的RNN层的作用：<br>实例：（复制chatgpt的，嫌长可以不看）</p>
-<ol>
-<li>Sentence: “The movie was a disappointment, the acting was terrible.”<br> Processing Words Sequentially: The RNN in the encoder processes the sentence word by word:</li>
-</ol>
-<p>Word 1: “The”</p>
-<p>The RNN receives the embedding vector for “The” and combines it with the initial hidden state (often initialized with zeros).<br>Based on this combination, the RNN updates the hidden state h_1. This initial hidden state doesn’t hold much sentiment information yet.<br>Word 2: “movie”</p>
-<p>The RNN receives the embedding vector for “movie” and combines it with the updated hidden state h_1.<br>Now, h_1 contains some context about “The,” which might be neutral. The RNN updates the hidden state h_2 to reflect this context along with the meaning of “movie.”<br>Word 3: “was”</p>
-<p>The process repeats. The RNN receives the embedding vector for “was” and combines it with the previous hidden state h_2.<br>h_2 carries information about “The movie,” which could be neutral or slightly positive depending on the embedding vectors. The RNN updates the hidden state h_3 to incorporate the meaning of “was” in this context.<br>Word 4: “a” (similar to “The”)</p>
-<p>Word 5: “disappointment”</p>
-<p>The RNN receives the embedding vector for “disappointment,” a negative word.<br>The previous hidden state h_4 likely held some neutral or slightly positive sentiment. The RNN updates h_5 to reflect the strong negative connotation of “disappointment,” shifting the overall sentiment towards negative.<br>Words 6-7 follow similarly, likely reinforcing the negative sentiment.</p>
-<ol start="3">
-<li>Final Hidden State: After processing all words, the RNN in the encoder reaches the final hidden state, let’s call it h_final. This state encapsulates the sentiment of the entire sentence, considering the sequence of words and their relationships.</li>
-<li>Using the Hidden State: The h_final can then be used for various tasks:</li>
-</ol>
-<p>Sentiment Classification: This hidden state can be fed into a classifier (e.g., a simple neural network) to predict the overall sentiment of the sentence (likely negative in this case).<br>Machine Translation: If this is part of a machine translation system, the h_final might be used to encode the meaning of the sentence and generate a corresponding translation in another language.</p>
-<p>简而言之，RNN每步读入当前的Word并将其与之前的隐状态结合、更新隐状态，隐状态反映当前输入的所有词之间的relationship<br>在读完整个句子后，我们会得到最后的隐状态，最后的隐状态包含了整句话的所有词之间的relationship<br>最后的隐状态可用于情感分类、机器翻译</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/04/19/RNN/" data-id="clv61usel0000qgt0gk46hjjd" data-title="RNN" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -647,6 +669,10 @@ return inputs
       <ul>
         
           <li>
+            <a href="/2024/12/13/Cursor%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">Cursor使用教程</a>
+          </li>
+        
+          <li>
             <a href="/2024/12/13/llm%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90-%E6%A1%8C%E5%AE%A0/">llm项目解析-桌宠</a>
           </li>
         
@@ -660,10 +686,6 @@ return inputs
         
           <li>
             <a href="/2024/08/01/llm%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">llm应用开发</a>
-          </li>
-        
-          <li>
-            <a href="/2024/07/03/metaverse/">metaverse</a>
           </li>
         
       </ul>
