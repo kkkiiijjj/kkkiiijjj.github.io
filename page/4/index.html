@@ -77,6 +77,77 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CNN-RNN-LSTM-Transformer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/21/CNN-RNN-LSTM-Transformer/" class="article-date">
+  <time class="dt-published" datetime="2023-12-21T11:16:56.000Z" itemprop="datePublished">2023-12-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/21/CNN-RNN-LSTM-Transformer/">CNN RNN LSTM Transformer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th></th>
+<th>RNN</th>
+<th>LSTM</th>
+<th>CNN</th>
+<th>Transformer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用于</td>
+<td>NLP</td>
+<td>NLP</td>
+<td>CV,NLP</td>
+<td>CV,NLP</td>
+</tr>
+<tr>
+<td>优点</td>
+<td>1.有效地捕捉序列中的时序信息2.共享权重3.上下文依赖</td>
+<td>1.长期依赖建模2.防止梯度消失和梯度爆炸(利用门控)3.灵活的门控结构</td>
+<td>1.共享卷积核</td>
+<td>1.突破了RNN模型不能并行计算的限制2.比RNN更快，比CNN更深</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>1.梯度消失&#x2F;爆炸(在反向传播时，由于参数共享和多次连乘的特性)2.难以捕捉到长期依赖关系3.计算效率较低4.难以并行</td>
+<td>1.计算复杂度较高2参教量较多</td>
+<td>1.当网络层数太深时，采用反向传播调整内部参数会导致梯度消失2.池化层会丢失一定的有价值信息，忽略了局部与整体之间的关联性3.远距离的特征捕获能力相对较弱</td>
+<td>1.局部信息的获取不如RNN和CNN强2.并不能很好表征位置信息3.如果层数较多时连乘计算会使得顶层出现梯度消失问题</td>
+</tr>
+</tbody></table>
+<p>transformer目前在各方面来说都是较优的<br><img src="/image-46.png" alt="Alt text"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2023/12/21/CNN-RNN-LSTM-Transformer/" data-id="cltl8pnby00042ot02pilcya6" data-title="CNN RNN LSTM Transformer" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-2023-12-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/12/09/2023-12-10/" class="article-date">
@@ -635,6 +706,10 @@ return dp[m][n];
       <ul>
         
           <li>
+            <a href="/2024/12/14/Copilot%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">Copilot使用教程</a>
+          </li>
+        
+          <li>
             <a href="/2024/12/13/Cursor%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">Cursor使用教程</a>
           </li>
         
@@ -648,10 +723,6 @@ return dp[m][n];
         
           <li>
             <a href="/2024/08/15/llm%E8%AE%AD%E7%BB%83%E6%96%B9%E6%B3%95%E6%A6%82%E8%BF%B0/">llm训练方法概述</a>
-          </li>
-        
-          <li>
-            <a href="/2024/08/01/llm%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">llm应用开发</a>
           </li>
         
       </ul>
