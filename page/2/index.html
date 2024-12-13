@@ -77,6 +77,119 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2024-5-24" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/24/2024-5-24/" class="article-date">
+  <time class="dt-published" datetime="2024-05-24T08:27:09.000Z" itemprop="datePublished">2024-05-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/05/24/2024-5-24/">2024-5-24</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一些废话：在看kaggle竞赛的课<br>感觉讲的不是很行啊，听半天感觉和没听一样</p>
+<p>竞赛：LLM Prompt Recovery | Metric Computation<br>比赛地址直达：<a target="_blank" rel="noopener" href="https://www.kaggle.com/code/yeoyunsianggeremie/llm-prompt-recovery-metric-computation">https://www.kaggle.com/code/yeoyunsianggeremie/llm-prompt-recovery-metric-computation</a><br>目的：由原始文本与Gemma改写的文本段落反推提示词(prompt)<br>评价指标：<br>锐化余弦相似度<img src="/image-112.png" alt="alt text"><br>可以用三个不同的模型来解决</p>
+<ol>
+<li>Seq2Seq</li>
+<li>few-shot<br>zero-shot LLM       没有示例<br>one-shot LLM        给一个示例<br>few-shot LLM        给一些示例</li>
+<li>Phi 2</li>
+</ol>
+<p>又是一段废话：<br>然后好像没有有用的话了，code给的还特别小，是想让我瞎吗()<br>好在可以管客服索要代码，看网课不如看代码<br>代码老长老长，给的是.ipynb格式的文件，据说要用juypter打开，不过我用vscode也打开了。<br>觉得自己有必要抽空学一下juypter</p>
+<p>代码在这里放一下吧还是</p>
+<h1 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h1><p>%%writefile trian_embedding_generate.py<br>import pandas as pd<br>import gc<br>import numpy as np<br>import pandas as pd<br>import time<br>from tqdm import tqdm<br>import numpy as np<br>from sentence_transformers import SentenceTransformer<br>import pickle</p>
+<p>df &#x3D; pd.read_parquet(f”.&#x2F;train_clean.parquet”, columns&#x3D;[‘rewrite_prompt’])</p>
+<h4 id="这里用-read-parquet读入-parquet文件，平时比较常用的是pd-read-csv-如下"><a href="#这里用-read-parquet读入-parquet文件，平时比较常用的是pd-read-csv-如下" class="headerlink" title="这里用.read_parquet读入.parquet文件，平时比较常用的是pd.read_csv(如下)"></a>这里用.read_parquet读入.parquet文件，平时比较常用的是pd.read_csv(如下)</h4><p>valid &#x3D; pd.read_csv(‘.&#x2F;validation826.csv’, usecols&#x3D;[‘rewrite_prompt’])</p>
+<h4 id="两个文件均只导入特定列"><a href="#两个文件均只导入特定列" class="headerlink" title="两个文件均只导入特定列"></a>两个文件均只导入特定列</h4><p>model &#x3D;  SentenceTransformer(‘sentence-transformers&#x2F;sentence-t5-base’)#</p>
+<h4 id="选择SentenceTransformer-model进行embedding"><a href="#选择SentenceTransformer-model进行embedding" class="headerlink" title="选择SentenceTransformer model进行embedding"></a>选择SentenceTransformer model进行embedding</h4><p>model.max_seq_length &#x3D; 512</p>
+<h4 id="最长序列长度设为512"><a href="#最长序列长度设为512" class="headerlink" title="最长序列长度设为512"></a>最长序列长度设为512</h4><p>encoded_data &#x3D; model.encode(list(df[‘rewrite_prompt’]), batch_size&#x3D;64, device&#x3D;’cuda’, show_progress_bar&#x3D;True, convert_to_tensor&#x3D;True, normalize_embeddings&#x3D;True)<br>encoded_data &#x3D; encoded_data.detach().cpu().numpy()<br>encoded_data &#x3D; np.asarray(encoded_data.astype(‘float32’))</p>
+<p>np.save(‘train_clean_emb_sentence-t5-base.npy’, encoded_data)</p>
+<p>valid_emb &#x3D; model.encode(list(valid[‘rewrite_prompt’]), batch_size&#x3D;64, device&#x3D;’cuda’, show_progress_bar&#x3D;True, convert_to_tensor&#x3D;True, normalize_embeddings&#x3D;True)<br>valid_emb &#x3D; valid_emb.detach().cpu().numpy()<br>valid_emb &#x3D; np.asarray(valid_emb.astype(‘float32’))</p>
+<p>np.save(‘valid826_emb_sentence-t5-base.npy’, valid_emb)</p>
+<h4 id="这里输入的数据已经被encoded变成numpy数组了，并被保存到valid826-emb-sentence-t5-base-npy文件里"><a href="#这里输入的数据已经被encoded变成numpy数组了，并被保存到valid826-emb-sentence-t5-base-npy文件里" class="headerlink" title="这里输入的数据已经被encoded变成numpy数组了，并被保存到valid826_emb_sentence-t5-base.npy文件里"></a>这里输入的数据已经被encoded变成numpy数组了，并被保存到valid826_emb_sentence-t5-base.npy文件里</h4><h1 id="seq2seq训练"><a href="#seq2seq训练" class="headerlink" title="seq2seq训练"></a>seq2seq训练</h1><h4 id="the-config-class-provides-a-structured-way-to"><a href="#the-config-class-provides-a-structured-way-to" class="headerlink" title="the config class provides a structured way to"></a>the config class provides a structured way to</h4><h4 id="define-and-manage-the-various-hyperparameters-and-configuration-settings"><a href="#define-and-manage-the-various-hyperparameters-and-configuration-settings" class="headerlink" title="define and manage the various hyperparameters and configuration settings"></a>define and manage the various hyperparameters and configuration settings</h4><h4 id="for-training-the-sequence-to-sequence-model"><a href="#for-training-the-sequence-to-sequence-model" class="headerlink" title="for training the sequence-to-sequence model"></a>for training the sequence-to-sequence model</h4><p>class config:<br>    #### configuration:结构，布局<br>    AMP &#x3D; True  # Boolean flag indicating whether to use Automatic Mixed Precision (AMP) for training efficiency.<br>    BATCH_SIZE_TRAIN &#x3D; 32 #若出现oom，减少即可<br>    BATCH_SIZE_VALID &#x3D; 32 #若出现oom，减少即可<br>    BETAS &#x3D; (0.9, 0.999)<br>    DEBUG &#x3D; 0 #debug改为1<br>    DEVICE &#x3D; torch.device(‘cuda’ if torch.cuda.is_available() else ‘cpu’)<br>    LR &#x3D; 5e-6<br>    EPOCHS &#x3D; 6<br>    EPS &#x3D; 1e-6<br>    GRADIENT_CHECKPOINTING &#x3D; False<br>    MODEL &#x3D; “&#x2F;kaggle&#x2F;input&#x2F;deberta-v3-large-hf-weights” #模型文件-<a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/radek1/deberta-v3-large-hf-weights">https://www.kaggle.com/datasets/radek1/deberta-v3-large-hf-weights</a><br>    CKPT &#x3D; ‘deberta-v3-large’<br>    MAX_GRAD_NORM &#x3D; 100000.0<br>    MAX_LEN &#x3D; 384<br>    NUM_WORKERS &#x3D; 0<br>    PRINT_FREQ &#x3D; 500<br>    SEED &#x3D; 20<br>    WANDB &#x3D; False<br>    WEIGHT_DECAY &#x3D; 0.008</p>
+<h4 id="提供一个结构化的方法来管理文件路径"><a href="#提供一个结构化的方法来管理文件路径" class="headerlink" title="提供一个结构化的方法来管理文件路径"></a>提供一个结构化的方法来管理文件路径</h4><p>class paths:<br>    TRAIN_DATA &#x3D; “.&#x2F;train_clean.parquet”<br>    #TRAIN_DATA2 &#x3D; ‘.&#x2F;train_sft_v13.csv’<br>    VALID_DATA &#x3D; ‘.&#x2F;validation826.csv’<br>    train_embedding_file &#x3D; ‘.&#x2F;train_clean_emb_sentence-t5-base.npy’<br>    #train_embedding_file2 &#x3D; ‘.&#x2F;train_sft_v13_emb_sentence-t5-base.npy’<br>    valid_embedding_file &#x3D; ‘.&#x2F;valid826_emb_sentence-t5-base.npy’<br>    OUTPUT_DIR &#x3D; “.&#x2F;exp14”#保存文件夹<br>    LOGGER &#x3D; ‘exp14’</p>
+<p>os.makedirs(paths.OUTPUT_DIR, exist_ok&#x3D;True)</p>
+<h3 id="该类用于在培训或评估过程中监控和跟踪指标的平均值。"><a href="#该类用于在培训或评估过程中监控和跟踪指标的平均值。" class="headerlink" title="该类用于在培训或评估过程中监控和跟踪指标的平均值。"></a>该类用于在培训或评估过程中监控和跟踪指标的平均值。</h3><p>class AverageMeter(object):<br>    def <strong>init</strong>(self):<br>        self.reset()</p>
+<pre><code>def reset(self):
+    self.val = 0
+    self.avg = 0
+    self.sum = 0
+    self.count = 0
+
+def update(self, val, n=1):
+    self.val = val
+    self.sum += val * n
+    self.count += n
+    self.avg = self.sum / self.count
+</code></pre>
+<h3 id="该函数将s改为几min几s的形式"><a href="#该函数将s改为几min几s的形式" class="headerlink" title="该函数将s改为几min几s的形式"></a>该函数将s改为几min几s的形式</h3><p>def asMinutes(s):<br>    m &#x3D; math.floor(s &#x2F; 60)<br>    s -&#x3D; m * 60<br>    return ‘%dm %ds’ % (m, s)</p>
+<h3 id="该函数给出已过去的时间以及根据当前进度预计完成任务所需时间"><a href="#该函数给出已过去的时间以及根据当前进度预计完成任务所需时间" class="headerlink" title="该函数给出已过去的时间以及根据当前进度预计完成任务所需时间"></a>该函数给出已过去的时间以及根据当前进度预计完成任务所需时间</h3><p>def timeSince(since, percent):<br>    now &#x3D; time.time()# 获取当前时间<br>    s &#x3D; now - since# 经过的时间<br>    es &#x3D; s &#x2F; (percent)# es:estimated total time 估计所需总时长<br>    # percent:当前进度<br>    rs &#x3D; es - s# 还要多久完事儿<br>    return ‘%s (remain %s)’ % (asMinutes(s), asMinutes(rs))</p>
+<h3 id="该函数创建一个字典，该字典从config类捕获基本参数，更易于管理，以便在训练脚本中进一步使用"><a href="#该函数创建一个字典，该字典从config类捕获基本参数，更易于管理，以便在训练脚本中进一步使用" class="headerlink" title="该函数创建一个字典，该字典从config类捕获基本参数，更易于管理，以便在训练脚本中进一步使用"></a>该函数创建一个字典，该字典从config类捕获基本参数，更易于管理，以便在训练脚本中进一步使用</h3><p>def get_config_dict(config):<br>    config_dict &#x3D; dict((key, value) for key, value in config.<strong>dict</strong>.items()<br>    if not callable(value) and not key.startswith(‘__’))<br>    return config_dict</p>
+<h3 id="该函数为model量身定制learning-rates-和-weight-decay"><a href="#该函数为model量身定制learning-rates-和-weight-decay" class="headerlink" title="该函数为model量身定制learning rates 和 weight decay"></a>该函数为model量身定制learning rates 和 weight decay</h3><p>def get_optimizer_params(model, encoder_lr, decoder_lr, weight_decay&#x3D;0.0):<br>    param_optimizer &#x3D; list(model.named_parameters())<br>    no_decay &#x3D; [“bias”, “LayerNorm.bias”, “LayerNorm.weight”]<br>    optimizer_parameters &#x3D; [<br>        {‘params’: [p for n, p in model.model.named_parameters() if not any(nd in n for nd in no_decay)],<br>         ‘lr’: encoder_lr, ‘weight_decay’: weight_decay},<br>        {‘params’: [p for n, p in model.model.named_parameters() if any(nd in n for nd in no_decay)],<br>         ‘lr’: encoder_lr, ‘weight_decay’: 0.0},<br>        {‘params’: [p for n, p in model.named_parameters() if “model” not in n],<br>         ‘lr’: decoder_lr, ‘weight_decay’: 0.0}<br>    ]<br>    return optimizer_parameters</p>
+<h4 id="在Seq2Seq-模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training-effiency"><a href="#在Seq2Seq-模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training-effiency" class="headerlink" title="在Seq2Seq 模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training effiency"></a>在Seq2Seq 模型中，对encoder和decoder使用不同学习率是一种常见的做法，目的是提高training effiency</h4><h3 id="get-logger-函数将信息加载到控制台与文件里"><a href="#get-logger-函数将信息加载到控制台与文件里" class="headerlink" title="get_logger()函数将信息加载到控制台与文件里"></a>get_logger()函数将信息加载到控制台与文件里</h3><pre><code>def get_logger(filename=paths.OUTPUT_DIR+&#39;/&#39;+paths.LOGGER):##将信息加载到控制台与文件里，控制台用于实时监控program的进展，而文件用于储存program的进展，相当于存档
+from logging import getLogger, INFO, StreamHandler, FileHandler, Formatter
+logger = getLogger(__name__)
+logger.setLevel(INFO)
+handler1 = StreamHandler()
+handler1.setFormatter(Formatter(&quot;%(message)s&quot;))
+handler2 = FileHandler(filename=f&quot;&#123;filename&#125;.log&quot;)
+handler2.setFormatter(Formatter(&quot;%(message)s&quot;))
+logger.addHandler(handler1)
+logger.addHandler(handler2)
+return logger
+</code></pre>
+<h3 id="seed-everything-为各种随机数生成器-RNG-设置种子"><a href="#seed-everything-为各种随机数生成器-RNG-设置种子" class="headerlink" title="seed_everything()为各种随机数生成器(RNG)设置种子"></a>seed_everything()为各种随机数生成器(RNG)设置种子</h3><pre><code>def seed_everything(seed=20):
+random.seed(seed)
+os.environ[&#39;PYTHONHASHSEED&#39;] = str(seed)
+np.random.seed(seed)
+torch.manual_seed(seed)
+torch.cuda.manual_seed(seed)
+torch.backends.cudnn.deterministic = True
+</code></pre>
+<h3 id="generate-uuid-创建编号"><a href="#generate-uuid-创建编号" class="headerlink" title="generate_uuid()创建编号"></a>generate_uuid()创建编号</h3><p>def generate_uuid():#创建编号，产生随机且独一无二的uuid<br>    return str(uuid.uuid4())</p>
+<h3 id="将tensor-dictionary移动到GPU"><a href="#将tensor-dictionary移动到GPU" class="headerlink" title="将tensor dictionary移动到GPU"></a>将tensor dictionary移动到GPU</h3><p>def to_device(inputs, device: str &#x3D; device):#将tensor dictionary移动到GPU<br>    return {k: v.to(device) for k, v in inputs.items()}</p>
+<p>LOGGER &#x3D; get_logger()<br>seed_everything(seed&#x3D;config.SEED)</p>
+<p>tokenizer &#x3D; AutoTokenizer.from_pretrained(config.MODEL)<br>tokenizer.save_pretrained(paths.OUTPUT_DIR + ‘&#x2F;tokenizer&#x2F;‘)</p>
+<h3 id="将原始的文本数据转换为表格"><a href="#将原始的文本数据转换为表格" class="headerlink" title="将原始的文本数据转换为表格"></a>将原始的文本数据转换为表格</h3><p>def prepare_input(cfg: type, text: np.ndarray, tokenizer):</p>
+<pre><code>inputs = tokenizer.encode_plus(
+    text,
+    return_tensors=None,
+    add_special_tokens=True,
+    max_length=cfg.MAX_LEN,
+    padding=&#39;max_length&#39;, # TODO: check padding to max sequence in batch
+    truncation=True
+)
+for k, v in inputs.items():
+    inputs[k] = torch.tensor(v, dtype=torch.long) # TODO: check dtypes
+return inputs
+</code></pre>
+<h1 id="data"><a href="#data" class="headerlink" title="data"></a>data</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/05/24/2024-5-24/" data-id="clwkf521j0000bgt05eq4g7mo" data-title="2024-5-24" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-MATLAB" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/05/09/MATLAB/" class="article-date">
@@ -518,53 +631,6 @@
 
 
   
-    <article id="post-梯度消失与梯度爆炸" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/03/22/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/" class="article-date">
-  <time class="dt-published" datetime="2024-03-22T07:57:58.000Z" itemprop="datePublished">2024-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/03/22/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/">梯度消失与梯度爆炸</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>产生原因：(1)层数太深，输入的数多次乘以小于1的权重得到一个趋于零的值导致梯度消失，或是乘一个大于1的权重得到趋于无穷的值导致梯度爆炸<br>        (2)激活函数选择不当<br>影响：无法进一步更新权重值（因为更新权重是要将梯度与零对比的，趋于零就不再更新了，而大太多则会一直更新，非常缓慢）<br>解决方法：</p>
-<ul>
-<li>预训练加微调</li>
-<li>梯度剪切、权重正则 （针对梯度爆炸）</li>
-<li>使用不同的激活函数 （如relu、leakrelu、elu等激活函数）</li>
-<li>使用batchnorm</li>
-<li>使用残差结构</li>
-<li>使用LSTM网络</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2024/03/22/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/" data-id="clu2dd20s0000d0t00fa63vj1" data-title="梯度消失与梯度爆炸" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -601,6 +667,10 @@
       <ul>
         
           <li>
+            <a href="/2024/12/14/%E8%87%AA%E5%86%99%E6%A1%8C%E5%AE%A0-Python-PyQt6-Cursor/">自写桌宠(Python+PyQt6+Cursor)</a>
+          </li>
+        
+          <li>
             <a href="/2024/12/14/Copilot%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">Copilot使用教程</a>
           </li>
         
@@ -614,10 +684,6 @@
         
           <li>
             <a href="/2024/12/08/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90/">大模型小项目解析</a>
-          </li>
-        
-          <li>
-            <a href="/2024/08/15/llm%E8%AE%AD%E7%BB%83%E6%96%B9%E6%B3%95%E6%A6%82%E8%BF%B0/">llm训练方法概述</a>
           </li>
         
       </ul>

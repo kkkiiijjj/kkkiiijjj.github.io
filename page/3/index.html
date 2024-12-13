@@ -77,6 +77,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-梯度消失与梯度爆炸" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/22/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/" class="article-date">
+  <time class="dt-published" datetime="2024-03-22T07:57:58.000Z" itemprop="datePublished">2024-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/22/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/">梯度消失与梯度爆炸</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>产生原因：(1)层数太深，输入的数多次乘以小于1的权重得到一个趋于零的值导致梯度消失，或是乘一个大于1的权重得到趋于无穷的值导致梯度爆炸<br>        (2)激活函数选择不当<br>影响：无法进一步更新权重值（因为更新权重是要将梯度与零对比的，趋于零就不再更新了，而大太多则会一直更新，非常缓慢）<br>解决方法：</p>
+<ul>
+<li>预训练加微调</li>
+<li>梯度剪切、权重正则 （针对梯度爆炸）</li>
+<li>使用不同的激活函数 （如relu、leakrelu、elu等激活函数）</li>
+<li>使用batchnorm</li>
+<li>使用残差结构</li>
+<li>使用LSTM网络</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/03/22/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/" data-id="clu2dd20s0000d0t00fa63vj1" data-title="梯度消失与梯度爆炸" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-time-machine-code解读" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/03/13/time-machine-code%E8%A7%A3%E8%AF%BB/" class="article-date">
@@ -485,81 +532,6 @@
 
 
   
-    <article id="post-CNN" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/12/23/CNN/" class="article-date">
-  <time class="dt-published" datetime="2023-12-23T02:01:21.000Z" itemprop="datePublished">2023-12-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/23/CNN/">CNN</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>  CNN是识别图像最佳学习算法之一，并且在图像分割、分类、检测和检索相关任务中表现出色</p>
-<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><img src="/image-52.png" alt="Alt text"><br><img src="/image-53.png" alt="Alt text"></p>
-<h2 id="卷积网络的层级结构"><a href="#卷积网络的层级结构" class="headerlink" title="卷积网络的层级结构"></a>卷积网络的层级结构</h2><p>CNN的结构可以分为3层：</p>
-<ul>
-<li>卷积层(Convolutional Layer) - 主要作用是提取特征。</li>
-<li>池化层(Max Pooling Layer) - 主要作用是下采样(downsampling)，却不会损坏识别结果。</li>
-<li>全连接层(Fully Connected Layer) - 主要作用是分类。</li>
-</ul>
-<h3 id="padding"><a href="#padding" class="headerlink" title="padding"></a>padding</h3><p><img src="/image-54.png" alt="Alt text"></p>
-<p>插个嘴，论文推荐：Rectified Linear Units Improve Restricted Boltzmann Machines</p>
-<h3 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h3><p><img src="/%E5%8D%B7%E7%A7%AF.gif" alt="Alt text"></p>
-<h3 id="池化层-汇聚层"><a href="#池化层-汇聚层" class="headerlink" title="池化层(汇聚层)"></a>池化层(汇聚层)</h3><p>压缩图像，提取特征，防止过拟合<br>作用：<br>降低卷积层对位置的敏感性，同时降低对空间降采样表示的敏感性。<br>汇聚层的输出通道数与输入通道数相同<br><strong>Max pooling</strong><br><img src="/image-55.png" alt="Alt text"></p>
-<hr>
-<p>一些说明</p>
-<ol>
-<li>CNN中用的优化算法是SGD（随机梯度下降）。</li>
-<li>优缺点</li>
-</ol>
-<p>（1）优点<br>　　•共享卷积核，对高维数据处理无压力<br>　　•无需手动选取特征，训练好权重，即得特征分类效果好<br>（2）缺点<br>　　•需要调参，需要大样本量，训练最好要GPU<br>　　•物理含义不明确（也就说，我们并不知道没个卷积层到底提取到的是什么特征，而且神经网络本身就是一种难以解释的“黑箱模型”）</p>
-<ol start="3">
-<li>典型CNN模型<br>LeNet，这是最早用于数字识别的CNN<br>AlexNet， 2012 ILSVRC比赛远超第2名的CNN，比<br>LeNet更深，用多层小卷积层叠加替换单大卷积层。<br>ZF Net， 2013 ILSVRC比赛冠军<br>GoogLeNet， 2014 ILSVRC比赛冠军<br>VGGNet， 2014 ILSVRC比赛中的模型，图像识别略差于GoogLeNet，但是在很多图像转化学习问题(比如object detection)上效果奇好</li>
-</ol>
-<h2 id="conv2d-的参数"><a href="#conv2d-的参数" class="headerlink" title="conv2d 的参数"></a>conv2d 的参数</h2><p> in_channels （int） – 输入图像中的通道数</p>
-<p> out_channels （int） – 卷积产生的通道数</p>
-<p> kernel_size （int or tuple） - 卷积内核的大小</p>
-<p> stride （int 或 tuple， 可选） - 卷积的步幅。默认值：1</p>
-<p> padding （int， tuple or str， 可选） – 添加到 输入。默认值：0</p>
-<h3 id="in-channels"><a href="#in-channels" class="headerlink" title="in_channels:"></a>in_channels:</h3><p>最初为输入图片的  颜色层数  黑白的是1，RGB的是3<br>往后的 看上一层的out_channels</p>
-<h3 id="out-channels"><a href="#out-channels" class="headerlink" title="out_channels:"></a>out_channels:</h3><p><img src="/image-57.png" alt="Alt text"><br>out_channels 为 1<br><img src="/image-58.png" alt="Alt text"><br>out_channels 为 2<br>所以out_channels是多少看卷积核有几个<br>但是。。。卷积核设置成多少竟然是凭感觉？？？<br>kernal_size:卷积核越小，所需要的参数和计算量越小。所以2×2排除了，一般都用3×3作为卷积核的大小。</p>
-<hr>
-<p>不管输入图像的深度为多少，经过一个卷积核（filter），最后都变成一个深度为1的特征图。<br>卷积核(filter)的channel数，其实是与输入图像相同的，所以常常会省略不写，只写输出filters数量</p>
-<h2 id="MaxPool2d参数"><a href="#MaxPool2d参数" class="headerlink" title="MaxPool2d参数"></a>MaxPool2d参数</h2><p>kernel_size ：表示做最大池化的窗口大小，可以是单个值，也可以是tuple元组</p>
-<p>stride ：步长，可以是单个值，也可以是tuple元组</p>
-<p>padding ：填充，可以是单个值，也可以是tuple元组</p>
-<p>kernel_size 的详解<br>注意这里的 kernel_size 跟卷积核不是一个东西。 kernel_size 可以看做是一个滑动窗口，这个窗口的大小由自己指定，如果输入是单个值，例如 3 ，那么窗口的大小就是 3 × 3 3 ，还可以输入元组，例如 (3, 2) ，那么窗口大小就是 3 × 2。<br>最大池化的方法就是取这个窗口覆盖元素中的最大值</p>
-<p>stride 的详解<br>上一个参数我们确定了滑动窗口的大小，现在我们来确定这个窗口如何进行滑动。如果不指定这个参数，那么默认步长跟最大池化窗口大小一致。如果指定了参数，那么将按照我们指定的参数进行滑动。例如 stride&#x3D;(2,3) ， 那么窗口将每次向右滑动三个元素位置，或者向下滑动两个元素位置</p>
-<h2 id="nn-Linear（）参数"><a href="#nn-Linear（）参数" class="headerlink" title="nn.Linear（）参数"></a>nn.Linear（）参数</h2><p>in_features指的是输入的二维张量的大小，即输入的[batch_size, size]中的size。<br>  out_features指的是输出的二维张量的大小，即输出的二维张量的形状为[batch_size，output_size]，当然，它也代表了该全连接层的神经元个数。<br>  从输入输出的张量的shape角度来理解，相当于一个输入为[batch_size, in_features]的张量变换成了[batch_size, out_features]的输出张量。<br>其实参数就是权重矩阵的行列数</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2023/12/23/CNN/" data-id="cltl8pnbw00022ot0fdrx51ob" data-title="CNN" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -596,6 +568,10 @@
       <ul>
         
           <li>
+            <a href="/2024/12/14/%E8%87%AA%E5%86%99%E6%A1%8C%E5%AE%A0-Python-PyQt6-Cursor/">自写桌宠(Python+PyQt6+Cursor)</a>
+          </li>
+        
+          <li>
             <a href="/2024/12/14/Copilot%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">Copilot使用教程</a>
           </li>
         
@@ -609,10 +585,6 @@
         
           <li>
             <a href="/2024/12/08/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90/">大模型小项目解析</a>
-          </li>
-        
-          <li>
-            <a href="/2024/08/15/llm%E8%AE%AD%E7%BB%83%E6%96%B9%E6%B3%95%E6%A6%82%E8%BF%B0/">llm训练方法概述</a>
           </li>
         
       </ul>
