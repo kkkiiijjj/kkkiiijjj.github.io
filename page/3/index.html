@@ -77,6 +77,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-链表力扣刷题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/22/%E9%93%BE%E8%A1%A8%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2024-03-22T09:31:32.000Z" itemprop="datePublished">2024-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/22/%E9%93%BE%E8%A1%A8%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98/">链表力扣刷题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>开始刷题啦！<br>从链表开始刷的，顺序参考的是代码随想录<br>这里记录下每道题的大致思路：</p>
+<ol>
+<li>移除等于所给值的链表元素(203)<br> (1)递归<br> 首先考虑返回值，想返回的是去掉特定节点的链表，而考虑到递归是一步步返回的，所以返回的数据形式应该是节点。<br> 然后返回的上一行代码应该是调用函数本身<br> (2)迭代+设置虚拟头节点</li>
+<li>设计单链表与双链表(707)<br>实现<br>addAtIndex(index,val)：在链表中的第 index 个节点之前添加值为 val  的节点。如果 index 等于链表的长度，则该节点将附加到链表的末尾。如果 index 大于链表长度，则不会插入节点。如果index小于0，则在头部插入节点。<br>新建节点保存要插入的值<br>（这个有待完善）</li>
+<li>反转链表（206）<br>(1)递归<br>(2)迭代(双指针法（虽然我觉得其实是三指针）)<br> 一个在头，一个在尾(null)<br> 然后四步走：<br> a.新建一个节点储存头的下一个节点<br> 然后就是挪来挪去了:<br>             b.头的下一个指向尾<br>             c.更新尾节点<br>             d.更新头节点</li>
+<li>两两交换链表中的节点(24)<br>(1)递归<br>(2)迭代+dummyhead<br>(这个比较简单)</li>
+<li>删除链表的倒数第N个节点(19)<br>(1)化为正序删除<br>(2)栈<br>(3)双指针</li>
+<li>链表相交(面试题02.07)<br>(1)哈希<br>先把A链表的所有元素放进哈希表里，再遍历B链表看什么时候重合。<br>(2)双指针<br>给两个链表的头节点，返回两链表的相交节点，若不相交，返回NULL<br>我觉得这是一道数学题<br>创建两个节点(如p,q)，分别指向两个链表的头，哪个把当前所在的链走完了就去走另外一条链，最后二者相遇的那个节点即为所求<br>就像互相暗恋的两个人，从陌生到相知，然后互相试探（你往前走一步我往前走一步），结果俩人总是隔着那么几步，然后其中一个忽然发现了对方喜欢自己的证据，另一个稍后也发现了，证据越来越多最后俩人都发现对方喜欢自己，然后他们在一起了，皆大欢喜。<br>（编得我都感动了）<br>好了回到正题：这种题肯定会用到循环，然后要想循环的终止条件是什么，我们希望最后俩指针重合</li>
+<li>环形链表<br>(1)哈希<br>循环结束条件为head为空，每次循环检查当前节点是否在哈希表中，不在则加且将head向前移动一步，在则返回头节点<br>(2)快慢指针<br>依然是一道数学题，而且是追及问题<br>快的一次移两步，慢的一步，假如有环，他们终将相遇，并且在相遇的这个点，新建一个指针指向头，同时释放两球（不是），让他和慢指针同步移动，最后二者将在入环点相遇<br>数学原理如下：<br><img src="/image-91.png" alt="alt text"></li>
+</ol>
+<p>所以哈希表很适合判定重复对吧？<br>然后关于dummyhead的使用：<br>dummyhead的好处：<br>(1)处理边缘值更容易<br>(2)无需检查即可access头节点<br>(3)便于插入与删除</p>
+<p>以及递归方法的使用：<br>(1)if判断句(比如判空)<br>(2)自调语句<br>(3)其他操作(可选)<br>(4)返回<br>我发现这个递归消耗内存好像普遍比较多啊</p>
+<p>链表题中用到递归的几个：<br><img src="/image-109.png" alt="alt text"><br><img src="/image-110.png" alt="alt text"><br><img src="/image-111.png" alt="alt text"><br>可以感受一下递归的格式</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kkkiiijjj.github.io/2024/03/22/%E9%93%BE%E8%A1%A8%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98/" data-id="clu2gp6kk000048t01xsq43zq" data-title="链表力扣刷题" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-梯度消失与梯度爆炸" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/03/22/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/" class="article-date">
@@ -472,66 +523,6 @@
 
 
   
-    <article id="post-torch-nn-init" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/12/27/torch-nn-init/" class="article-date">
-  <time class="dt-published" datetime="2023-12-27T01:46:52.000Z" itemprop="datePublished">2023-12-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/27/torch-nn-init/">torch.nn.init</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>torch.nn.init.uniform_                </li>
-<li>torch.nn.init.normal_</li>
-<li>torch.nn.init.constant_</li>
-<li>torch.nn.init.ones_</li>
-<li>torch.nn.init.zeros_</li>
-<li>torch.nn.init.xavier_uniform_</li>
-<li>torch.nn.init.xavier_normal_<br>下面这些暂时未接触</li>
-<li>torch.nn.init.calculate_gain</li>
-<li>torch.nn.init.eye_</li>
-<li>torch.nn.init.dirac_</li>
-<li>torch.nn.init.kaiming_normal_</li>
-<li>torch.nn.init.trunc_normal_</li>
-<li>torch.nn.init.orthogonal_</li>
-<li>torch.nn.init.sparse_</li>
-</ul>
-<h3 id="torch-nn-init-uniform"><a href="#torch-nn-init-uniform" class="headerlink" title="torch.nn.init.uniform_"></a>torch.nn.init.uniform_</h3><p>从均匀分布U ( a , b ) 中生成值<br>语法<br>torch.nn.init.uniform_(tensor, a&#x3D;0.0, b&#x3D;1.0)<br>a:下界<br>b:上界</p>
-<h3 id="torch-nn-init-normal"><a href="#torch-nn-init-normal" class="headerlink" title="torch.nn.init.normal_"></a>torch.nn.init.normal_</h3><p>给定均值和标准差的正态分布N ( mean , std ) N(\text{mean}, \text{std})N(mean,std)中生成值<br>语法<br>torch.nn.init.normal_(tensor, mean&#x3D;0.0, std&#x3D;1.0)</p>
-<h3 id="torch-nn-init-constant"><a href="#torch-nn-init-constant" class="headerlink" title="torch.nn.init.constant_"></a>torch.nn.init.constant_</h3><p>用val的值填充<br>语法<br>torch.nn.init.constant_(tensor, val)</p>
-<h3 id="torch-nn-init-xavier-uniform"><a href="#torch-nn-init-xavier-uniform" class="headerlink" title="torch.nn.init.xavier_uniform_"></a>torch.nn.init.xavier_uniform_</h3><p>张量中的值采样自U ( − a , a )，其中：<br><img src="/image-70.png" alt="Alt text"><br>语法<br>torch.nn.init.xavier_uniform_(tensor, gain&#x3D;1)<br>gain ：[float] 可选的缩放因子</p>
-<h3 id="torch-nn-init-xavier-normal"><a href="#torch-nn-init-xavier-normal" class="headerlink" title="torch.nn.init.xavier_normal_"></a>torch.nn.init.xavier_normal_</h3><p>结果张量中的值采样自N(0, ${std}^2$)的正态分布，其中标准差：<img src="/image-71.png" alt="Alt text"><br>语法<br>torch.nn.init.xavier_normal_(tensor, gain&#x3D;1.0)<br>gain ：[float] 可选的缩放因子</p>
-<p>节选自：<br><a target="_blank" rel="noopener" href="https://machinelearning.blog.csdn.net/article/details/132382885">https://machinelearning.blog.csdn.net/article/details/132382885</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kkkiiijjj.github.io/2023/12/27/torch-nn-init/" data-id="cltl8pnc2000a2ot053zx31sc" data-title="torch.nn.init" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -568,6 +559,10 @@
       <ul>
         
           <li>
+            <a href="/2024/12/27/LLaVA/">LLaVA</a>
+          </li>
+        
+          <li>
             <a href="/2024/12/14/%E8%87%AA%E5%86%99%E6%A1%8C%E5%AE%A0-Python-PyQt6-Cursor/">自写桌宠(Python+PyQt6+Cursor)</a>
           </li>
         
@@ -581,10 +576,6 @@
         
           <li>
             <a href="/2024/12/13/llm%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90-%E6%A1%8C%E5%AE%A0/">llm项目解析-桌宠</a>
-          </li>
-        
-          <li>
-            <a href="/2024/12/08/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90/">大模型小项目解析</a>
           </li>
         
       </ul>

@@ -6,15 +6,21 @@
   
   <title>自写桌宠(Python+PyQt6+Cursor) | Forforevery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="article">
+  <meta name="description" content="前言使用Cursor帮我写代码这是我第一次用AI工具写代码这效果震惊到我了我给的Prompt:    我想写一个桌面宠物，这个桌面宠物有以下功能：    1.待机时来回跳跃。    2.检测鼠标移动并跟随其移动眼睛。    3.点击时作出反应。    4.对话功能，应用huggingface里的模型实现与用户对话生成语句。    5.可以通过拖动改变其位置。（宠物的所有动作我会上传gif图来实现）">
+<meta property="og:type" content="article">
 <meta property="og:title" content="自写桌宠(Python+PyQt6+Cursor)">
 <meta property="og:url" content="https://kkkiiijjj.github.io/2024/12/14/%E8%87%AA%E5%86%99%E6%A1%8C%E5%AE%A0-Python-PyQt6-Cursor/index.html">
 <meta property="og:site_name" content="Forforevery">
+<meta property="og:description" content="前言使用Cursor帮我写代码这是我第一次用AI工具写代码这效果震惊到我了我给的Prompt:    我想写一个桌面宠物，这个桌面宠物有以下功能：    1.待机时来回跳跃。    2.检测鼠标移动并跟随其移动眼睛。    3.点击时作出反应。    4.对话功能，应用huggingface里的模型实现与用户对话生成语句。    5.可以通过拖动改变其位置。（宠物的所有动作我会上传gif图来实现）">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kkkiiijjj.github.io/image-138.png">
+<meta property="og:image" content="https://kkkiiijjj.github.io/image-139.png">
+<meta property="og:image" content="https://kkkiiijjj.github.io/image-140.png">
 <meta property="article:published_time" content="2024-12-13T17:43:44.000Z">
-<meta property="article:modified_time" content="2024-12-13T17:43:44.468Z">
+<meta property="article:modified_time" content="2024-12-27T10:21:00.804Z">
 <meta property="article:author" content="Wang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kkkiiijjj.github.io/image-138.png">
   
     <link rel="alternate" href="/atom.xml" title="Forforevery" type="application/atom+xml">
   
@@ -99,7 +105,94 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="使用Cursor帮我写代码"><a href="#使用Cursor帮我写代码" class="headerlink" title="使用Cursor帮我写代码"></a>使用Cursor帮我写代码</h1><p>这是我第一次用AI工具写代码<br>这效果震惊到我了<br>我给的Prompt:<br>    我想写一个桌面宠物，这个桌面宠物有以下功能：<br>    1.待机时来回跳跃。<br>    2.检测鼠标移动并跟随其移动眼睛。<br>    3.点击时作出反应。<br>    4.对话功能，应用huggingface里的模型实现与用户对话生成语句。<br>    5.可以通过拖动改变其位置。（宠物的所有动作我会上传gif图来实现）</p>
+<h2 id="它给了我："><a href="#它给了我：" class="headerlink" title="它给了我："></a>它给了我：</h2><p><img src="/image-138.png" alt="alt text"><br>其中desktop_pet.py是主要的程序文件<br>eye_tracking.py用于处理眼睛跟随鼠标移动<br>config.py添加配置文件来存储设置</p>
+<h2 id="它告诉我需要做的："><a href="#它告诉我需要做的：" class="headerlink" title="它告诉我需要做的："></a>它告诉我需要做的：</h2><p>准备以下GIF动画文件：<br>    idle.gif (待机动画)<br>    click.gif (点击反应动画)<br>    不同方向的眼睛动画<br>为了实现对话功能，需要：<br>    安装必要的依赖：pip install transformers torch<br>    选择合适的预训练模型<br>    创建一个对话界面<br>要运行这个程序，您需要：</p>
+<ol>
+<li>安装必要的依赖：<br>‘’’<br>pip install PyQt6 transformers torch<br>‘’’</li>
+<li>准备好所有需要的GIF动画文件</li>
+<li>根据实际情况调整代码中的参数，比如窗口大小、动画文件路径等</li>
+<li>运行程序：<br>‘’’<br>python desktop_pet.py<br>‘’’</li>
+</ol>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>它会告诉我哪里可以再优化以及可以再加哪些功能<br>哪里出了问题也可以告诉它它会直接改（但是要把问题描述清楚）</p>
+<h2 id="上传github"><a href="#上传github" class="headerlink" title="上传github"></a>上传github</h2><p>prompt:我想把当前程序上传到github上作为最初的版本，可以帮帮我吗<br>上传之前只有三个.py文件和一个assets文件夹：<br><img src="/image-139.png" alt="alt text"><br>给它提示词之后多了.gitignore、READEME.md、requirements.txt三个文件<br><img src="/image-140.png" alt="alt text"></p>
+<p>它提示我在终端执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 初始化 git 仓库</span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line"># 添加所有文件</span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"># 创建第一次提交</span><br><span class="line">git commit -m &quot;Initial commit: Basic desktop pet implementation&quot;</span><br><span class="line"></span><br><span class="line"># 添加远程仓库，将本地仓库与github上已经存在的仓库建立连接（需要先在 GitHub 上创建仓库）</span><br><span class="line">git remote add origin https://github.com/你的用户名/desktop-pet.git</span><br><span class="line"></span><br><span class="line"># 推送到 GitHub</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<p>然后它提示我要自己去github上新建一个仓库<br>仓库名是我根据它给的代码推出来的：desktop_pet<br>（另外仓库名最好不要用中文）<br>创建仓库的时候不用勾选那个添加readme文件，因为我们已经写好了</p>
+<p>这边我运行git push -u origin master时报错说fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/kkkiiijjj/desktop-pet.git/">https://github.com/kkkiiijjj/desktop-pet.git/</a>‘: Unsupported proxy syntax in ‘proxyaddress:port’: Port number was not a decimal number between 0 and 65535<br>咱也不知道啥问题，丢给Cursor，它说要清除代理<br>然后还报错，换了一下网络节点然后好了</p>
+<h2 id="可以额外问Cursor的："><a href="#可以额外问Cursor的：" class="headerlink" title="可以额外问Cursor的："></a>可以额外问Cursor的：</h2><ol>
+<li><p>写readme文件：<br> “请帮我总结一下这个项目的整个文件结构，输出一个项目文档，并能让我复制粘贴到.md文件中”</p>
+</li>
+<li><p>面试准备：如果项目要写进简历里的话还可以问它<br> “这个项目的哪些地方是值得详细了解的？”<br> “这个项目里用到了哪些算法&#x2F;知识点&#x2F;数据结构”<br> “怎么把这个项目写进简历里？”<br> “我该如何在面试时介绍这个项目呢？”<br> “关于这个项目，面试官可能会问哪些问题？”<br> “可以把“面试官可能问的问题及建议回答”部分的内容整理并生成.md文件方便我日后学习吗？”</p>
+</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Cursor非常好用</p>
+<h3 id="它能做的："><a href="#它能做的：" class="headerlink" title="它能做的："></a>它能做的：</h3><ol>
+<li>根据你给出的需求生成代码</li>
+<li>进一步优化代码</li>
+<li>对程序进行调试</li>
+<li>对报错提出解决方案</li>
+<li>补充上传github时需要的文件，如readme、requirements、gitignore</li>
+</ol>
+<h3 id="我们要做的："><a href="#我们要做的：" class="headerlink" title="我们要做的："></a>我们要做的：</h3><ol>
+<li>提供想要的效果</li>
+<li>运行它写出的代码然后告诉它哪里不对或需要调整、优化</li>
+<li>提供需要的素材，如图片、音频、gif图</li>
+<li>自己建github仓库、运行终端</li>
+<li>检查它写的代码和文字内容，比如我的readme文件内容不完整</li>
+</ol>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h2><ol>
+<li>GUI 是 图形用户界面 的缩写，英文全称是 Graphical User Interface。它是一种人机交互的方式，通过图形化的方式，如窗口、菜单、图标等，来让用户与计算机进行交互。</li>
+<li>GUI的组成：<br> 窗口 (Window)： 是GUI的基本单位，用于显示应用程序的内容。<br> 菜单 (Menu)： 提供了各种命令和选项，用户可以通过点击菜单来执行操作。<br> 图标 (Icon)： 用图形化的方式表示应用程序、文件或命令。<br> 按钮 (Button)： 用户点击按钮来触发特定的操作。<br> 对话框 (Dialog)： 用于向用户获取信息或显示提示信息。</li>
+</ol>
+<h2 id="状态机"><a href="#状态机" class="headerlink" title="状态机"></a>状态机</h2><pre><code>状态机（State Machine）是一种程序设计的思想，它将程序看作是在不同状态之间转换的系统。
+</code></pre>
+<h2 id="软件工程的重要概念："><a href="#软件工程的重要概念：" class="headerlink" title="软件工程的重要概念："></a>软件工程的重要概念：</h2><p>模块化设计<br>状态管理<br>事件处理<br>资源管理<br>性能优化<br>错误处理<br>配置管理<br>可扩展性</p>
+<h2 id="模块化设计"><a href="#模块化设计" class="headerlink" title="模块化设计"></a>模块化设计</h2><p>模块化设计是一种软件设计方法，将程序分解成独立的、可重用的模块。<br>优点：高内聚（相关功能集中在一起）低耦合（模块之间依赖最小化）<br>易于维护（修改一个模块不影响其他模块）<br>便于扩展（添加新功能只需要新增模块）<br>代码复用（模块可以在其他项目中重用）<br>    2.0版本</p>
+<h2 id="HTML-在-QTextEdit-中的应用"><a href="#HTML-在-QTextEdit-中的应用" class="headerlink" title="HTML 在 QTextEdit 中的应用"></a>HTML 在 QTextEdit 中的应用</h2><p>————使用 HTML 表格实现消息气泡的左右对齐</p>
+<h2 id="富文本"><a href="#富文本" class="headerlink" title="富文本"></a>富文本</h2><p>富文本（Rich Text）是指包含各种格式化信息的文本，不同于纯文本（Plain Text）只包含字符本身。<br>该项目中使用富文本实现了消息气泡<br>QTextEdit 原生支持富文本，这就是为什么我们能直接使用 HTML 和 CSS 来格式化消息。<br>富文本 vs 超文本<br>共同点：</p>
+<ul>
+<li>都使用 HTML&#x2F;CSS 语法</li>
+<li>都是对纯文本的扩展</li>
+<li>都使用标记语言<br>不同点：<br>使用场景：<br>富文本：文档编辑、聊天消息、邮件编辑<br>超文本：网页设计、在线文档、知识库</li>
+</ul>
+<h2 id="事件过滤器"><a href="#事件过滤器" class="headerlink" title="事件过滤器"></a>事件过滤器</h2><p>事件过滤器(Event Filter)简单来说，就是一种机制，它允许一个对象拦截并处理其他对象发出的特定类型的事件。<br>工作流程：<br>事件传递顺序：</p>
+<ol>
+<li>事件产生（如按键）</li>
+<li>传递给事件过滤器</li>
+<li>如果过滤器返回 True，事件处理结束</li>
+<li>如果过滤器返回 False，事件继续传递给目标对象<br>打个比方：<br>想象一下，你家门口有一个信箱。通常情况下，邮递员会直接把信投进你的信箱。但是，如果你在信箱上安装了一个过滤器，那么所有的信件在投进信箱之前，都会先经过这个过滤器。过滤器会检查每一封信，决定是否让它进入信箱。</li>
+</ol>
+<h2 id="信号槽机制"><a href="#信号槽机制" class="headerlink" title="信号槽机制"></a>信号槽机制</h2><p>信号槽机制 是 Qt 框架中用于对象之间通信的一种机制，也是 Qt 的核心特性之一。它可以看作是一种高级的观察者模式。<br>信号 (Signal): 当一个对象发生了一些变化或者某个事件触发时，它就会发出一个信号，就像广播电台发射信号一样。<br>槽 (Slot): 另一个对象可以连接到这个信号上，当信号被发出时，连接到这个信号的槽就会被自动调用，就像收音机接收到信号后播放音乐一样。</p>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>多线程 是一种让一个程序同时执行多个任务的技术。<br>线程 是操作系统能够进行运算调度的最小单位。一个进程可以包含多个线程。<br>优点：提高并发性、提高资源利用率、改善用户体验</p>
+<p>缺点：增加了程序的复杂性及调试的难度</p>
+<h2 id="PyQt"><a href="#PyQt" class="headerlink" title="PyQt"></a>PyQt</h2><p>PyQt 作为一款强大的 Python GUI 框架，可以用来构建各种各样的桌面应用程序。<br>PyQt 可以用来做什么？</p>
+<ul>
+<li>系统工具: 文件管理器、文本编辑器、系统监控工具等。</li>
+<li>数据可视化: 使用 Matplotlib 或其他绘图库，创建交互式图表和数据可视化工具。</li>
+<li>科学计算工具: 结合 NumPy、SciPy 等科学计算库，开发数据分析和模拟工具。</li>
+<li>游戏: 创建简单的 2D 游戏，甚至一些复杂的 3D 游戏。</li>
+<li>教育软件: 开发交互式的学习工具和模拟器。</li>
+<li>企业级应用: 构建定制化的业务应用程序，如 CRM、ERP 系统等。<br>优点：</li>
+</ul>
+<ol>
+<li>跨平台 PyQt 应用程序可以在 Windows、macOS、Linux 等多个操作系统上运行，无需修改代码。</li>
+<li>组件丰富 PyQt 提供了大量的 UI 组件，包括按钮、文本框、表格、图表等，可以快速构建复杂的界面。</li>
+<li>与 Python 生态系统的集成: PyQt 可以无缝地与 Python 的其他库（如 NumPy、Pandas、Matplotlib）结合，扩展其功能。</li>
+<li>强大的信号与槽机制: PyQt 的信号与槽机制使得不同组件之间的交互变得简单高效。</li>
+<li>活跃的社区: PyQt 有一个庞大的社区，提供丰富的文档、教程和示例代</li>
+</ol>
+<h2 id="github分支"><a href="#github分支" class="headerlink" title="github分支"></a>github分支</h2><p>救命，我现在才知道github分支是用来管理版本的<br>或者说更新项目（？）<br>每个新的branch可能是添加了一个新的功能或者修复了一个bug</p>
+<h1 id="bug-错误"><a href="#bug-错误" class="headerlink" title="bug&#x2F;错误"></a>bug&#x2F;错误</h1><p>git push -u origin main<br>fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/kkkiiijjj/desktop-pet.git/">https://github.com/kkkiiijjj/desktop-pet.git/</a>‘: OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 0</p>
+<p>运行git push -u origin main （提交时）卡在这个问题好久<br>换了半天节点也没有，然后cursor让我一顿操作猛如虎，最后在github上新建了个令牌然后最终解决了这个问题<br>值得注意的是，令牌生效也是需要时间的</p>
+<h2 id="阅读项目顺序"><a href="#阅读项目顺序" class="headerlink" title="阅读项目顺序"></a>阅读项目顺序</h2><p>建议按照这个顺序学习：</p>
+<ol>
+<li>先了解基础架构</li>
+<li>深入核心算法</li>
+<li>研究优化技术</li>
+<li>学习工程实践</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
@@ -112,6 +205,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2024/12/27/LLaVA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          LLaVA
+        
+      </div>
+    </a>
   
   
     <a href="/2024/12/14/Copilot%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
@@ -154,6 +256,10 @@
       <ul>
         
           <li>
+            <a href="/2024/12/27/LLaVA/">LLaVA</a>
+          </li>
+        
+          <li>
             <a href="/2024/12/14/%E8%87%AA%E5%86%99%E6%A1%8C%E5%AE%A0-Python-PyQt6-Cursor/">自写桌宠(Python+PyQt6+Cursor)</a>
           </li>
         
@@ -167,10 +273,6 @@
         
           <li>
             <a href="/2024/12/13/llm%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90-%E6%A1%8C%E5%AE%A0/">llm项目解析-桌宠</a>
-          </li>
-        
-          <li>
-            <a href="/2024/12/08/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90/">大模型小项目解析</a>
           </li>
         
       </ul>
